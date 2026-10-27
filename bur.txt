@@ -1,0 +1,421 @@
+Give me each file containing full production code, each of the file are not in zip but each of the file as a text i can copy individually not download. and let it follow the blueprint and visually attractive,  beautiful and responsive. Give me all the files, each file individually with its full production code as text.
+Please wire mock data of full hymn (all hymn), deceased favourite song and tributes and let the 3d book flip be real. Images should be mockdata but we have many images in the publuc file and can rename to fit what you give
+
+----
+so sleek, top motion website in the world with top 3d book flip animation. Public folder has many images of the deceased. Let it be extraordinary beautiful
+We have
+1.      the celebration of life image
+2.      Officiating minister (name and Church they come from - they are 9)
+3.      In the Order of service we have:
+A
+a. Processional hymn anchor by Music director (Yoruba and English) - 4 verses (5 line per verse), 1 chorus after each verse (4 lines). Hymn has a title
+b. Call to Worship anchored by someone 
+c. Hymn of victory anchor anchor by Music director (Yoruba and English) 5 verses (4 line per verse). Hymn has a title
+d. Prayer of praise, thanksgiving and invocation anchor by someone
+e. Hymn of Aspiration anchor by Music director (Yoruba and English) 4 verses (4 line per verse), 1 chorus after each verse (4 lines). Hymn has a title
+f. Diseased Biography anchor by someone
+g. Deceased favourite songs anchored by the family (not sure of verses, chorus and number of line yet, might be yoruba or english)
+h. We Bid our member goodnight (anchored by someone)
+i. Scripture reading
+j. Choir Ministration anchored by Choir
+k. Specail prayer for the family anchor by someone
+l. Specail prayer for the church anchor by someone
+m. Thanksgiving anchor by someone
+n. Greeting and Recognition anchor by someone
+o. Word of appreciation anchor by someone
+p. Closing prayer and Benediction anchor by someone
+q. Recessional hymn anchor by Music director (Yoruba and English) 4 verses (4 line per verse), 1 chorus after each verse (4 lines). Hymn has a title
+B. At the grave
+a. hymn anchor by Music director (Yoruba and English) 7 verses (4 line per verse). Hymn has a title
+b. Prayer anchor by someone
+c. Interment anchor by someone
+d. Prayer and Benediction anchor by someone
+C. Home
+a. hymn (Yoruba and English) (not sure of verses, chorus and number of line yet)
+b. Join scripture reading
+c. Prayer and Benediction anchor by someone
+
+Tribute: Tribute and Name (man tribute)
+Thank you words at the end with deceased picture 
+
+Note: All hymns and deceased favourite song will be read line by line at the event. So it is a digital book for the burial event
+Adebime Akande Lawal was born 13/01/1929 and died 21/09/2026 burial on 05/11/2026
+---
+
+# SECTION 6: MARK’S MASTER ENGINEERING BLUEPRINT (STAGE 6)
+
+### Principal Software Architect Statement
+As Principal Architect, I synthesize the visual luxury of Concept 2 with the technical resilience of Concept 5. The resulting architecture—**The Luminescent Liturgical Folio**—unifies Concept 2’s photorealistic buckram-and-gold aesthetic with Concept 5’s hybrid DOM/CSS-3D text engine. This guarantees 60fps performance, full screen-reader accessibility, and support for all liturgical content across mobile, tablet, and desktop environments.
+
+---
+
+## A. PRODUCT DEFINITION
+- **Core Proposition:** A digital commemorative volume and 3D liturgical companion for the celebration of life of Adebimpe.
+- **Primary Users:**
+  1. *Attendees in the sanctuary and at the graveside:* Need immediate, high-contrast access to hymns and responsive bilingual text.
+  2. *Distant family and global community members:* Seek an emotional, immersive celebration of life with high-resolution imagery and tributes.
+  3. *Hackathon Jury & Design Evaluators:* Expect technical craft, fluid motion, clean code architecture, and accessibility.
+- **Experience Principles:**
+  - *Liturgical Reverence First:* Technology elevates the sacred liturgy without introducing visual clutter.
+  - *Dual-Engine Elegance:* Delivers real-time 3D page mechanics while preserving the benefits of semantic HTML (text selection, search, screen-reader support).
+  - *Bilingual Parity:* Yoruba and English verses are aligned side by side with consistent typographic hierarchy.
+- **Explicitly Excluded Features:**
+  - No background video autoplay.
+  - No continuous audio playback without explicit user consent.
+  - No intrusive commercial forms or analytics popups.
+
+---
+
+## B. COMPLETE INFORMATION ARCHITECTURE
+
+```
+                                  [ LANDING & COVER ]
+                       Celebration of Life Portrait | Gilded Monogram
+                                           |
+                   +-----------------------+-----------------------+
+                   |                                               |
+         [ 3D BOOK EXPERIENCE ]                         [ ACCESSIBLE DOCUMENT VIEW ]
+     (Continuous Tactile Folio)                      (High-Density Semantic Linear)
+                   |                                               |
+                   +-----------------------+-----------------------+
+                                           |
+                                [ CHAPTER INDEX RAIL ]
+                                           |
+       +-----------------------------------+-----------------------------------+
+       |                                   |                                   |
+[ PART I: MAIN SERVICE ]        [ PART II: AT THE GRAVE ]             [ PART III: AT HOME ]
+1. Processional Hymn (4v/5l/1c)   1. Hymn (7v/4l)                     1. Hymn (TBD)
+2. Call to Worship                2. Prayer                           2. Joint Scripture Reading
+3. Hymn of Victory (5v/4l)        3. Interment                        3. Prayer & Benediction
+4. Prayer of Praise & Invocation  4. Prayer & Benediction                       |
+5. Hymn of Aspiration (4v/4l/1c)                   |                           |
+6. Biography of Deceased                           +-------------+-------------+
+7. Deceased Favourite Songs (TBD)                                |
+8. We Bid Our Member Goodnight                       [ TRIBUTES & CONDOLENCES ]
+9. Scripture Reading                                 Multi-Author Grid | Moderated
+10. Choir Ministration                                           |
+11. Special Prayer: Family                           [ CURATED PHOTO MEMORIES ]
+12. Special Prayer: Church                           High-Res Masonry & Lightbox
+13. Thanksgiving                                                 |
+14. Greeting & Recognition                           [ 9 OFFICIATING MINISTERS ]
+15. Word of Appreciation                             Official Ecclesiastical Registry
+16. Closing Prayer & Benediction                                 |
+17. Recessional Hymn (4v/4l/1c)                      [ CLOSING FAMILY APPRECIATION ]
+                                                     Final Portrait & Thank You Message
+```
+
+---
+
+## C. PAGE-BY-PAGE DESIGN SPECIFICATION
+
+### 1. Landing & Cover Spread
+- **Purpose:** Establish emotional tone and reverence; present Adebimpe’s celebration-of-life portrait.
+- **Layout:** Desktop: Centered 3D presentation box resting on deep midnight velvet; Mobile: Full-bleed portrait card with gold filigree framing.
+- **Typography:** Display title: *Cormorant Garamond* (Light, 56px); Subtitle: *Cinzel* (13px, `tracking-[0.25em]`).
+- **Interactive Elements:** "Open Memorial Program" action trigger; "View Accessible Text Mode" secondary link.
+
+### 2. Frontispiece & Official Ministerial Registry
+- **Left Folio:** High-resolution celebration-of-life portrait of Adebimpe with soft vignette framing.
+- **Right Folio:** Registry of the **Nine Officiating Ministers**, organized in an elegant, structured 3x3 ministerial card grid:
+  - Each entry displays: Full Name, Ecclesiastical Office, and Sending Church/Institution.
+  - Generous padding ensures all 9 entries remain clearly legible without vertical clipping.
+
+### 3. Part I — The Main Service Spreads
+- **Processional Hymn (Bilingual):**
+  - Left Page: English title and 4 verses (5 lines per verse), each followed by the 4-line Chorus.
+  - Right Page: Yoruba title (*Orin Apereporo*) and 4 verses (5 lines per verse), with aligned Chorus (*Egbe*).
+  - Attribution: "Anchored by: Music Director".
+- **Call to Worship & Prayers:** Liturgical headings in small-caps gold; anchor attributions set in crisp, letter-spaced modern sans.
+- **Hymn of Victory:** 5 verses (4 lines per verse), side-by-side Yoruba-English alignment.
+- **Hymn of Aspiration:** 4 verses (4 lines per verse) with 4-line Chorus.
+- **Biography & Favourite Songs:** Two-column editorial spread; favourite songs section includes a stylized "Family Selection to be Announced" placeholder.
+- **Intercessory Prayers, Thanksgiving & Recognition:** Clear visual grouping for the Family Prayer, Church Prayer, Thanksgiving, and Words of Appreciation.
+- **Recessional Hymn:** 4 verses (4 lines per verse) with 4-line Chorus, marking the conclusion of the church service.
+
+### 4. Part II — At the Grave
+- **Opening Hymn:** Extended 7-verse hymn (4 lines per verse), formatted across a dedicated, balanced two-page spread.
+- **Interment & Committal Liturgy:** Dignified prayer formatting with commemorative typography; explicit anchor assignments.
+
+### 5. Part III — At Home
+- **Family Devotional Liturgy:** Hymn placeholder card, joint scripture reading, and closing benediction.
+
+### 6. Tributes & Curated Photo Archive
+- **Tribute Cards:** Masonry layout with varied card heights; author name, relationship, and tribute message.
+- **Photo Archive:** Responsive masonry gallery powered by Next.js Image optimization with responsive srcset and modal lightbox.
+
+### 7. Closing Family Appreciation
+- **Final Visual Moment:** Full-width, high-contrast portrait of Adebimpe. Beside it, an heartfelt message of gratitude from the family, followed by a quiet, dignified footer.
+
+---
+
+## D. DESIGN TOKEN SYSTEM (Tailwind CSS v4 Native Tokens)
+
+```css
+@theme {
+  /* Brand Navy Spectrum */
+  --color-navy-base: #020612;
+  --color-navy-deep: #050B18;
+  --color-navy-buckram: #0A122A;
+  --color-navy-card: #0F1D40;
+  --color-navy-surface: #172A5E;
+
+  /* Liturgical Gold Accents */
+  --color-gold-leaf: #D4AF37;
+  --color-gold-antique: #AA820A;
+  --color-gold-sheen: #F5E5B8;
+  --color-gold-muted: #84681D;
+
+  /* Paper & Editorial Ink Tokens */
+  --color-paper-linen: #FAF8F5;
+  --color-paper-shadow: rgba(5, 11, 24, 0.12);
+  --color-ink-rich: #0F172A;
+  --color-ink-slate: #475569;
+  --color-ink-yoruba: #1E3A8A;
+
+  /* Typography Scale */
+  --font-serif-display: "Cormorant Garamond", Georgia, serif;
+  --font-serif-body: "EB Garamond", Garamond, serif;
+  --font-serif-heading: "Cinzel", "Times New Roman", serif;
+  --font-sans-ui: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Motion Curves */
+  --ease-spring-page: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-flip: 420ms;
+}
+```
+
+---
+
+## E. TECHNICAL ARCHITECTURE
+
+### 1. Rendering Architecture
+- **Framework:** Next.js 16 (App Router) using React 19 Server Components by default.
+- **Static Site Generation (SSG):** All liturgical and hymn data is pre-compiled at build time into optimized static pages, delivering near-zero TTFB (Time to First Byte).
+- **Client Hydration Strategy:** The 3D flip engine loads asynchronously via dynamic import (`next/dynamic`), preventing main-thread blocking during initial paint.
+
+### 2. Dual-Engine Hybrid Strategy
+```
++-------------------------------------------------------------------------+
+|                          NEXT.JS 16 VIEWPORT                            |
+|                                                                         |
+|  [ LAYER 0: WebGL 3D Velvet Background & Lighting (Canvas / R3F) ]       |
+|                                                                         |
+|  [ LAYER 1: 3D Skinned Book Mesh (Ambient Shadow & Spine Physics) ]      |
+|                                                                         |
+|  [ LAYER 2: Live CSS Matrix3D DOM Container (Live HTML Text) ]          |
+|    - Fully Selectable Text                                              |
+|    - Screen Reader Accessible (role="document")                         |
+|    - WCAG 2.1 AA Compliant Contrast Ratio (14.2:1)                      |
+|                                                                         |
+|  [ LAYER 3: Accessible Navigation & Chapter Index Floating Bar ]        |
++-------------------------------------------------------------------------+
+```
+
+---
+
+## F. COMPONENT ARCHITECTURE & COMPONENT TREE
+
+```
+src/
+├── app/
+│   ├── layout.tsx                 // Server Component: Global typography, meta tags
+│   ├── page.tsx                   // Server Component: Liturgical data retrieval
+│   └── accessible-view/
+│       └── page.tsx               // Server Component: High-contrast linear document
+├── components/
+│   ├── 3d/
+│   │   ├── MemorialCanvas.tsx     // Client: R3F Canvas mount
+│   │   ├── VelvetLectern.tsx      // Client: 3D Studio lighting & stage
+│   │   └── SkinnedBookMesh.tsx    // Client: Page deformation shaders
+│   ├── folio/
+│   │   ├── FolioContainer.tsx     // Client: Hybrid coordinate orchestrator
+│   │   ├── BookLeaf.tsx           // Client: Dual-sided leaf wrapper
+│   │   ├── BilingualHymnSpread.tsx// Client: Side-by-side synchronized hymn component
+│   │   ├── MinisterRegistry.tsx   // Server: 3x3 Ministerial grid
+│   │   ├── ServiceSection.tsx     // Server: Generic liturgical step presenter
+│   │   └── TributesDeck.tsx       // Client: Masonry grid with expand modal
+│   ├── ui/
+│   │   ├── ChapterRibbon.tsx      // Client: Direct access index navigation
+│   │   ├── LanguageSwitch.tsx     // Client: English / Yoruba / Dual view switcher
+│   │   ├── PhotoLightbox.tsx      // Client: High-res image modal viewer
+│   │   └── ModeToggle.tsx         // Client: Switch between 3D and Plain Text modes
+│   └── audio/
+│       └── AmbientHymnChords.tsx  // Client: Web Audio API gentle background organ
+└── lib/
+    ├── types/liturgy.ts           // Type definitions
+    └── data/program-content.ts    // Structured liturgical data store
+```
+
+---
+
+## G. CONTENT MODEL & STRICT TYPESCRIPT DEFINITIONS
+
+```typescript
+// src/lib/types/liturgy.ts
+
+export type LanguageCode = 'en' | 'yo' | 'bilingual';
+
+export interface BilingualHymnVerse {
+  verseNumber: number;
+  englishLines: string[]; // 4 or 5 lines depending on stanza
+  yorubaLines: string[];  // Perfectly matched translated lines
+  englishChorus?: string[]; // 4 lines if present
+  yorubaChorus?: string[];  // 4 lines if present
+}
+
+export interface Hymn {
+  id: string;
+  titleEnglish: string;
+  titleYoruba: string;
+  anchoredBy: string; // e.g., "Music Director"
+  totalVerses: number;
+  linesPerVerse: number;
+  hasChorus: boolean;
+  verses: BilingualHymnVerse[];
+}
+
+export interface OfficiatingMinister {
+  id: string;
+  name: string;
+  ecclesiasticalTitle: string; // e.g., "Venerable", "Reverend Dr."
+  church: string;              // Church or institution represented
+  portraitUrl?: string;        // Optional photo from public folder
+}
+
+export type LiturgicalSectionType = 
+  | 'hymn'
+  | 'call_to_worship'
+  | 'prayer'
+  | 'biography'
+  | 'favourite_songs'
+  | 'goodnight_bid'
+  | 'scripture'
+  | 'choir'
+  | 'thanksgiving'
+  | 'recognition'
+  | 'appreciation'
+  | 'benediction'
+  | 'interment';
+
+export interface ServiceItem {
+  order: string; // e.g., "A.a", "A.b", "B.c"
+  type: LiturgicalSectionType;
+  title: string;
+  anchor: string; // Designated individual or choir
+  hymnData?: Hymn;
+  textContent?: {
+    english?: string;
+    yoruba?: string;
+  };
+  isConfirmed: boolean; // Set to false for placeholders
+}
+
+export interface TributeItem {
+  id: string;
+  authorName: string;
+  relationship: string; // e.g., "Daughter", "Colleague", "Church Warden"
+  bodyText: string;
+  portraitUrl?: string;
+  date: string;
+}
+
+export interface CelebrationOfLifeProfile {
+  fullName: string;
+  honorificTitle?: string;
+  birthDate: string;
+  entryIntoGloryDate: string;
+  heroPortraitUrl: string;
+  closingPortraitUrl: string;
+  familyThankYouMessage: string;
+  ministers: OfficiatingMinister[]; // Exactly 9 ministers
+  servicePartOne: ServiceItem[];    // Main church service
+  servicePartTwo: ServiceItem[];    // At the grave
+  servicePartThree: ServiceItem[];  // At home
+  tributes: TributeItem[];
+}
+```
+
+---
+
+## H. MOTION, ANIMATION & BOOK-FLIP INTERACTION SPECIFICATION
+
+### 1. Interactive Page-Turn Mechanics
+- **Gesture Trigger:** Horizontal touch swipe, trackpad deltaX, or keyboard ArrowLeft/ArrowRight.
+- **Physical States:**
+  - *Resting State:* Flat 3D spread, spine curvature at 2.4 degrees, subtle center drop-shadow.
+  - *Lift Phase:* Dragging edge causes corner to peel at 35 degrees with dynamic light reflection.
+  - *Turn Phase:* Smooth transition using a custom bezier curve: `cubic-bezier(0.25, 1, 0.5, 1)`, duration: 420ms.
+  - *Settling Phase:* Elastic spring damping (`stiffness: 280, damping: 26`) prevents abrupt stops.
+- **Interruption Capability:** Users can reverse their drag gesture at any point prior to the 40% page threshold to cancel the turn without visual jank.
+- **Reduced Motion Support:** When `prefers-reduced-motion: reduce` is detected, 3D flips are replaced with a smooth 150ms opacity crossfade.
+
+### 2. Bilingual Stanza Highlighting Interaction
+```typescript
+// Example synchronized hover state handler
+const handleVerseHover = (verseIndex: number | null) => {
+  const englishVerseEl = document.getElementById(`verse-en-${verseIndex}`);
+  const yorubaVerseEl = document.getElementById(`verse-yo-${verseIndex}`);
+  
+  if (verseIndex !== null) {
+    englishVerseEl?.classList.add('bg-gold-sheen/10', 'text-gold-leaf');
+    yorubaVerseEl?.classList.add('bg-gold-sheen/10', 'text-gold-leaf');
+  } else {
+    document.querySelectorAll('.verse-block').forEach((el) => {
+      el.classList.remove('bg-gold-sheen/10', 'text-gold-leaf');
+    });
+  }
+};
+```
+
+---
+
+## I. THREE-MONTH IMPLEMENTATION PLAN
+
+```
++-----------------------------------------------------------------------------------+
+|                           THREE-MONTH DELIVERY ROADMAP                            |
++-----------------------------------------------------------------------------------+
+| WEEKS 01 - 02: Discovery, Asset Ingestion & Typography Foundations               |
+|   - Audit public folder images for Adebimpe.                                      |
+|   - Establish Next.js 16 project structure with Tailwind CSS v4.                  |
+|   - Ingest 9 ministers and all Order of Service text structures.                  |
+|   - Deliverable: High-density, accessible linear document view.                   |
++-----------------------------------------------------------------------------------+
+| WEEKS 03 - 05: Core Folio & Dual-Engine DOM Architecture                         |
+|   - Build CSS Matrix3D page-turn physics engine.                                  |
+|   - Implement side-by-side bilingual hymn layout with stanza alignment.           |
+|   - Deliverable: Functional two-page spread with synchronized scrolling.          |
++-----------------------------------------------------------------------------------+
+| WEEKS 06 - 08: 3D Material Staging, Shaders & WebGL Integration                   |
+|   - Render Three.js ambient velvet background and gold-leaf specular shaders.     |
+|   - Connect offscreen canvas workers for dynamic texture baking.                  |
+|   - Deliverable: Photorealistic 3D presentation box and folio.                    |
++-----------------------------------------------------------------------------------+
+| WEEKS 09 - 10: Tributes, Photo Archive & Minister Registry Integration           |
+|   - Build 3x3 ministerial card layout for the 9 officiating ministers.            |
+|   - Implement tributes submission and responsive photo lightbox gallery.          |
+|   - Deliverable: Feature-complete digital memorial experience.                    |
++-----------------------------------------------------------------------------------+
+| WEEKS 11 - 12: Profiling, WCAG 2.1 AA Audit & Hackathon Staging                  |
+|   - Optimize Core Web Vitals (LCP < 1.2s, CLS = 0, 60fps on mobile).              |
+|   - Complete screen-reader testing and offline service caching via ServiceWorker. |
+|   - Rehearse jury demonstration sequences.                                        |
+|   - Deliverable: Production deployment ready for presentation.                    |
++-----------------------------------------------------------------------------------+
+```
+
+---
+
+## J. QUALITY ASSURANCE, ACCESSIBILITY & FALLBACK PROTOCOLS
+
+1. **Screen-Reader & Keyboard Accessibility (WCAG 2.1 AA Compliant):**
+   - The entire Order of Service is marked up using semantic HTML (`<article>`, `<section>`, `<h1>`-`<h6>`, `<dl>`).
+   - The interactive 3D folio mirrors its active state directly into an accessible, offscreen `aria-live="polite"` region.
+   - Complete keyboard support: `Tab` moves through interactive anchors; `ArrowLeft` / `ArrowRight` turns pages; `Escape` closes lightboxes.
+2. **Diacritical Glyphs Integrity:**
+   - Explicit font testing for Yoruba tonemark accuracy (e.g., `à`, `á`, `è`, `é`, `ẹ`, `ẹ́`, `ẹ̀`, `ì`, `í`, `ò`, `ó`, `ọ`, `ọ́`, `ọ̀`, `ù`, `ú`, `ṣ`).
+3. **Resilience & Offline Guarantee:**
+   - A lightweight ServiceWorker precaches all hymns, minister registries, and scripture texts, ensuring attendees in churches with poor connectivity experience zero disruption.
+
+---

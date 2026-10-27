@@ -1,0 +1,4284 @@
+I’ll structure this as a complete, copy-ready Next.js project, with every file shown individually as full source code rather than a ZIP or download. The design will follow your MINDSHIFT blueprint: warm linen backgrounds, terracotta accents, editorial serif typography, refined cards, responsive layouts, subtle motion, and a distinctive sculptural hero.
+
+A few important decisions will keep the project usable:
+
+- Visuals first: no backend, payment processing, or real application submission services.
+- Complete navigation: home, initiative, programs, EQUIP, training, schedule, facilitators, impact, funding, registration, and contact.
+- Honest content: names, biographies, official social links, and banking information that you haven't supplied will remain clearly marked placeholders rather than invented facts.
+- Working interactions: mobile navigation, curriculum tabs, accordions, budget calculations, and demonstration forms will work in the browser.
+- Responsive performance: the sculptural hero will have a lightweight fallback rather than forcing every device to run a heavy 3D scene.
+- Your existing assets: I’ll reference the images in `public/images/` and provide graceful fallbacks when an image is missing.
+
+One detail matters for the financial page: your brief specifies a total of ₦8,450,000, but doesn't provide the seven individual budget amounts. I'll use a clearly labeled illustrative allocation that adds up to the exact total, so you can replace it with your approved figures.
+
+# 1. Project structure
+
+Use this structure for the project. It keeps the website organized without scattering the same design code across every page.
+
+```
+equip-2026/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   ├── about/page.tsx
+│   ├── programs/page.tsx
+│   ├── programs/equip-2026/page.tsx
+│   ├── programs/equip-2026/training/page.tsx
+│   ├── programs/equip-2026/schedule/page.tsx
+│   ├── programs/equip-2026/facilitators/page.tsx
+│   ├── programs/equip-2026/impact/page.tsx
+│   ├── support/page.tsx
+│   ├── register/page.tsx
+│   └── contact/page.tsx
+├── components/
+│   ├── site-header.tsx
+│   ├── site-footer.tsx
+│   ├── page-hero.tsx
+│   ├── reveal.tsx
+│   ├── track-explorer.tsx
+│   ├── budget-ledger.tsx
+│   └── contact-form.tsx
+├── data/
+│   ├── initiative.ts
+│   ├── curriculum.ts
+│   ├── faculty.ts
+│   └── financials.ts
+├── lib/
+│   └── utils.ts
+├── public/
+│   └── images/
+│       ├── logo/
+│       ├── outreach/
+│       ├── faculty/
+│       └── venue/
+├── next.config.ts
+├── postcss.config.mjs
+├── package.json
+└── tsconfig.json
+```
+
+The implementation below uses shared components and content files, so the pages stay consistent and future edits are easier. It includes all the routes above, with no backend dependencies.
+
+# 2. Project configuration
+
+## File 1 — `package.json`
+
+```
+
+{
+  "name": "leading-minds-equip-2026",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "motion": "^12.0.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "typescript": "^5.7.0"
+  }
+}
+
+```
+
+## File 2 — `next.config.ts`
+
+```
+
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  poweredByHeader: false,
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "images.unsplash.com",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+
+```
+
+## File 3 — `postcss.config.mjs`
+
+```
+
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+
+```
+
+## File 4 — `tsconfig.json`
+
+```
+
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
+}
+
+```
+
+# 3. Design system
+
+## File 5 — `app/globals.css`
+
+This is the visual foundation. The warm canvas, oversized serif headings, fine borders, terracotta controls, dark editorial panels, and responsive layouts all come from here.
+
+```
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-linen: #f7f5f0;
+  --color-paper: #fffdf8;
+  --color-ink: #0e1318;
+  --color-slate: #212832;
+  --color-clay: #b84a29;
+  --color-clay-dark: #96381d;
+  --color-ochre: #d99b26;
+  --color-sage: #dfe7dc;
+  --color-emerald: #1c7c54;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", Arial, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  --page: #f7f5f0;
+  --ink: #0e1318;
+  --muted: #66675f;
+  --line: rgba(14, 19, 24, 0.12);
+  --clay: #b84a29;
+  --radius-card: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--color-ochre);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: white;
+  background: var(--clay);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.display {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 1.02;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--clay);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 23px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.page-shell {
+  width: min(1240px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: 112px;
+}
+
+.section-space-sm {
+  padding-block: 72px;
+}
+
+.section-title {
+  max-width: 780px;
+  margin: 18px 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(38px, 5.4vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 1.06;
+}
+
+.section-copy {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+}
+
+.clay-button,
+.dark-button,
+.outline-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 13px 21px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition:
+    transform 220ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.clay-button {
+  color: white;
+  background: var(--clay);
+}
+
+.clay-button:hover {
+  transform: translateY(-2px);
+  background: var(--color-clay-dark);
+}
+
+.dark-button {
+  color: white;
+  background: var(--ink);
+}
+
+.dark-button:hover {
+  transform: translateY(-2px);
+  background: #29313a;
+}
+
+.outline-button {
+  border-color: var(--line);
+  color: var(--ink);
+  background: transparent;
+}
+
+.outline-button:hover {
+  border-color: var(--clay);
+  color: var(--clay);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clay);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.text-link svg,
+.clay-button svg,
+.dark-button svg,
+.outline-button svg {
+  transition: transform 200ms ease;
+}
+
+.text-link:hover svg,
+.clay-button:hover svg,
+.dark-button:hover svg,
+.outline-button:hover svg {
+  transform: translateX(3px);
+}
+
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: #e5ded1;
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-lines {
+  background-image: linear-gradient(
+      rgba(14, 19, 24, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(14, 19, 24, 0.055) 1px,
+      transparent 1px
+    );
+  background-size: 36px 36px;
+}
+
+.dark-section {
+  color: white;
+  background: var(--color-ink);
+}
+
+.dark-section .section-copy {
+  color: #aeb4b7;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.card-hover {
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: rgba(184, 74, 41, 0.35);
+  box-shadow: 0 18px 50px rgba(14, 19, 24, 0.06);
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+}
+
+.metric {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+.marquee-track {
+  overflow: hidden;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-up 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.monolith {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  overflow: hidden;
+  border-radius: 50% 50% 28px 28px / 32% 32% 28px 28px;
+  background:
+    radial-gradient(ellipse at 33% 22%, rgba(255, 231, 197, 0.75), transparent 20%),
+    radial-gradient(ellipse at 65% 60%, rgba(94, 29, 14, 0.7), transparent 44%),
+    linear-gradient(130deg, #d37a51 0%, #b84a29 38%, #722f21 75%, #30231f 100%);
+  box-shadow:
+    inset -24px -20px 60px rgba(14, 19, 24, 0.3),
+    inset 10px 5px 30px rgba(255, 255, 255, 0.12),
+    0 35px 70px rgba(85, 39, 23, 0.2);
+  animation: float 7s ease-in-out infinite;
+}
+
+.monolith::before {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
+  opacity: 0.32;
+  mix-blend-mode: soft-light;
+  content: "";
+}
+
+.monolith::after {
+  position: absolute;
+  top: 15%;
+  left: 48%;
+  width: 2px;
+  height: 64%;
+  transform: rotate(9deg);
+  background: linear-gradient(transparent, #f5cb76 30%, #f4d89e 50%, transparent);
+  opacity: 0.8;
+  box-shadow: 0 0 14px rgba(217, 155, 38, 0.65);
+  content: "";
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 118%;
+  height: 38%;
+  border: 1px solid rgba(217, 155, 38, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-28deg);
+}
+
+.orbit-two {
+  width: 130%;
+  height: 54%;
+  transform: translate(-50%, -50%) rotate(40deg);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.floating-label {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid rgba(14, 19, 24, 0.09);
+  border-radius: 14px;
+  padding: 12px 15px;
+  color: var(--ink);
+  background: rgba(255, 253, 248, 0.91);
+  box-shadow: 0 12px 32px rgba(14, 19, 24, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.input-field {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: white;
+  font-size: 14px;
+}
+
+.input-field::placeholder {
+  color: #97968e;
+}
+
+.input-field:focus {
+  border-color: var(--clay);
+  outline: 2px solid rgba(184, 74, 41, 0.12);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .page-shell {
+    width: calc(100% - 36px);
+  }
+
+  .section-space {
+    padding-block: 72px;
+  }
+
+  .section-space-sm {
+    padding-block: 48px;
+  }
+
+  .monolith {
+    min-height: 340px;
+    max-width: 430px;
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+```
+
+## File 6 — `lib/utils.ts`
+
+```
+
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export function formatNaira(amount: number) {
+  return new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+```
+
+# 4. Official content and reusable data
+
+These files supply the shared content used by the pages. Replace the draft descriptions and bracketed placeholders with the wording from the official PDF before publishing.
+
+## File 7 — `data/initiative.ts`
+
+```
+
+export const initiative = {
+  name: "Leading Minds Leadership Initiative",
+  shortName: "Leading Minds",
+  programName: "Project EQUIP 2026",
+  location: "Oyo State, Nigeria",
+  venue: "Hebron Center, Ibadan",
+  dateLabel: "November 22–28, 2026",
+  campDuration: "5-day residential boot camp",
+  participants: 100,
+  studentCost: 84500,
+  totalBudget: 8450000,
+
+  about:
+    "Leading Minds Leadership Initiative is a faith-based non-governmental organization committed to helping young people discover their purpose, build practical skills, and become thoughtful leaders who make a difference in their communities. Through leadership development, mentorship, and hands-on learning, the initiative supports young people as they prepare for the opportunities and responsibilities ahead.",
+
+  vision:
+    "A generation of purpose-driven young leaders transforming their communities with courage, wisdom, and compassion.",
+
+  mission:
+    "To equip young people with values, leadership skills, practical knowledge, and supportive relationships that help them build meaningful lives and serve their communities.",
+
+  valuesIntro:
+    "Our work is guided by values that shape how we lead, teach, serve, and grow together.",
+
+  values: [
+    "Integrity",
+    "Faith",
+    "Service",
+    "Excellence",
+    "Compassion",
+    "Innovation",
+    "Accountability",
+  ],
+
+  objectives: [
+    {
+      title: "Build confident leaders",
+      text:
+        "Help young people understand their strengths, make sound decisions, and lead with integrity.",
+    },
+    {
+      title: "Develop practical capacity",
+      text:
+        "Introduce useful digital, creative, and business skills that can grow into real opportunities.",
+    },
+    {
+      title: "Strengthen community impact",
+      text:
+        "Encourage young people to use their knowledge and influence to support others and solve local problems.",
+    },
+  ],
+
+  slogan: [
+    "Discover your purpose. Develop your potential.",
+    "Lead with character. Leave your community better.",
+  ],
+
+  programs: [
+    {
+      number: "01",
+      title: "Leadership & Character Development",
+      description:
+        "A values-led learning program that helps young people grow in self-awareness, responsibility, and leadership. Participants explore character, service, decision-making, and the everyday habits of trustworthy leaders.",
+      status: "Initiative program",
+    },
+    {
+      number: "02",
+      title: "Youth Mentorship & Community Engagement",
+      description:
+        "A platform for connecting young people with guidance, encouragement, and practical opportunities to serve. Through mentorship and community activities, participants learn to turn good intentions into useful action.",
+      status: "Initiative program",
+    },
+    {
+      number: "03",
+      title: "Project EQUIP 2026",
+      description:
+        "A residential learning experience for secondary school leavers preparing for tertiary education. It brings together leadership development, emotional intelligence, practical skills, and continuing mentorship.",
+      status: "Flagship program",
+    },
+  ],
+
+  equipOverview: [
+    "The transition from secondary school to tertiary education can bring new freedom, unfamiliar responsibilities, and difficult choices. Many young people need practical guidance, trusted mentors, and the confidence to navigate this stage well.",
+    "Project EQUIP 2026 brings 100 secondary school leavers together for an intensive residential experience at Hebron Center, Ibadan. Participants will explore leadership, emotional intelligence, practical skills, and entrepreneurial thinking, with follow-up mentorship and professional counseling support planned after the camp.",
+  ],
+
+  equipObjectives: [
+    "Develop personal leadership, responsibility, and integrity.",
+    "Build emotional awareness and healthy ways to manage pressure.",
+    "Prepare participants for the transition into tertiary education.",
+    "Introduce practical digital and technology skills.",
+    "Develop creative thinking and hands-on problem-solving.",
+    "Build an understanding of business and entrepreneurship.",
+    "Teach financial awareness and basic business planning.",
+    "Encourage teamwork, communication, and conflict resolution.",
+    "Connect students with mentors and appropriate counseling support.",
+    "Encourage service, innovation, and positive community action.",
+  ],
+
+  methodology: [
+    {
+      title: "Learn by doing",
+      text:
+        "Sessions combine short teaching segments with practical tasks, group discussions, and guided activities.",
+    },
+    {
+      title: "Grow together",
+      text:
+        "Participants work in teams, learn from one another, and practise the habits of respectful collaboration.",
+    },
+    {
+      title: "Find trusted guidance",
+      text:
+        "Mentoring and planned counseling support help participants reflect on their goals, choices, and next steps.",
+    },
+    {
+      title: "Turn ideas into action",
+      text:
+        "Practical assignments and presentations help students connect new knowledge to everyday challenges.",
+    },
+    {
+      title: "Keep moving forward",
+      text:
+        "Post-event follow-up is planned to help participants stay connected to mentors and continue their development.",
+    },
+  ],
+
+  programNote:
+    "The dates cover November 22–28, 2026, a seven-calendar-day span. The program is described as a five-day residential boot camp; the final arrival and departure dates and exact daily timetable should be confirmed by the organizers before publication.",
+
+  sloganHeading: "Good leadership starts within.",
+};
+
+```
+
+## File 8 — `data/curriculum.ts`
+
+Each skill has two distinct sentences: one for the focus and one for the expected result.
+
+```
+
+export type Skill = {
+  id: string;
+  title: string;
+  focus: string;
+  result: string;
+};
+
+export type Track = {
+  id: string;
+  number: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  skills: Skill[];
+};
+
+export const curriculum: Track[] = [
+  {
+    id: "digital",
+    number: "01",
+    title: "Digital Skills",
+    shortTitle: "Digital",
+    description:
+      "Explore practical digital tools, build useful projects, and learn how technology can open new doors.",
+    skills: [
+      {
+        id: "digital-1",
+        title: "Web Design & Development",
+        focus:
+          "Learn the basics of web pages, visual layout, accessibility, and responsive design.",
+        result:
+          "Participants create a simple portfolio page that works across phone, tablet, and desktop screens.",
+      },
+      {
+        id: "digital-2",
+        title: "Programming Fundamentals",
+        focus:
+          "Explore logical thinking, basic programming concepts, and step-by-step problem-solving.",
+        result:
+          "Participants build a small interactive project and practise finding and correcting simple errors.",
+      },
+      {
+        id: "digital-3",
+        title: "UI Design & Digital Branding",
+        focus:
+          "Learn how colour, type, layout, and user needs shape clear digital experiences and brand identities.",
+        result:
+          "Participants develop a small visual identity and a prototype for a mobile-friendly interface.",
+      },
+      {
+        id: "digital-4",
+        title: "Data & Digital Productivity",
+        focus:
+          "Practise working with spreadsheets, organizing information, and using digital tools to complete everyday tasks.",
+        result:
+          "Participants organize a sample dataset and present useful findings in a clear spreadsheet or report.",
+      },
+    ],
+  },
+  {
+    id: "crafts",
+    number: "02",
+    title: "Hand Skills & Creative Crafts",
+    shortTitle: "Creative crafts",
+    description:
+      "Turn creativity into tangible work while exploring materials, quality, craftsmanship, and the value of making things well.",
+    skills: [
+      {
+        id: "craft-1",
+        title: "Creative Product Making",
+        focus:
+          "Explore practical ways to design and make useful products with suitable, locally available materials.",
+        result:
+          "Participants complete a simple functional craft and learn how to present it neatly.",
+      },
+      {
+        id: "craft-2",
+        title: "Leatherwork & Textile Craft",
+        focus:
+          "Practise basic measuring, cutting, joining, finishing, and safe handling of suitable materials.",
+        result:
+          "Participants produce a small textile or leathercraft item that demonstrates care and attention to detail.",
+      },
+      {
+        id: "craft-3",
+        title: "Decorative & Recycled Crafts",
+        focus:
+          "Explore decorative design, reuse of materials, and ways to create attractive items with less waste.",
+        result:
+          "Participants make a decorative piece and consider how it could be improved for potential customers.",
+      },
+      {
+        id: "craft-4",
+        title: "Workshop Practice & Product Quality",
+        focus:
+          "Learn safe tool handling, material estimation, basic quality checks, and responsible workspace management.",
+        result:
+          "Participants prepare a simple materials list and a step-by-step plan for completing a small craft project.",
+      },
+    ],
+  },
+  {
+    id: "business",
+    number: "03",
+    title: "Digital Marketing & Business Fundamentals",
+    shortTitle: "Business",
+    description:
+      "Learn to communicate value, understand customers, and make sensible decisions when developing a small business idea.",
+    skills: [
+      {
+        id: "business-1",
+        title: "Digital Marketing & Storytelling",
+        focus:
+          "Explore social media content, audience awareness, clear messaging, and simple ways to plan a campaign.",
+        result:
+          "Participants create a sample promotional campaign with a defined audience, content plan, and basic measures of engagement.",
+      },
+      {
+        id: "business-2",
+        title: "Money Management & Business Planning",
+        focus:
+          "Learn basic record-keeping, pricing, costs, cash flow, and the difference between sales and profit.",
+        result:
+          "Participants prepare a simple business budget and calculate how many sales may be needed to cover costs.",
+      },
+      {
+        id: "business-3",
+        title: "Sales, Communication & Pitching",
+        focus:
+          "Practise explaining an idea clearly, listening to customer needs, negotiating respectfully, and presenting value.",
+        result:
+          "Participants prepare and deliver a short business pitch with a clear offer and an explanation of its value.",
+      },
+    ],
+  },
+];
+
+```
+
+## File 9 — `data/faculty.ts`
+
+The real names and biographies were not included in the brief, so these entries are honest placeholders. The directory is ready for the supplied portraits and official biographies.
+
+```
+
+export type FacultyMember = {
+  id: string;
+  name: string;
+  role: string;
+  specialization: string;
+  business?: string;
+  image: string;
+  paragraphs: string[];
+};
+
+export const convener: FacultyMember = {
+  id: "convener",
+  name: "[Convener's Full Name]",
+  role: "Convener, Leading Minds Leadership Initiative",
+  specialization: "Youth leadership and program direction",
+  image: "/images/faculty/convener.jpg",
+  paragraphs: [
+    "[Insert the official first biography paragraph describing the convener's background.]",
+    "[Insert the official second paragraph describing leadership and youth advocacy experience.]",
+    "[Insert the official third paragraph describing the convener's values and community work.]",
+    "[Insert the official fourth paragraph describing the vision for Leading Minds and Project EQUIP.]",
+  ],
+};
+
+export const faculty: FacultyMember[] = [
+  {
+    id: "facilitator-01",
+    name: "[Facilitator One]",
+    role: "Lead Facilitator",
+    specialization: "[Official area of specialization]",
+    business: "[Official business or organization name]",
+    image: "/images/faculty/facilitator-01.jpg",
+    paragraphs: [
+      "[Official biography paragraph 1.]",
+      "[Official biography paragraph 2.]",
+      "[Official biography paragraph 3.]",
+      "[Official biography paragraph 4.]",
+      "[Official biography paragraph 5.]",
+    ],
+  },
+  {
+    id: "facilitator-02",
+    name: "[Facilitator Two]",
+    role: "[Official title]",
+    specialization: "[Official specialization]",
+    image: "/images/faculty/facilitator-02.jpg",
+    paragraphs: [
+      "[Official biography paragraph 1.]",
+      "[Official biography paragraph 2.]",
+      "[Official biography paragraph 3.]",
+    ],
+  },
+  {
+    id: "facilitator-03",
+    name: "[Facilitator Three]",
+    role: "Facilitator",
+    specialization: "[Official specialization]",
+    image: "/images/faculty/facilitator-03.jpg",
+    paragraphs: [
+      "[Official biography paragraph 1.]",
+      "[Official biography paragraph 2.]",
+    ],
+  },
+  {
+    id: "facilitator-04",
+    name: "[Facilitator Four]",
+    role: "Facilitator",
+    specialization: "[Official specialization]",
+    image: "/images/faculty/facilitator-04.jpg",
+    paragraphs: [
+      "[Official biography paragraph 1.]",
+      "[Official biography paragraph 2.]",
+      "[Official biography paragraph 3.]",
+      "[Official biography paragraph 4.]",
+    ],
+  },
+  {
+    id: "facilitator-05",
+    name: "[Facilitator Five]",
+    role: "Facilitator",
+    specialization: "[Official specialization]",
+    image: "/images/faculty/facilitator-05.jpg",
+    paragraphs: ["[Official biography to be supplied.]"],
+  },
+  {
+    id: "facilitator-06",
+    name: "[Facilitator Six]",
+    role: "Facilitator",
+    specialization: "[Official specialization]",
+    image: "/images/faculty/facilitator-06.jpg",
+    paragraphs: ["[Official biography to be supplied.]"],
+  },
+  {
+    id: "facilitator-07",
+    name: "[Facilitator Seven]",
+    role: "Facilitator",
+    specialization: "[Official specialization]",
+    image: "/images/faculty/facilitator-07.jpg",
+    paragraphs: ["[Official biography to be supplied.]"],
+  },
+  {
+    id: "facilitator-08",
+    name: "[Facilitator Eight]",
+    role: "Facilitator",
+    specialization: "[Official specialization]",
+    image: "/images/faculty/facilitator-08.jpg",
+    paragraphs: ["[Official biography to be supplied.]"],
+  },
+];
+
+```
+
+## File 10 — `data/financials.ts`
+
+The budget below is a provisional illustration, not an approved quotation. It totals exactly ₦8,450,000. Replace the line items with the actual approved budget before presenting them to sponsors.
+
+```
+
+export type BudgetItem = {
+  id: string;
+  title: string;
+  description: string;
+  amount: number;
+};
+
+export const budget: BudgetItem[] = [
+  {
+    id: "accommodation",
+    title: "Accommodation",
+    description: "Residential lodging and venue arrangements.",
+    amount: 1800000,
+  },
+  {
+    id: "feeding",
+    title: "Feeding & Nutrition",
+    description: "Meals, drinking water, and refreshment breaks.",
+    amount: 1600000,
+  },
+  {
+    id: "materials",
+    title: "Training Materials & Workshop Supplies",
+    description: "Learning materials, tools, and practical project supplies.",
+    amount: 1450000,
+  },
+  {
+    id: "logistics",
+    title: "Transport & Logistics",
+    description: "Participant transport and local program movement.",
+    amount: 950000,
+  },
+  {
+    id: "facilitators",
+    title: "Facilitators & Counseling",
+    description: "Facilitator honoraria and counseling support.",
+    amount: 1200000,
+  },
+  {
+    id: "safety",
+    title: "Safety, Media & Documentation",
+    description: "Safety provisions, photography, and reporting.",
+    amount: 750000,
+  },
+  {
+    id: "administration",
+    title: "Administration & Contingency",
+    description: "Essential administration and a provision for unexpected costs.",
+    amount: 700000,
+  },
+];
+
+export const sponsorshipTiers = [
+  {
+    id: "platinum",
+    title: "Platinum Partner",
+    amount: 3000000,
+    description:
+      "Help underwrite the program and make a substantial contribution to its overall delivery.",
+    benefit: "Major program partnership",
+  },
+  {
+    id: "gold",
+    title: "Gold Partner",
+    amount: 2000000,
+    description:
+      "Support key camp activities, practical learning sessions, and student development.",
+    benefit: "Program-level support",
+  },
+  {
+    id: "silver",
+    title: "Silver Partner",
+    amount: 845000,
+    description:
+      "Fund a group of students and help reduce the cost of participation for their families.",
+    benefit: "Support 10 student places",
+  },
+  {
+    id: "community",
+    title: "Community Partner",
+    amount: 84500,
+    description:
+      "Cover the estimated cost of one student's participation in Project EQUIP.",
+    benefit: "Support 1 student place",
+  },
+];
+
+export const accountability = {
+  statement:
+    "Leading Minds Leadership Initiative is committed to handling sponsorship funds responsibly and using contributions for the stated purposes of Project EQUIP 2026. Final spending records and program documentation should be maintained so that supporters can understand how their contributions were used.",
+
+  commitments: [
+    {
+      title: "Clear financial records",
+      description:
+        "Maintain supporting records for approved expenses and contributions.",
+    },
+    {
+      title: "Responsible spending",
+      description:
+        "Use program funds for approved activities and document significant changes.",
+    },
+    {
+      title: "Sponsor reporting",
+      description:
+        "Prepare a post-program report summarizing activities, expenditure, and outcomes.",
+    },
+  ],
+};
+
+export const futurePlans = [
+  {
+    title: "Reach more young people",
+    description:
+      "Work towards reaching 500 secondary school leavers across the 33 Local Government Areas of Oyo State.",
+  },
+  {
+    title: "Build a permanent learning hub",
+    description:
+      "Explore the development of a Leading Minds Innovation & Leadership Hub in Ibadan for ongoing mentorship and skills development.",
+  },
+  {
+    title: "Expand educational support",
+    description:
+      "Explore an endowment fund that could provide tertiary education scholarships to eligible, high-performing graduates.",
+  },
+];
+
+export const totalBudget = budget.reduce(
+  (total, item) => total + item.amount,
+  0,
+);
+
+```
+
+# 5. Shared layout components
+
+## File 11 — `app/layout.tsx`
+
+Every page inherits the same header, footer, fonts, and metadata. The persistent shell is deliberately lightweight, so page content remains the main focus.
+
+```
+
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Project EQUIP 2026 | Leading Minds Leadership Initiative",
+    template: "%s | Leading Minds",
+  },
+  description:
+    "A residential leadership and practical skills experience for secondary school leavers in Oyo State, Nigeria.",
+  keywords: [
+    "Leading Minds Leadership Initiative",
+    "Project EQUIP 2026",
+    "Youth leadership",
+    "Oyo State",
+    "Ibadan",
+    "Youth skills development",
+  ],
+  openGraph: {
+    title: "Project EQUIP 2026",
+    description:
+      "Helping young people prepare for what comes next.",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f7f5f0",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <SiteHeader />
+        <main id="main-content">{children}</main>
+        <SiteFooter />
+      </body>
+    </html>
+  );
+}
+
+```
+
+## File 12 — `components/site-header.tsx`
+
+A sticky glass header with a compact mobile menu. The logo uses your existing image if available; otherwise, it falls back to a clean text-based mark.
+
+```
+
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+
+const links = [
+  { href: "/about", label: "About us" },
+  { href: "/programs", label: "Programs" },
+  { href: "/programs/equip-2026/training", label: "Training" },
+  { href: "/programs/equip-2026/schedule", label: "Schedule" },
+  { href: "/programs/equip-2026/facilitators", label: "Our people" },
+];
+
+export default function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  function closeMenu() {
+    setOpen(false);
+  }
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f7f5f0]/90 backdrop-blur-xl">
+      <div className="page-shell flex min-h-[76px] items-center justify-between gap-5">
+        <Link
+          href="/"
+          onClick={closeMenu}
+          className="flex shrink-0 items-center gap-3"
+          aria-label="Leading Minds home"
+        >
+          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white">
+            {/* Replace with your exact logo filename if different. */}
+            <img
+              src="/images/logo/logo.png"
+              alt=""
+              className="h-full w-full object-contain"
+              onError={(event) => {
+                event.currentTarget.style.display = "none";
+                const parent = event.currentTarget.parentElement;
+                if (parent) parent.textContent = "LM";
+              }}
+            />
+          </div>
+
+          <div className="leading-tight">
+            <span className="block text-[13px] font-bold tracking-tight">
+              Leading Minds
+            </span>
+            <span className="mt-1 block text-[9px] uppercase tracking-[0.15em] text-[#77766e]">
+              Leadership Initiative
+            </span>
+          </div>
+        </Link>
+
+        <nav
+          className="hidden items-center gap-7 lg:flex"
+          aria-label="Main navigation"
+        >
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-[12px] font-semibold transition-colors hover:text-[#b84a29] ${
+                pathname === link.href
+                  ? "text-[#b84a29]"
+                  : "text-[#4d504d]"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-3 sm:flex">
+          <Link
+            href="/support"
+            className="dark-button min-h-[43px] px-5"
+          >
+            Support the work <ArrowUpRight size={15} />
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 lg:hidden"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+
+      {open && (
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className="border-t border-black/10 bg-[#f7f5f0] px-[18px] py-5 lg:hidden"
+        >
+          <div className="mx-auto flex max-w-[1240px] flex-col">
+            {links.map((link, index) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="flex items-center justify-between border-b border-black/10 py-4 text-sm font-semibold"
+              >
+                <span>{link.label}</span>
+                <span className="font-mono text-xs text-[#b84a29]">
+                  0{index + 1}
+                </span>
+              </Link>
+            ))}
+
+            <Link
+              href="/support"
+              onClick={closeMenu}
+              className="clay-button mt-5 w-full"
+            >
+              Support the work <ArrowUpRight size={15} />
+            </Link>
+
+            <Link
+              href="/register"
+              onClick={closeMenu}
+              className="outline-button mt-3 w-full"
+            >
+              Explore registration
+            </Link>
+          </div>
+        </nav>
+      )}
+    </header>
+  );
+}
+
+```
+
+## File 13 — `components/site-footer.tsx`
+
+```
+
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
+
+const footerLinks = [
+  { href: "/about", label: "Our initiative" },
+  { href: "/programs", label: "Our programs" },
+  { href: "/programs/equip-2026/training", label: "Training tracks" },
+  { href: "/programs/equip-2026/facilitators", label: "Meet the team" },
+  { href: "/programs/equip-2026/impact", label: "Our impact" },
+  { href: "/support", label: "Sponsorship" },
+  { href: "/contact", label: "Contact us" },
+];
+
+export default function SiteFooter() {
+  return (
+    <footer className="bg-[#0e1318] text-white">
+      <div className="page-shell py-16 md:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr_0.8fr]">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#b84a29] font-serif text-xl">
+                L
+              </div>
+              <div>
+                <div className="text-sm font-bold">Leading Minds</div>
+                <div className="text-[10px] uppercase tracking-[0.14em] text-white/50">
+                  Leadership Initiative
+                </div>
+              </div>
+            </Link>
+
+            <h2 className="display mt-8 max-w-[460px] text-4xl leading-tight md:text-5xl">
+              A little support can change a young person&apos;s next chapter.
+            </h2>
+
+            <Link
+              href="/support"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#e9ae56] hover:text-white"
+            >
+              Find out how to help <ArrowUpRight size={16} />
+            </Link>
+          </div>
+
+          <div>
+            <p className="eyebrow text-[#e9ae56]">Explore</p>
+            <nav className="mt-5 flex flex-col gap-3">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="w-fit text-sm text-white/65 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div>
+            <p className="eyebrow text-[#e9ae56]">Get in touch</p>
+
+            <div className="mt-5 space-y-4 text-sm text-white/65">
+              <p className="flex items-start gap-3">
+                <MapPin className="mt-1 shrink-0" size={16} />
+                <span>Ibadan, Oyo State, Nigeria</span>
+              </p>
+
+              <a
+                href="mailto:[official-email]"
+                className="flex items-start gap-3 hover:text-white"
+              >
+                <Mail className="mt-1 shrink-0" size={16} />
+                <span>[Official initiative email]</span>
+              </a>
+
+              <a
+                href="tel:[official-phone]"
+                className="flex items-start gap-3 hover:text-white"
+              >
+                <Phone className="mt-1 shrink-0" size={16} />
+                <span>[Official phone number]</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 hover:text-white"
+              >
+                <Instagram size={16} />
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="my-10 h-px bg-white/10" />
+
+        <div className="flex flex-col justify-between gap-3 text-xs text-white/45 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} Leading Minds Leadership Initiative.
+          </p>
+          <p>Purpose. Growth. Service.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+```
+
+## File 14 — `components/page-hero.tsx`
+
+One reusable editorial hero gives the internal pages a consistent look without making every page feel identical.
+
+```
+
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+type PageHeroProps = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+};
+
+export default function PageHero({
+  eyebrow,
+  title,
+  description,
+  image,
+  imageAlt = "",
+  primaryLabel,
+  primaryHref,
+}: PageHeroProps) {
+  return (
+    <section className="grid-lines border-b border-black/10">
+      <div className="page-shell grid gap-10 py-16 md:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="animate-in">
+          <p className="eyebrow">{eyebrow}</p>
+
+          <h1 className="display mt-6 max-w-[800px] text-5xl md:text-7xl">
+            {title}
+          </h1>
+
+          <p className="section-copy mt-6">{description}</p>
+
+          {primaryLabel && primaryHref && (
+            <Link href={primaryHref} className="clay-button mt-7">
+              {primaryLabel} <ArrowRight size={16} />
+            </Link>
+          )}
+        </div>
+
+        <div className="image-frame min-h-[280px] lg:min-h-[420px]">
+          {image ? (
+            <img src={image} alt={imageAlt} className="absolute inset-0" />
+          ) : (
+            <div className="monolith absolute inset-[13%] min-h-0" />
+          )}
+
+          <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 rounded-2xl border border-white/50 bg-white/85 p-4 backdrop-blur-lg md:inset-x-5 md:bottom-5">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#b84a29]">
+                Project EQUIP 2026
+              </p>
+              <p className="mt-1 text-sm font-semibold">
+                Preparing young people for what comes next.
+              </p>
+            </div>
+            <span className="shrink-0 font-mono text-xs text-black/50">
+              01 / 26
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+```
+
+## File 15 — `components/reveal.tsx`
+
+This provides optional motion for sections. Reduced-motion preferences are respected, and the page remains readable if JavaScript animation is unavailable.
+
+```
+
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import type { ReactNode } from "react";
+
+export default function Reveal({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      initial={
+        reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }
+      }
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{
+        duration: reduceMotion ? 0 : 0.6,
+        delay: reduceMotion ? 0 : delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+```
+
+# 6. Interactive curriculum and funding components
+
+## File 16 — `components/track-explorer.tsx`
+
+This is a real client-side interaction. Visitors can switch between all three tracks, see all 11 skills, and open each skill's focus and expected result.
+
+```
+
+"use client";
+
+import { useState } from "react";
+import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
+import { curriculum } from "@/data/curriculum";
+
+export default function TrackExplorer() {
+  const [activeTrack, setActiveTrack] = useState(curriculum[0].id);
+  const [expandedSkill, setExpandedSkill] = useState<string | null>(
+    curriculum[0].skills[0].id,
+  );
+
+  const track =
+    curriculum.find((item) => item.id === activeTrack) ?? curriculum[0];
+
+  return (
+    <section>
+      <div
+        className="grid gap-3 md:grid-cols-3"
+        role="tablist"
+        aria-label="Choose a training track"
+      >
+        {curriculum.map((item) => {
+          const active = activeTrack === item.id;
+
+          return (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={active}
+              aria-controls={`track-panel-${item.id}`}
+              id={`track-tab-${item.id}`}
+              key={item.id}
+              onClick={() => {
+                setActiveTrack(item.id);
+                setExpandedSkill(item.skills[0].id);
+              }}
+              className={`rounded-2xl border p-5 text-left transition-all ${
+                active
+                  ? "border-[#b84a29] bg-[#b84a29] text-white"
+                  : "border-black/10 bg-white hover:border-[#b84a29]/50"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs opacity-65">
+                  TRACK {item.number}
+                </span>
+                <ArrowUpRight size={17} />
+              </div>
+              <h3 className="mt-7 font-serif text-2xl leading-tight">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-xs opacity-75">
+                {item.skills.length} practical skills
+              </p>
+            </button>
+          );
+        })}
+      </div>
+
+      <div
+        role="tabpanel"
+        id={`track-panel-${track.id}`}
+        aria-labelledby={`track-tab-${track.id}`}
+        className="mt-10"
+      >
+        <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow">Track {track.number}</p>
+            <h2 className="display mt-3 text-4xl md:text-5xl">
+              {track.title}
+            </h2>
+          </div>
+          <p className="max-w-lg text-sm leading-7 text-[#66675f]">
+            {track.description}
+          </p>
+        </div>
+
+        <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
+          {track.skills.map((skill, index) => {
+            const expanded = expandedSkill === skill.id;
+
+            return (
+              <div key={skill.id} className="border-b border-black/10 last:border-0">
+                <button
+                  type="button"
+                  className="flex w-full items-center gap-4 px-5 py-5 text-left md:px-7"
+                  aria-expanded={expanded}
+                  onClick={() =>
+                    setExpandedSkill(expanded ? null : skill.id)
+                  }
+                >
+                  <span className="font-mono text-xs text-[#b84a29]">
+                    {track.number}.{index + 1}
+                  </span>
+
+                  <span className="flex-1 text-base font-semibold">
+                    {skill.title}
+                  </span>
+
+                  <ChevronDown
+                    size={19}
+                    className={`shrink-0 transition-transform ${
+                      expanded ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {expanded && (
+                  <div className="grid gap-5 px-5 pb-7 pl-[52px] md:grid-cols-2 md:px-7 md:pl-[68px]">
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#b84a29]">
+                        What you will learn
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                        {skill.focus}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#1c7c54]">
+                        What you can do
+                      </p>
+                      <p className="mt-2 flex gap-2 text-sm leading-7 text-[#66675f]">
+                        <Check
+                          size={17}
+                          className="mt-1 shrink-0 text-[#1c7c54]"
+                        />
+                        {skill.result}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+```
+
+## File 17 — `components/budget-ledger.tsx`
+
+The budget is displayed as a visual financial ledger with percentages and a live total. The amount per student is shown separately from the whole-program total.
+
+```
+
+"use client";
+
+import { useState } from "react";
+import { Check, ChevronDown } from "lucide-react";
+import { budget } from "@/data/financials";
+import { formatNaira } from "@/lib/utils";
+
+export default function BudgetLedger() {
+  const [expanded, setExpanded] = useState<string | null>(budget[0].id);
+
+  const total = budget.reduce((sum, item) => sum + item.amount, 0);
+
+  return (
+    <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
+      <div className="flex flex-col justify-between gap-5 bg-[#0e1318] p-6 text-white md:flex-row md:items-end md:p-8">
+        <div>
+          <p className="eyebrow text-[#e9ae56]">Provisional budget</p>
+          <p className="display mt-3 text-4xl md:text-5xl">
+            {formatNaira(total)}
+          </p>
+          <p className="mt-2 text-xs text-white/55">
+            Seven budget lines · Illustrative allocation
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-white/15 bg-white/5 p-4">
+          <p className="text-[10px] uppercase tracking-[0.14em] text-white/55">
+            Estimated cost per student
+          </p>
+          <p className="mt-2 text-2xl font-semibold">
+            {formatNaira(84500)}
+          </p>
+        </div>
+      </div>
+
+      <div className="p-4 md:p-7">
+        {budget.map((item, index) => {
+          const percentage = total > 0 ? (item.amount / total) * 100 : 0;
+          const isOpen = expanded === item.id;
+
+          return (
+            <div
+              key={item.id}
+              className="border-b border-black/10 last:border-0"
+            >
+              <button
+                type="button"
+                onClick={() => setExpanded(isOpen ? null : item.id)}
+                aria-expanded={isOpen}
+                className="grid w-full grid-cols-[30px_1fr_auto_18px] items-center gap-3 py-5 text-left md:grid-cols-[40px_1fr_150px_115px_20px]"
+              >
+                <span className="font-mono text-xs text-[#b84a29]">
+                  0{index + 1}
+                </span>
+
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold">
+                    {item.title}
+                  </span>
+                  <span className="mt-2 block h-1.5 w-full overflow-hidden rounded-full bg-[#eee9df] md:max-w-[200px]">
+                    <span
+                      className="block h-full rounded-full bg-[#b84a29]"
+                      style={{ width: `${percentage}%` }}
+                    />
+                  </span>
+                </span>
+
+                <span className="text-right text-sm font-semibold tabular-nums">
+                  {formatNaira(item.amount)}
+                </span>
+
+                <span className="hidden text-right font-mono text-xs text-[#77766e] md:block">
+                  {percentage.toFixed(1)}%
+                </span>
+
+                <ChevronDown
+                  size={17}
+                  className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {isOpen && (
+                <div className="mb-5 ml-10 rounded-xl bg-[#f7f5f0] p-4 md:ml-[52px]">
+                  <p className="text-sm leading-7 text-[#66675f]">
+                    {item.description}
+                  </p>
+                  <p className="mt-3 flex items-center gap-2 text-xs font-semibold text-[#1c7c54]">
+                    <Check size={14} /> {percentage.toFixed(1)}% of the proposed budget
+                  </p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+
+        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#f7f5f0] p-5">
+          <div>
+            <p className="text-sm font-bold">Grand total</p>
+            <p className="mt-1 text-xs text-[#66675f]">
+              All seven budget lines
+            </p>
+          </div>
+          <p className="text-right text-lg font-bold tabular-nums md:text-2xl">
+            {formatNaira(total)}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+```
+
+## File 18 — `components/contact-form.tsx`
+
+This is a frontend demonstration form. It validates required fields and displays a local confirmation; it does not send emails or store submissions.
+
+```
+
+"use client";
+
+import { useState } from "react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+export default function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!event.currentTarget.reportValidity()) return;
+
+    setSubmitted(true);
+  }
+
+  if (submitted) {
+    return (
+      <div className="rounded-3xl border border-[#1c7c54]/20 bg-[#eaf3e9] p-8 md:p-10">
+        <CheckCircle2 size={32} className="text-[#1c7c54]" />
+        <h3 className="display mt-5 text-3xl">Thanks for reaching out.</h3>
+        <p className="mt-3 max-w-md text-sm leading-7 text-[#4c6654]">
+          This is a website preview, so your message has not been sent.
+          Please use the official contact details to reach the team.
+        </p>
+        <button
+          type="button"
+          onClick={() => setSubmitted(false)}
+          className="outline-button mt-6"
+        >
+          Write another message
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label className="field-label" htmlFor="contact-name">
+            Your name
+          </label>
+          <input
+            className="input-field"
+            id="contact-name"
+            name="name"
+            placeholder="Full name"
+            autoComplete="name"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="field-label" htmlFor="contact-email">
+            Email address
+          </label>
+          <input
+            className="input-field"
+            id="contact-email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autoComplete="email"
+            required
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="field-label" htmlFor="contact-topic">
+          What would you like to discuss?
+        </label>
+        <select
+          className="input-field"
+          id="contact-topic"
+          name="topic"
+          defaultValue="sponsorship"
+        >
+          <option value="sponsorship">Sponsorship and partnerships</option>
+          <option value="student">Student participation</option>
+          <option value="volunteer">Volunteering or mentoring</option>
+          <option value="general">General enquiry</option>
+        </select>
+      </div>
+
+      <div>
+        <label className="field-label" htmlFor="contact-message">
+          Your message
+        </label>
+        <textarea
+          className="input-field min-h-32 resize-y"
+          id="contact-message"
+          name="message"
+          placeholder="Tell us a little about your enquiry..."
+          required
+        />
+      </div>
+
+      <button type="submit" className="clay-button">
+        Preview submission <ArrowRight size={16} />
+      </button>
+
+      <p className="text-xs leading-6 text-[#77766e]">
+        Preview only. No personal information is transmitted or saved.
+      </p>
+    </form>
+  );
+}
+
+```
+
+# 7. Home page
+
+## File 19 — `app/page.tsx`
+
+This is the main landing experience: an asymmetric hero, animated terracotta sculpture, impact figures, curriculum preview, outreach photography, and a strong sponsorship appeal.
+
+```
+
+import Link from "next/link";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  HeartHandshake,
+  Sparkles,
+  Users,
+} from "lucide-react";
+import Reveal from "@/components/reveal";
+import { initiative } from "@/data/initiative";
+import { curriculum } from "@/data/curriculum";
+import { faculty, convener } from "@/data/faculty";
+import { formatNaira } from "@/lib/utils";
+
+const photos = [
+  "/images/outreach/outreach-01.jpg",
+  "/images/outreach/outreach-02.jpg",
+  "/images/outreach/outreach-03.jpg",
+];
+
+export default function HomePage() {
+  return (
+    <>
+      <section className="grid-lines overflow-hidden">
+        <div className="page-shell grid min-h-[650px] items-center gap-10 py-12 md:py-20 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="animate-in">
+            <p className="eyebrow">
+              Leading Minds Leadership Initiative presents
+            </p>
+
+            <h1 className="display mt-7 max-w-[760px] text-6xl sm:text-7xl lg:text-[86px]">
+              The next chapter starts{" "}
+              <span className="text-[#b84a29]">with you.</span>
+            </h1>
+
+            <p className="section-copy mt-7 max-w-[570px]">
+              A five-day residential experience helping 100 secondary school
+              leavers build confidence, discover practical skills, and prepare
+              for life beyond school.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold">
+              <span className="rounded-full border border-black/10 bg-white/70 px-4 py-2">
+                November 22–28, 2026
+              </span>
+              <span className="rounded-full border border-black/10 bg-white/70 px-4 py-2">
+                Hebron Center, Ibadan
+              </span>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/register" className="clay-button">
+                Explore registration <ArrowRight size={16} />
+              </Link>
+              <Link href="/support" className="outline-button">
+                Sponsor a student <ArrowUpRight size={16} />
+              </Link>
+            </div>
+
+            <div className="mt-10 flex items-center gap-4 border-t border-black/10 pt-6">
+              <div className="flex -space-x-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#e4c7b3]">
+                  <Users size={16} />
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#d9b98b]">
+                  <Sparkles size={16} />
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#c7d4bf]">
+                  <HeartHandshake size={16} />
+                </div>
+              </div>
+              <p className="max-w-xs text-xs leading-6 text-[#66675f]">
+                Leadership, practical learning, mentorship, and a better start
+                to the next chapter.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[520px] lg:ml-auto">
+            <div className="absolute inset-8 rounded-full bg-[#e7c3a4]/40 blur-3xl" />
+            <div className="relative mx-auto flex aspect-[0.91] max-h-[560px] items-center justify-center">
+              <div className="absolute inset-0 rounded-[48%_48%_24px_24px] border border-black/10" />
+              <div className="absolute inset-[7%] rounded-[48%_48%_24px_24px] border border-black/10" />
+              <div className="monolith w-[64%] max-w-[340px] min-h-[420px]">
+                <div className="orbit" />
+                <div className="orbit orbit-two" />
+              </div>
+
+              <div className="floating-label left-0 top-[20%]">
+                <p className="font-mono text-[10px] text-[#b84a29]">
+                  THE OPPORTUNITY
+                </p>
+                <p className="mt-1 text-sm font-bold">100 young people</p>
+              </div>
+
+              <div className="floating-label bottom-[16%] right-0">
+                <p className="font-mono text-[10px] text-[#b84a29]">
+                  SUPPORT A STUDENT
+                </p>
+                <p className="mt-1 text-lg font-bold">
+                  {formatNaira(84500)}
+                </p>
+              </div>
+
+              <div className="absolute right-[10%] top-[9%] flex h-14 w-14 items-center justify-center rounded-full bg-[#d99b26] text-[#0e1318] shadow-xl">
+                <Sparkles size={22} />
+              </div>
+            </div>
+
+            <p className="mt-1 text-center font-mono text-[10px] tracking-[0.12em] text-[#77766e]">
+              PURPOSE · SKILLS · CHARACTER · COMMUNITY
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-black/10 bg-[#fffdf8]">
+        <div className="page-shell grid grid-cols-2 gap-6 py-8 md:grid-cols-4 md:gap-4">
+          {[
+            ["100", "Student places"],
+            ["05", "Residential learning days"],
+            ["11", "Practical skills"],
+            ["₦8.45m", "Funding target"],
+          ].map(([value, label]) => (
+            <div key={label} className="border-l border-black/10 pl-4 md:pl-6">
+              <p className="metric">{value}</p>
+              <p className="mt-2 text-xs text-[#66675f]">{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <Reveal>
+            <p className="eyebrow">The reason we are here</p>
+            <h2 className="section-title">
+              School ends. The questions begin.
+            </h2>
+            <p className="section-copy">
+              What comes after secondary school? For many young people, the
+              answer is full of possibility, but it can also be uncertain.
+              Project EQUIP creates space to explore new skills, meet mentors,
+              build confidence, and make thoughtful plans for the future.
+            </p>
+            <Link href="/programs/equip-2026" className="text-link mt-6">
+              Discover Project EQUIP <ArrowRight size={16} />
+            </Link>
+          </Reveal>
+
+          <div className="grid grid-cols-2 gap-3">
+            <Reveal className="image-frame min-h-[270px]">
+              <img
+                src={photos[0]}
+                alt="Young people taking part in a school outreach activity"
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+            </Reveal>
+
+            <Reveal delay={0.1} className="flex flex-col gap-3">
+              <div className="image-frame min-h-[160px] flex-1">
+                <img
+                  src={photos[1]}
+                  alt="Students learning together during an outreach"
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.style.display = "none";
+                  }}
+                />
+              </div>
+              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-[#e8e1d4] p-5 md:p-7">
+                <Sparkles className="text-[#b84a29]" size={23} />
+                <div>
+                  <p className="display text-3xl">Room to grow.</p>
+                  <p className="mt-2 text-xs leading-6 text-[#66675f]">
+                    Good guidance. Practical skills. People who care.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="dark-section section-space">
+        <div className="page-shell">
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <p className="eyebrow text-[#e9ae56]">Learn something useful</p>
+              <h2 className="section-title max-w-[720px]">
+                Skills that can go further than the classroom.
+              </h2>
+            </div>
+            <Link
+              href="/programs/equip-2026/training"
+              className="outline-button border-white/20 text-white"
+            >
+              Explore all 11 skills <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="mt-9 grid gap-4 md:grid-cols-3">
+            {curriculum.map((track) => (
+              <Reveal key={track.id}>
+                <Link
+                  href="/programs/equip-2026/training"
+                  className="card-hover block h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-7"
+                >
+                  <span className="font-mono text-xs text-[#e9ae56]">
+                    TRACK {track.number}
+                  </span>
+                  <h3 className="display mt-8 text-3xl">{track.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-white/60">
+                    {track.description}
+                  </p>
+                  <p className="mt-7 flex items-center gap-2 text-xs font-bold text-[#e9ae56]">
+                    {track.skills.length} skills to explore
+                    <ArrowUpRight size={15} />
+                  </p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="eyebrow">The people behind the program</p>
+              <h2 className="section-title">
+                Good guidance makes a difference.
+              </h2>
+              <p className="section-copy">
+                Meet the convener and the facilitators bringing practical
+                knowledge, encouragement, and guidance to Project EQUIP.
+              </p>
+              <Link
+                href="/programs/equip-2026/facilitators"
+                className="text-link mt-6"
+              >
+                Meet the team <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {[convener, ...faculty.slice(0, 5)].map((person) => (
+                <Link
+                  key={person.id}
+                  href="/programs/equip-2026/facilitators"
+                  className="group"
+                >
+                  <div className="image-frame aspect-[0.82]">
+                    <img
+                      src={person.image}
+                      alt={person.name}
+                      loading="lazy"
+                      onError={(event) => {
+                        event.currentTarget.style.display = "none";
+                      }}
+                    />
+                    <div className="absolute inset-0 -z-0 bg-gradient-to-t from-[#0e1318]/20 to-transparent" />
+                  </div>
+                  <p className="mt-3 text-sm font-bold">{person.name}</p>
+                  <p className="mt-1 text-xs text-[#66675f]">
+                    {person.specialization}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space-sm">
+        <div className="page-shell">
+          <div className="relative overflow-hidden rounded-[30px] bg-[#b84a29] p-7 text-white md:p-12 lg:p-16">
+            <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full border border-white/20" />
+            <div className="absolute -right-4 -top-12 h-52 w-52 rounded-full border border-white/20" />
+
+            <div className="relative grid gap-9 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div className="max-w-[740px]">
+                <p className="eyebrow text-white/80">Help make it possible</p>
+                <h2 className="display mt-5 text-5xl md:text-7xl">
+                  Give a young person a stronger start.
+                </h2>
+                <p className="mt-5 max-w-xl text-sm leading-7 text-white/80">
+                  The estimated cost is ₦84,500 per student. Together, we can
+                  work towards the ₦8,450,000 needed to deliver the program.
+                </p>
+              </div>
+
+              <Link
+                href="/support"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-white px-6 text-sm font-bold text-[#0e1318] transition hover:bg-[#f2e5d6] lg:self-end"
+              >
+                See how to support <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="relative mt-10 grid gap-4 border-t border-white/20 pt-6 sm:grid-cols-3">
+              {[
+                "Accommodation and meals",
+                "Practical learning materials",
+                "Mentorship and logistics",
+              ].map((item) => (
+                <p key={item} className="flex items-center gap-2 text-xs">
+                  <CheckCircle2 size={15} /> {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="overflow-hidden border-y border-black/10 bg-[#fffdf8] py-5">
+        <div className="marquee-track">
+          <div className="marquee">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center">
+                {[
+                  "DISCOVER YOUR PURPOSE",
+                  "DEVELOP YOUR POTENTIAL",
+                  "LEAD WITH CHARACTER",
+                  "SERVE YOUR COMMUNITY",
+                ].map((item) => (
+                  <span
+                    key={`${copy}-${item}`}
+                    className="mx-7 flex items-center gap-7 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-[#66675f]"
+                  >
+                    <Sparkles size={13} className="text-[#b84a29]" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-5">
+        <div className="page-shell flex flex-wrap items-center justify-between gap-3 text-xs text-[#77766e]">
+          <span>{initiative.venue}</span>
+          <Link href="/programs/equip-2026/schedule" className="text-link">
+            See the program schedule <ArrowDown size={14} />
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+# 8. Initiative and programs pages
+
+## File 20 — `app/about/page.tsx`
+
+```
+
+import Link from "next/link";
+import PageHero from "@/components/page-hero";
+import Reveal from "@/components/reveal";
+import { initiative } from "@/data/initiative";
+import { ArrowRight, Heart, Lightbulb, ShieldCheck } from "lucide-react";
+
+const valueDescriptions = [
+  "Do what is right, even when no one is watching.",
+  "Let faith shape how we live, serve, and treat others.",
+  "Use what you know to make life better for someone else.",
+  "Bring care and commitment to the work you do.",
+  "Treat people with kindness, dignity, and understanding.",
+  "Stay curious and look for better ways to solve problems.",
+  "Be honest about how decisions are made and resources are used.",
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Who we are"
+        title="Helping young people become the kind of leaders their communities need."
+        description={initiative.about}
+        image="/images/outreach/outreach-01.jpg"
+        imageAlt="Young people participating in a community learning activity"
+      />
+
+      <section className="section-space">
+        <div className="page-shell grid gap-6 md:grid-cols-2">
+          <Reveal className="panel p-7 md:p-10">
+            <span className="eyebrow">Our vision</span>
+            <h2 className="display mt-5 text-4xl">What we hope to see.</h2>
+            <p className="mt-5 text-sm leading-8 text-[#66675f]">
+              {initiative.vision}
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.1} className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-10">
+            <span className="eyebrow text-[#e9ae56]">Our mission</span>
+            <h2 className="display mt-5 text-4xl">What we work towards.</h2>
+            <p className="mt-5 text-sm leading-8 text-white/65">
+              {initiative.mission}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-space bg-[#fffdf8]">
+        <div className="page-shell">
+          <div className="max-w-2xl">
+            <p className="eyebrow">The values we live by</p>
+            <h2 className="section-title">Character matters as much as talent.</h2>
+            <p className="section-copy">{initiative.valuesIntro}</p>
+          </div>
+
+          <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {initiative.values.map((value, index) => (
+              <Reveal key={value} delay={index * 0.035}>
+                <div className="card-hover panel h-full p-6">
+                  <span className="font-mono text-xs text-[#b84a29]">
+                    0{index + 1}
+                  </span>
+                  <h3 className="display mt-7 text-3xl">{value}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#66675f]">
+                    {valueDescriptions[index]}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <p className="eyebrow">Our objectives</p>
+            <h2 className="section-title">Good intentions, put into practice.</h2>
+            <p className="section-copy">
+              Our work brings personal growth, useful skills, and service
+              together so that young people can move forward with purpose.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {initiative.objectives.map((objective, index) => (
+              <Reveal key={objective.title}>
+                <div className="flex gap-5 rounded-2xl border border-black/10 p-5 md:p-7">
+                  <span className="font-mono text-sm text-[#b84a29]">
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-semibold">
+                      {objective.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                      {objective.text}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="dark-section section-space">
+        <div className="page-shell grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
+          <div>
+            <p className="eyebrow text-[#e9ae56]">What we believe</p>
+            <h2 className="display mt-5 text-5xl md:text-6xl">
+              {initiative.sloganHeading}
+            </h2>
+          </div>
+          <div className="border-l border-[#d99b26]/50 pl-6 md:pl-10">
+            {initiative.slogan.map((sentence) => (
+              <p
+                key={sentence}
+                className="display mb-5 text-3xl leading-snug text-white/85 last:mb-0 md:text-4xl"
+              >
+                “{sentence}”
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell">
+          <p className="eyebrow">Our programs</p>
+          <h2 className="section-title">Different ways to grow.</h2>
+
+          <div className="mt-9 grid gap-4 lg:grid-cols-3">
+            {initiative.programs.map((program) => (
+              <Reveal key={program.number}>
+                <article className="panel card-hover flex h-full flex-col p-6 md:p-7">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs text-[#b84a29]">
+                      {program.number}
+                    </span>
+                    {program.number === "03" ? (
+                      <Lightbulb className="text-[#b84a29]" size={21} />
+                    ) : (
+                      <Heart className="text-[#b84a29]" size={21} />
+                    )}
+                  </div>
+                  <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.14em] text-[#77766e]">
+                    {program.status}
+                  </p>
+                  <h3 className="display mt-3 text-3xl">{program.title}</h3>
+                  <p className="mt-4 flex-1 text-sm leading-7 text-[#66675f]">
+                    {program.description}
+                  </p>
+                  <Link
+                    href={
+                      program.number === "03"
+                        ? "/programs/equip-2026"
+                        : "/programs"
+                    }
+                    className="text-link mt-7"
+                  >
+                    Learn more <ArrowRight size={15} />
+                  </Link>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="page-shell">
+          <div className="rounded-3xl bg-[#e8e1d4] p-7 md:p-10">
+            <ShieldCheck size={26} className="text-[#b84a29]" />
+            <h2 className="display mt-4 text-4xl">
+              A mission built on trust.
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#66675f]">
+              Our commitment is to handle people, partnerships, and resources
+              with care. As the initiative grows, its public materials should
+              clearly explain its work and report its outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+## File 21 — `app/programs/page.tsx`
+
+```
+
+import Link from "next/link";
+import PageHero from "@/components/page-hero";
+import { initiative } from "@/data/initiative";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+
+export default function ProgramsPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="What we do"
+        title="Growing people, one meaningful step at a time."
+        description="Our programs are designed to help young people grow in character, find guidance, and build the skills to take their next steps with confidence."
+        primaryLabel="Explore Project EQUIP"
+        primaryHref="/programs/equip-2026"
+      />
+
+      <section className="section-space">
+        <div className="page-shell space-y-5">
+          {initiative.programs.map((program) => (
+            <article
+              key={program.number}
+              className="grid gap-6 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[100px_1fr_auto] md:items-center md:p-9"
+            >
+              <span className="font-mono text-3xl text-[#b84a29]">
+                {program.number}
+              </span>
+              <div>
+                <p className="eyebrow">{program.status}</p>
+                <h2 className="display mt-3 text-3xl md:text-4xl">
+                  {program.title}
+                </h2>
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-[#66675f]">
+                  {program.description}
+                </p>
+              </div>
+              <Link
+                href={
+                  program.number === "03"
+                    ? "/programs/equip-2026"
+                    : "/about"
+                }
+                className="outline-button"
+              >
+                Explore <ArrowUpRight size={16} />
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="page-shell">
+          <div className="rounded-3xl bg-[#0e1318] p-8 text-white md:p-12">
+            <p className="eyebrow text-[#e9ae56]">Our current focus</p>
+            <h2 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
+              Project EQUIP 2026 brings leadership and practical learning together.
+            </h2>
+            <Link href="/programs/equip-2026" className="clay-button mt-7">
+              Discover the program <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+## File 22 — `app/programs/equip-2026/page.tsx`
+
+```
+
+import Link from "next/link";
+import PageHero from "@/components/page-hero";
+import Reveal from "@/components/reveal";
+import { initiative } from "@/data/initiative";
+import {
+  ArrowRight,
+  CalendarDays,
+  CheckCircle2,
+  MapPin,
+  Users,
+} from "lucide-react";
+
+export default function EquipPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="The flagship experience"
+        title="A stronger start for the journey beyond school."
+        description="Project EQUIP 2026 is a residential learning experience for 100 secondary school leavers, combining leadership development, emotional intelligence, practical skills, and continuing mentorship."
+        primaryLabel="Explore the training"
+        primaryHref="/programs/equip-2026/training"
+        image="/images/outreach/outreach-03.jpg"
+        imageAlt="Students taking part in a group learning activity"
+      />
+
+      <section className="border-b border-black/10 bg-[#fffdf8]">
+        <div className="page-shell grid gap-5 py-7 sm:grid-cols-3">
+          {[
+            { icon: CalendarDays, label: "Program dates", value: initiative.dateLabel },
+            { icon: MapPin, label: "Venue", value: initiative.venue },
+            { icon: Users, label: "Student cohort", value: "100 places" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-center gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f0e7db] text-[#b84a29]">
+                <item.icon size={19} />
+              </div>
+              <div>
+                <p className="text-xs text-[#77766e]">{item.label}</p>
+                <p className="mt-1 text-sm font-bold">{item.value}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">Why EQUIP matters</p>
+            <h2 className="section-title">
+              More than a camp. A chance to prepare.
+            </h2>
+          </div>
+          <div className="space-y-5">
+            {initiative.equipOverview.map((paragraph) => (
+              <p key={paragraph} className="text-base leading-8 text-[#66675f]">
+                {paragraph}
+              </p>
+            ))}
+            <div className="rounded-2xl border border-[#d99b26]/40 bg-[#f6edda] p-5">
+              <p className="text-sm font-bold">A date to confirm</p>
+              <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                {initiative.programNote}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space bg-[#fffdf8]">
+        <div className="page-shell">
+          <p className="eyebrow">What participants will work towards</p>
+          <h2 className="section-title">Ten goals for the week.</h2>
+
+          <div className="mt-9 grid gap-3 md:grid-cols-2">
+            {initiative.equipObjectives.map((objective, index) => (
+              <Reveal key={objective}>
+                <div className="flex h-full gap-4 rounded-2xl border border-black/10 bg-white p-5">
+                  <span className="font-mono text-xs text-[#b84a29]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-sm leading-7">{objective}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="eyebrow">How we learn</p>
+              <h2 className="section-title">
+                Learning that goes beyond listening.
+              </h2>
+              <p className="section-copy">
+                The program combines teaching, practical tasks, peer learning,
+                and guided reflection.
+              </p>
+            </div>
+            <div className="space-y-3">
+              {initiative.methodology.map((item, index) => (
+                <Reveal key={item.title}>
+                  <div className="flex gap-4 rounded-2xl border border-black/10 p-5">
+                    <CheckCircle2 className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                    <div>
+                      <h3 className="font-semibold">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="dark-section section-space">
+        <div className="page-shell">
+          <p className="eyebrow text-[#e9ae56]">Keep exploring</p>
+          <h2 className="display mt-4 max-w-3xl text-5xl md:text-6xl">
+            See how the week comes together.
+          </h2>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/programs/equip-2026/training" className="clay-button">
+              Training tracks <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/programs/equip-2026/schedule"
+              className="outline-button border-white/20 text-white"
+            >
+              View the schedule <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/programs/equip-2026/impact"
+              className="outline-button border-white/20 text-white"
+            >
+              Follow-up and impact <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+## File 23 — `app/programs/equip-2026/training/page.tsx`
+
+```
+
+import PageHero from "@/components/page-hero";
+import TrackExplorer from "@/components/track-explorer";
+import { curriculum } from "@/data/curriculum";
+
+export default function TrainingPage() {
+  const totalSkills = curriculum.reduce(
+    (sum, track) => sum + track.skills.length,
+    0,
+  );
+
+  return (
+    <>
+      <PageHero
+        eyebrow="The learning experience"
+        title="Eleven skills. Three ways to find your strength."
+        description="Explore practical digital skills, hands-on creative work, and business fundamentals. Each track is designed to give participants a useful starting point and something tangible to practise."
+      />
+
+      <section className="section-space">
+        <div className="page-shell">
+          <div className="mb-9 flex flex-wrap gap-3">
+            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold">
+              {totalSkills} practical skills
+            </span>
+            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold">
+              3 learning tracks
+            </span>
+            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold">
+              One-week program
+            </span>
+          </div>
+
+          <TrackExplorer />
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="page-shell">
+          <div className="rounded-3xl bg-[#e8e1d4] p-7 md:p-10">
+            <p className="eyebrow">The idea</p>
+            <h2 className="display mt-4 text-4xl md:text-5xl">
+              Learn it. Make it. Put it to use.
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#66675f]">
+              These are proposed learning outcomes for the program. Final
+              module availability, equipment, class sizes, and practical
+              assessments should be confirmed by the organizers before
+              registration opens.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+# 9. Schedule, facilitators, and impact
+
+## File 24 — `app/programs/equip-2026/schedule/page.tsx`
+
+```
+
+import PageHero from "@/components/page-hero";
+import { CalendarDays, Clock3, MapPin, Users } from "lucide-react";
+
+const phases = [
+  {
+    number: "01",
+    title: "Foundation & Awakening",
+    days: "Days 1–2",
+    description:
+      "Participants settle in, meet their cohort, explore transformational leadership, and begin developing a better understanding of their strengths and emotions.",
+    activities: [
+      "Arrival, orientation, and room allocation",
+      "Opening session and cohort formation",
+      "Leadership and character development",
+      "Emotional intelligence activities",
+    ],
+  },
+  {
+    number: "02",
+    title: "Intensive Specialization & Applied Craft",
+    days: "Days 3–4",
+    description:
+      "Participants explore their practical training tracks, work on guided projects, and begin connecting what they learn to real opportunities.",
+    activities: [
+      "Digital and creative skills workshops",
+      "Business and enterprise activities",
+      "Team projects and guided practice",
+      "Mentor discussions and reflection",
+    ],
+  },
+  {
+    number: "03",
+    title: "Exhibition, Commissioning & Future Mapping",
+    days: "Day 5",
+    description:
+      "Participants share their work, reflect on what they have learned, and develop next steps for continuing their growth after the program.",
+    activities: [
+      "Project presentations and exhibition",
+      "Participant reflection and recognition",
+      "Mentorship and follow-up orientation",
+      "Closing session and departure arrangements",
+    ],
+  },
+];
+
+export default function SchedulePage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="The week at a glance"
+        title="Five days of learning, making, and looking ahead."
+        description="From the first welcome to the final presentations, each phase is intended to move participants from discovering their strengths to applying what they learn."
+        primaryLabel="Explore the training tracks"
+        primaryHref="/programs/equip-2026/training"
+      />
+
+      <section className="section-space">
+        <div className="page-shell">
+          <div className="mb-10 grid gap-4 sm:grid-cols-3">
+            {[
+              { icon: CalendarDays, label: "Program dates", value: "Nov 22–28, 2026" },
+              { icon: Clock3, label: "Camp format", value: "5-day residential" },
+              { icon: MapPin, label: "Location", value: "Hebron Center, Ibadan" },
+            ].map((item) => (
+              <div key={item.label} className="panel flex items-center gap-4 p-5">
+                <item.icon size={21} className="shrink-0 text-[#b84a29]" />
+                <div>
+                  <p className="text-xs text-[#77766e]">{item.label}</p>
+                  <p className="mt-1 text-sm font-bold">{item.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="space-y-5">
+            {phases.map((phase) => (
+              <article
+                key={phase.number}
+                className="grid gap-7 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[220px_1fr] md:p-9"
+              >
+                <div>
+                  <span className="font-mono text-xs text-[#b84a29]">
+                    PHASE {phase.number}
+                  </span>
+                  <h2 className="display mt-4 text-3xl">{phase.days}</h2>
+                  <div className="mt-4 inline-flex rounded-full bg-[#f2e5d6] px-3 py-1 text-xs font-semibold text-[#96381d]">
+                    Planned phase
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="display text-3xl md:text-4xl">
+                    {phase.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[#66675f]">
+                    {phase.description}
+                  </p>
+
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {phase.activities.map((activity) => (
+                      <div
+                        key={activity}
+                        className="flex items-start gap-3 rounded-xl bg-[#f7f5f0] p-4"
+                      >
+                        <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#b84a29]" />
+                        <span className="text-sm leading-6">{activity}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="page-shell">
+          <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
+            <div className="image-frame min-h-[320px]">
+              <img
+                src="/images/venue/hebron-center.jpg"
+                alt="Hebron Center, the proposed venue for Project EQUIP 2026"
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+            </div>
+
+            <div className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-9">
+              <MapPin size={24} className="text-[#e9ae56]" />
+              <p className="eyebrow mt-5 text-[#e9ae56]">The venue</p>
+              <h2 className="display mt-3 text-4xl">Hebron Center, Ibadan</h2>
+              <p className="mt-4 text-sm leading-7 text-white/65">
+                The program is planned for Hebron Center in Ibadan. Final
+                details about accommodation, access, supervision, facilities,
+                and transport should be confirmed by the organizers.
+              </p>
+              <p className="mt-5 flex items-start gap-2 text-xs leading-6 text-white/55">
+                <Users size={16} className="mt-1 shrink-0" />
+                Parents and participants should receive confirmed arrival,
+                departure, and emergency contact information before the camp.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-5 text-xs leading-6 text-[#77766e]">
+            Date note: November 22–28 spans seven calendar days, while the
+            program is described as a five-day residential boot camp. The
+            precise arrival and departure dates need confirmation.
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+## File 25 — `app/programs/equip-2026/facilitators/page.tsx`
+
+This page automatically displays the convener and all eight facilitators from the faculty data file. Clicking a person's card opens their full biography.
+
+```
+
+"use client";
+
+import { useState } from "react";
+import PageHero from "@/components/page-hero";
+import { convener, faculty } from "@/data/faculty";
+import { ArrowUpRight, X } from "lucide-react";
+
+export default function FacilitatorsPage() {
+  const [selected, setSelected] = useState<string | null>(null);
+  const people = [convener, ...faculty];
+  const activePerson = people.find((person) => person.id === selected);
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Meet the people"
+        title="Experience matters. So does the person who shares it."
+        description="Meet the convener and facilitators planned for Project EQUIP 2026. Their official names, portraits, specializations, and biographies can be added here as the final details are confirmed."
+        image="/images/faculty/convener.jpg"
+        imageAlt="Portrait of the program convener"
+      />
+
+      <section className="section-space">
+        <div className="page-shell">
+          <div className="mb-8">
+            <p className="eyebrow">Program leadership</p>
+            <h2 className="section-title">The convener</h2>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setSelected(convener.id)}
+            className="grid w-full gap-7 rounded-3xl border border-black/10 bg-white p-5 text-left transition hover:border-[#b84a29]/40 md:grid-cols-[300px_1fr] md:p-8"
+          >
+            <div className="image-frame aspect-[0.9] max-h-[420px]">
+              <img
+                src={convener.image}
+                alt={convener.name}
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+            </div>
+
+            <div className="flex flex-col justify-center">
+              <p className="eyebrow">Program leadership</p>
+              <h3 className="display mt-4 text-4xl md:text-5xl">
+                {convener.name}
+              </h3>
+              <p className="mt-3 text-sm font-semibold text-[#b84a29]">
+                {convener.role}
+              </p>
+              <p className="mt-4 text-sm leading-7 text-[#66675f]">
+                {convener.paragraphs[0]}
+              </p>
+              <span className="text-link mt-6">
+                Read full biography <ArrowUpRight size={15} />
+              </span>
+            </div>
+          </button>
+
+          <div className="mb-8 mt-16">
+            <p className="eyebrow">The faculty</p>
+            <h2 className="section-title">Meet the facilitators.</h2>
+            <p className="section-copy">
+              Explore each person's profile to read their biography and
+              specialization.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {faculty.map((person, index) => (
+              <button
+                type="button"
+                key={person.id}
+                onClick={() => setSelected(person.id)}
+                className="panel card-hover overflow-hidden text-left"
+              >
+                <div className="image-frame aspect-[0.85] rounded-none">
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    loading="lazy"
+                    onError={(event) => {
+                      event.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+
+                <div className="p-5">
+                  <p className="font-mono text-[10px] text-[#b84a29]">
+                    FACILITATOR {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-3 text-base font-bold">{person.name}</h3>
+                  <p className="mt-2 text-xs leading-6 text-[#66675f]">
+                    {person.specialization}
+                  </p>
+                  <span className="text-link mt-4">
+                    View profile <ArrowUpRight size={14} />
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-3xl bg-[#e8e1d4] p-7 md:p-10">
+            <p className="eyebrow">Additional guidance</p>
+            <h2 className="display mt-4 text-4xl">
+              Professional support matters, too.
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[#66675f]">
+              The program plans to include counseling support involving
+              University of Ibadan counselors. The participating counselors,
+              their qualifications, availability, and partnership arrangements
+              should be verified before these details are presented as
+              confirmed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {activePerson && (
+        <div
+          className="fixed inset-0 z-[100] flex items-end justify-center bg-black/55 p-0 backdrop-blur-sm sm:items-center sm:p-5"
+          onClick={() => setSelected(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="faculty-dialog-title"
+            className="max-h-[90dvh] w-full max-w-3xl overflow-y-auto rounded-t-3xl bg-[#f7f5f0] p-6 sm:rounded-3xl sm:p-9"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-5">
+              <div>
+                <p className="eyebrow">Faculty profile</p>
+                <h2
+                  id="faculty-dialog-title"
+                  className="display mt-3 text-4xl"
+                >
+                  {activePerson.name}
+                </h2>
+                <p className="mt-2 text-sm text-[#b84a29]">
+                  {activePerson.role}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setSelected(null)}
+                aria-label="Close biography"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <p className="mt-3 text-sm text-[#66675f]">
+              {activePerson.specialization}
+              {activePerson.business ? ` · ${activePerson.business}` : ""}
+            </p>
+
+            <div className="mt-7 space-y-4">
+              {activePerson.paragraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-sm leading-8 text-[#55564f]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <p className="mt-6 text-xs leading-6 text-[#77766e]">
+              Replace the bracketed biography text with the official profile
+              before publishing.
+            </p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+```
+
+## File 26 — `app/programs/equip-2026/impact/page.tsx`
+
+```
+
+import PageHero from "@/components/page-hero";
+import Reveal from "@/components/reveal";
+import { futurePlans } from "@/data/financials";
+import {
+  ArrowRight,
+  GraduationCap,
+  HeartHandshake,
+  TrendingUp,
+} from "lucide-react";
+
+const impacts = [
+  {
+    icon: HeartHandshake,
+    number: "01",
+    title: "Confidence and self-leadership",
+    description:
+      "Participants develop greater self-awareness, stronger decision-making habits, and a clearer sense of personal responsibility.",
+  },
+  {
+    icon: TrendingUp,
+    number: "02",
+    title: "Practical skills and opportunity",
+    description:
+      "Participants gain exposure to useful digital, creative, and business skills they can continue to practise.",
+  },
+  {
+    icon: GraduationCap,
+    number: "03",
+    title: "Community-minded leadership",
+    description:
+      "Participants are encouraged to use what they learn to support others and contribute positively to their communities.",
+  },
+];
+
+const followUp = [
+  {
+    title: "Six-month progress check-ins",
+    description:
+      "Planned digital check-ins will help track educational transitions, continued learning, and the challenges participants encounter.",
+  },
+  {
+    title: "Mentorship and peer connections",
+    description:
+      "Planned mentor follow-ups and group reunions will give participants opportunities to share progress and seek guidance.",
+  },
+];
+
+export default function ImpactPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Beyond the camp"
+        title="The real measure is what happens next."
+        description="Project EQUIP is designed to be a starting point, not an ending. The aim is to help participants carry new skills, stronger habits, and useful relationships into their next stage of life."
+      />
+
+      <section className="section-space">
+        <div className="page-shell">
+          <p className="eyebrow">Expected impact</p>
+          <h2 className="section-title">What we want young people to take away.</h2>
+
+          <div className="mt-9 grid gap-4 md:grid-cols-3">
+            {impacts.map((item) => (
+              <Reveal key={item.number}>
+                <article className="panel card-hover h-full p-6 md:p-8">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs text-[#b84a29]">
+                      {item.number}
+                    </span>
+                    <item.icon size={24} className="text-[#b84a29]" />
+                  </div>
+                  <h3 className="display mt-8 text-3xl">{item.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-[#66675f]">
+                    {item.description}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="dark-section section-space">
+        <div className="page-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <p className="eyebrow text-[#e9ae56]">Stay connected</p>
+            <h2 className="section-title">
+              Growth does not stop on the last day.
+            </h2>
+            <p className="section-copy">
+              Follow-up is an important part of the proposed model. It gives
+              students a way to reflect on their progress and stay connected
+              with supportive people.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {followUp.map((item, index) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+              >
+                <p className="font-mono text-xs text-[#e9ae56]">
+                  0{index + 1}
+                </p>
+                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/60">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell">
+          <p className="eyebrow">Looking ahead</p>
+          <h2 className="section-title">The work we hope to build.</h2>
+
+          <div className="mt-9 space-y-4">
+            {futurePlans.map((plan, index) => (
+              <Reveal key={plan.title}>
+                <article className="grid gap-4 rounded-2xl border border-black/10 p-6 md:grid-cols-[70px_1fr] md:p-8">
+                  <span className="font-mono text-lg text-[#b84a29]">
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3 className="display text-3xl">{plan.title}</h3>
+                    <p className="mt-3 max-w-3xl text-sm leading-7 text-[#66675f]">
+                      {plan.description}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-2xl bg-[#f5ead5] p-5 text-sm leading-7 text-[#6c5841]">
+            These are future ambitions, not claims of existing facilities,
+            scholarship commitments, or already achieved outcomes.
+          </div>
+
+          <a href="/support" className="clay-button mt-8">
+            Help move the work forward <ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+# 10. Funding and sponsorship page
+
+## File 27 — `app/support/page.tsx`
+
+The funding page is built for donors and corporate partners. It includes the seven-line budget, four sponsorship tiers, a clear accountability section, and a working client-side sponsorship selection interaction.
+
+```
+
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import PageHero from "@/components/page-hero";
+import BudgetLedger from "@/components/budget-ledger";
+import Reveal from "@/components/reveal";
+import { accountability, sponsorshipTiers } from "@/data/financials";
+import { formatNaira } from "@/lib/utils";
+import {
+  ArrowRight,
+  CheckCircle2,
+  HandHeart,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
+
+export default function SupportPage() {
+  const [selectedTier, setSelectedTier] = useState<string | null>(null);
+  const selected = sponsorshipTiers.find(
+    (tier) => tier.id === selectedTier,
+  );
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Support the next generation"
+        title="Help make room for 100 young people to grow."
+        description="Project EQUIP 2026 is seeking sponsorships and partnerships to help cover accommodation, feeding, practical learning materials, and program logistics."
+        primaryLabel="Explore sponsorship options"
+        primaryHref="#sponsorship-tiers"
+      />
+
+      <section className="section-space-sm">
+        <div className="page-shell">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-3xl bg-[#0e1318] p-6 text-white md:p-8">
+              <p className="eyebrow text-[#e9ae56]">Funding target</p>
+              <p className="display mt-4 text-4xl md:text-5xl">₦8.45m</p>
+              <p className="mt-3 text-xs leading-6 text-white/55">
+                Proposed total requirement for the program.
+              </p>
+            </div>
+
+            <div className="panel p-6 md:p-8">
+              <p className="eyebrow">Cost per student</p>
+              <p className="display mt-4 text-4xl md:text-5xl">
+                {formatNaira(84500)}
+              </p>
+              <p className="mt-3 text-xs leading-6 text-[#66675f]">
+                Estimated cost of one student place.
+              </p>
+            </div>
+
+            <div className="panel p-6 md:p-8">
+              <p className="eyebrow">People to reach</p>
+              <p className="display mt-4 text-4xl md:text-5xl">100</p>
+              <p className="mt-3 text-xs leading-6 text-[#66675f]">
+                Secondary school leavers in Oyo State.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell">
+          <p className="eyebrow">Where the money goes</p>
+          <h2 className="section-title">A clear look at the proposed budget.</h2>
+          <p className="section-copy mb-9">
+            Each line below represents an illustrative allocation towards
+            delivering the camp. These amounts must be checked against the
+            approved organizational budget before being used for fundraising.
+          </p>
+          <BudgetLedger />
+          <p className="mt-4 text-xs leading-6 text-[#77766e]">
+            The budget is a demonstration allocation, not a verified quotation.
+            Actual costs and supporting estimates should be approved by the
+            initiative before the funding appeal is published.
+          </p>
+        </div>
+      </section>
+
+      <section id="sponsorship-tiers" className="section-space bg-[#fffdf8]">
+        <div className="page-shell">
+          <p className="eyebrow">Choose how to help</p>
+          <h2 className="section-title">There is more than one way to make a difference.</h2>
+          <p className="section-copy">
+            Select a proposed sponsorship level to see its suggested
+            contribution. You can then use the contact page to discuss a
+            partnership with the team.
+          </p>
+
+          <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {sponsorshipTiers.map((tier, index) => {
+              const active = selectedTier === tier.id;
+
+              return (
+                <Reveal key={tier.id} delay={index * 0.04}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTier(active ? null : tier.id)}
+                    aria-pressed={active}
+                    className={`card-hover flex h-full w-full flex-col rounded-3xl border p-6 text-left transition-colors ${
+                      active
+                        ? "border-[#b84a29] bg-[#f7e8de]"
+                        : "border-black/10 bg-white"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-xs text-[#b84a29]">
+                        0{index + 1}
+                      </span>
+                      {index === 0 ? (
+                        <Sparkles size={19} className="text-[#b84a29]" />
+                      ) : (
+                        <HandHeart size={19} className="text-[#b84a29]" />
+                      )}
+                    </div>
+
+                    <h3 className="display mt-7 text-3xl">{tier.title}</h3>
+
+                    <p className="mt-4 text-2xl font-semibold tabular-nums">
+                      {formatNaira(tier.amount)}
+                    </p>
+
+                    <p className="mt-4 flex-1 text-sm leading-7 text-[#66675f]">
+                      {tier.description}
+                    </p>
+
+                    <div className="mt-6 flex items-center justify-between border-t border-black/10 pt-4 text-xs font-semibold">
+                      <span>{tier.benefit}</span>
+                      <span>{active ? "Selected" : "Select"}</span>
+                    </div>
+                  </button>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          {selected && (
+            <div className="mt-6 rounded-3xl border border-[#b84a29]/20 bg-white p-6 md:p-8">
+              <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
+                <div>
+                  <p className="eyebrow">Your selected level</p>
+                  <h3 className="display mt-3 text-3xl">{selected.title}</h3>
+                  <p className="mt-2 text-sm text-[#66675f]">
+                    Proposed contribution: {formatNaira(selected.amount)}
+                  </p>
+                </div>
+
+                <Link
+                  href={`/contact?topic=sponsorship`}
+                  className="clay-button"
+                >
+                  Discuss a partnership <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">Accountability</p>
+            <h2 className="section-title">Support deserves a clear account.</h2>
+            <p className="section-copy">
+              Financial transparency is part of responsible fundraising.
+              Supporters should be able to understand how their contributions
+              are handled and what the program achieves.
+            </p>
+            <ShieldCheck className="mt-7 text-[#1c7c54]" size={34} />
+          </div>
+
+          <div className="rounded-3xl border border-[#1c7c54]/20 bg-[#edf3e9] p-6 md:p-9">
+            <p className="text-sm leading-8 text-[#435b49]">
+              {accountability.statement}
+            </p>
+
+            <div className="mt-7 space-y-5">
+              {accountability.commitments.map((item) => (
+                <div key={item.title} className="flex gap-3">
+                  <CheckCircle2
+                    size={19}
+                    className="mt-1 shrink-0 text-[#1c7c54]"
+                  />
+                  <div>
+                    <h3 className="text-sm font-bold">{item.title}</h3>
+                    <p className="mt-1 text-sm leading-7 text-[#526657]">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="page-shell">
+          <div className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-12">
+            <p className="eyebrow text-[#e9ae56]">Ready to talk?</p>
+            <h2 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
+              Let&apos;s discuss a partnership that makes sense for you.
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-white/60">
+              Contact the initiative to discuss contributions, sponsorship
+              arrangements, and how program updates can be shared.
+            </p>
+            <Link href="/contact?topic=sponsorship" className="clay-button mt-7">
+              Contact the team <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+# 11. Registration and contact
+
+## File 28 — `app/register/page.tsx`
+
+This is a frontend-only student registration prototype with four steps, input validation, track selection, and a review screen. It does not collect or submit data to a server.
+
+```
+
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { curriculum } from "@/data/curriculum";
+
+type StudentForm = {
+  fullName: string;
+  email: string;
+  phone: string;
+  age: string;
+  state: string;
+  lga: string;
+  school: string;
+  track: string;
+  statement: string;
+};
+
+const initialForm: StudentForm = {
+  fullName: "",
+  email: "",
+  phone: "",
+  age: "",
+  state: "Oyo",
+  lga: "",
+  school: "",
+  track: "",
+  statement: "",
+};
+
+const steps = [
+  "Your details",
+  "Education",
+  "Choose a track",
+  "Review",
+];
+
+export default function RegisterPage() {
+  const [step, setStep] = useState(0);
+  const [form, setForm] = useState(initialForm);
+  const [completed, setCompleted] = useState(false);
+
+  function update<K extends keyof StudentForm>(
+    key: K,
+    value: StudentForm[K],
+  ) {
+    setForm((current) => ({ ...current, [key]: value }));
+  }
+
+  function validateCurrentStep() {
+    if (step === 0) {
+      return (
+        form.fullName.trim().length > 1 &&
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) &&
+        form.phone.trim().length >= 7 &&
+        Number(form.age) >= 13
+      );
+    }
+
+    if (step === 1) {
+      return Boolean(form.state && form.lga.trim() && form.school.trim());
+    }
+
+    if (step === 2) {
+      return Boolean(form.track);
+    }
+
+    return form.statement.trim().length >= 20;
+  }
+
+  function next() {
+    if (!validateCurrentStep()) {
+      window.alert(
+        "Please complete the required fields before continuing.",
+      );
+      return;
+    }
+
+    if (step < steps.length - 1) {
+      setStep((current) => current + 1);
+    } else {
+      setCompleted(true);
+    }
+  }
+
+  function previous() {
+    setStep((current) => Math.max(0, current - 1));
+  }
+
+  if (completed) {
+    return (
+      <section className="section-space min-h-[65vh]">
+        <div className="page-shell max-w-2xl">
+          <div className="rounded-3xl border border-[#1c7c54]/20 bg-[#edf3e9] p-8 md:p-12">
+            <CheckCircle2 size={38} className="text-[#1c7c54]" />
+            <p className="eyebrow mt-6">Preview complete</p>
+            <h1 className="display mt-3 text-5xl">
+              Thank you, {form.fullName.split(" ")[0]}.
+            </h1>
+            <p className="mt-5 text-sm leading-8 text-[#526657]">
+              You have completed the demonstration application. This prototype
+              has not transmitted your details or created an actual application.
+              Official admission arrangements and deadlines should be confirmed
+              by Leading Minds Leadership Initiative.
+            </p>
+
+            <div className="mt-7 rounded-2xl bg-white/80 p-5">
+              <p className="text-xs text-[#66675f]">Selected training track</p>
+              <p className="mt-2 font-semibold">
+                {curriculum.find((track) => track.id === form.track)?.title}
+              </p>
+            </div>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setForm(initialForm);
+                  setStep(0);
+                  setCompleted(false);
+                }}
+                className="clay-button"
+              >
+                Start another preview
+              </button>
+              <Link href="/" className="outline-button">
+                Back to home
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="section-space">
+      <div className="page-shell">
+        <div className="mx-auto max-w-3xl">
+          <p className="eyebrow">Student application preview</p>
+          <h1 className="display mt-5 text-5xl md:text-7xl">
+            Tell us a little about yourself.
+          </h1>
+          <p className="section-copy mt-5">
+            This demonstration shows how a student application could work.
+            Completing it does not reserve a place or submit an actual
+            application.
+          </p>
+
+          <div className="mt-9 grid grid-cols-4 gap-2">
+            {steps.map((label, index) => (
+              <div key={label}>
+                <div
+                  className={`h-1.5 rounded-full ${
+                    index <= step ? "bg-[#b84a29]" : "bg-black/10"
+                  }`}
+                />
+                <p
+                  className={`mt-2 text-[10px] ${
+                    index === step ? "font-bold text-[#b84a29]" : "text-[#77766e]"
+                  }`}
+                >
+                  {String(index + 1).padStart(2, "0")} · {label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-3xl border border-black/10 bg-white p-6 md:p-10">
+            {step === 0 && (
+              <div className="space-y-5">
+                <h2 className="display text-3xl">Your details</h2>
+
+                <div>
+                  <label className="field-label" htmlFor="student-name">
+                    Full name
+                  </label>
+                  <input
+                    id="student-name"
+                    className="input-field"
+                    autoComplete="name"
+                    value={form.fullName}
+                    onChange={(e) => update("fullName", e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="field-label" htmlFor="student-email">
+                      Email address
+                    </label>
+                    <input
+                      id="student-email"
+                      type="email"
+                      className="input-field"
+                      autoComplete="email"
+                      value={form.email}
+                      onChange={(e) => update("email", e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="field-label" htmlFor="student-phone">
+                      Phone number
+                    </label>
+                    <input
+                      id="student-phone"
+                      type="tel"
+                      className="input-field"
+                      autoComplete="tel"
+                      value={form.phone}
+                      onChange={(e) => update("phone", e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="field-label" htmlFor="student-age">
+                    Age
+                  </label>
+                  <input
+                    id="student-age"
+                    type="number"
+                    min="13"
+                    max="30"
+                    className="input-field"
+                    value={form.age}
+                    onChange={(e) => update("age", e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            {step === 1 && (
+              <div className="space-y-5">
+                <h2 className="display text-3xl">Your education</h2>
+
+                <div>
+                  <label className="field-label" htmlFor="student-state">
+                    State of residence
+                  </label>
+                  <select
+                    id="student-state"
+                    className="input-field"
+                    value={form.state}
+                    onChange={(e) => update("state", e.target.value)}
+                  >
+                    <option value="Oyo">Oyo State</option>
+                    <option value="Other">Other state</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="field-label" htmlFor="student-lga">
+                    Local Government Area
+                  </label>
+                  <input
+                    id="student-lga"
+                    className="input-field"
+                    value={form.lga}
+                    onChange={(e) => update("lga", e.target.value)}
+                    placeholder="Enter your LGA"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="field-label" htmlFor="student-school">
+                    Secondary school
+                  </label>
+                  <input
+                    id="student-school"
+                    className="input-field"
+                    value={form.school}
+                    onChange={(e) => update("school", e.target.value)}
+                    placeholder="School name"
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            {step === 2 && (
+              <div>
+                <h2 className="display text-3xl">Choose a learning track</h2>
+                <p className="mt-3 text-sm leading-7 text-[#66675f]">
+                  Choose the area you would most like to explore. Final
+                  admission and track allocation arrangements remain subject
+                  to confirmation.
+                </p>
+
+                <div className="mt-6 space-y-3">
+                  {curriculum.map((track) => (
+                    <label
+                      key={track.id}
+                      className={`flex cursor-pointer gap-4 rounded-2xl border p-5 transition-colors ${
+                        form.track === track.id
+                          ? "border-[#b84a29] bg-[#fbf0e9]"
+                          : "border-black/10"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="training-track"
+                        value={track.id}
+                        checked={form.track === track.id}
+                        onChange={(e) => update("track", e.target.value)}
+                        className="mt-1 accent-[#b84a29]"
+                      />
+                      <span>
+                        <span className="block font-semibold">{track.title}</span>
+                        <span className="mt-2 block text-sm leading-6 text-[#66675f]">
+                          {track.description}
+                        </span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {step === 3 && (
+              <div>
+                <h2 className="display text-3xl">Review your details</h2>
+
+                <div className="mt-6 space-y-4">
+                  {[
+                    ["Full name", form.fullName],
+                    ["Email", form.email],
+                    ["Phone", form.phone],
+                    ["Age", form.age],
+                    ["State", form.state],
+                    ["LGA", form.lga],
+                    ["School", form.school],
+                    [
+                      "Training track",
+                      curriculum.find((track) => track.id === form.track)?.title ?? "",
+                    ],
+                  ].map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="flex flex-col justify-between gap-1 border-b border-black/10 pb-3 sm:flex-row sm:gap-4"
+                    >
+                      <span className="text-xs text-[#77766e]">{label}</span>
+                      <span className="text-sm font-semibold">{value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6">
+                  <label className="field-label" htmlFor="student-statement">
+                    Why would you like to take part?
+                  </label>
+                  <textarea
+                    id="student-statement"
+                    className="input-field min-h-32 resize-y"
+                    value={form.statement}
+                    onChange={(e) => update("statement", e.target.value)}
+                    placeholder="Tell us what you hope to learn and how it may help you..."
+                    required
+                    minLength={20}
+                  />
+                  <p className="mt-2 text-xs text-[#77766e]">
+                    Please write at least 20 characters.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            <div className="mt-9 flex flex-wrap items-center justify-between gap-3 border-t border-black/10 pt-6">
+              <button
+                type="button"
+                onClick={previous}
+                disabled={step === 0}
+                className="outline-button disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                <ArrowLeft size={16} /> Back
+              </button>
+
+              <button type="button" onClick={next} className="clay-button">
+                {step === steps.length - 1
+                  ? "Complete preview"
+                  : "Continue"}
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+
+          <p className="mt-5 text-xs leading-6 text-[#77766e]">
+            Please do not enter sensitive personal information. This prototype
+            keeps its application state in the current browser session only.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+```
+
+## File 29 — `app/contact/page.tsx`
+
+```
+
+import PageHero from "@/components/page-hero";
+import ContactForm from "@/components/contact-form";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Music2,
+} from "lucide-react";
+
+const channels = [
+  {
+    icon: Instagram,
+    label: "Instagram",
+    value: "[Official Instagram handle]",
+    href: "https://www.instagram.com/",
+  },
+  {
+    icon: Music2,
+    label: "TikTok",
+    value: "[Official TikTok handle]",
+    href: "https://www.tiktok.com/",
+  },
+  {
+    icon: Facebook,
+    label: "Facebook page one",
+    value: "[Official Facebook page]",
+    href: "https://www.facebook.com/",
+  },
+  {
+    icon: Facebook,
+    label: "Facebook page two",
+    value: "[Official second Facebook page]",
+    href: "https://www.facebook.com/",
+  },
+];
+
+export default function ContactPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Get in touch"
+        title="Have a question? We'd be glad to hear from you."
+        description="Whether you're a student, parent, potential facilitator, or sponsor, use the contact details below to find the right way to reach Leading Minds Leadership Initiative."
+      />
+
+      <section className="section-space">
+        <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">Contact details</p>
+            <h2 className="section-title">Let's start a conversation.</h2>
+            <p className="section-copy">
+              Our team is based in Ibadan, Oyo State. Replace the placeholder
+              details below with the initiative's verified contact information.
+            </p>
+
+            <div className="mt-8 space-y-3">
+              {channels.map((channel) => (
+                <a
+                  key={channel.label}
+                  href={channel.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="card-hover flex items-center gap-4 rounded-2xl border border-black/10 bg-white p-4"
+                >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f2e5d6] text-[#b84a29]">
+                    <channel.icon size={19} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-[#77766e]">{channel.label}</p>
+                    <p className="mt-1 break-words text-sm font-semibold">
+                      {channel.value}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-3 space-y-3">
+              <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
+                <Mail className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                <div>
+                  <p className="text-xs text-[#77766e]">Email</p>
+                  <a
+                    href="mailto:[official-email]"
+                    className="mt-1 block break-all text-sm font-semibold"
+                  >
+                    [Official initiative email]
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
+                <Phone className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                <div>
+                  <p className="text-xs text-[#77766e]">Phone numbers</p>
+                  <p className="mt-1 text-sm font-semibold">
+                    [Official phone number one]
+                  </p>
+                  <p className="mt-1 text-sm font-semibold">
+                    [Official phone number two]
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
+                <MapPin className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                <div>
+                  <p className="text-xs text-[#77766e]">Location</p>
+                  <p className="mt-1 text-sm font-semibold">
+                    Ibadan, Oyo State, Nigeria
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-black/10 bg-white p-6 md:p-9">
+            <p className="eyebrow">Send an enquiry</p>
+            <h2 className="display mt-4 text-4xl">How can we help?</h2>
+            <p className="mt-3 text-sm leading-7 text-[#66675f]">
+              Choose the subject of your enquiry and leave a short message.
+            </p>
+
+            <div className="mt-7">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+```
+
+# 12. Add your images and run the website
+
+The source files are now defined. Finish the setup with the following steps.
+
+## Image filenames
+
+Place your real assets in these folders. The filenames should match the paths referenced by the code.
+
+```
+public/
+└── images/
+    ├── logo/
+    │   └── logo.png
+    ├── outreach/
+    │   ├── outreach-01.jpg
+    │   ├── outreach-02.jpg
+    │   ├── outreach-03.jpg
+    │   ├── outreach-04.jpg
+    │   ├── outreach-05.jpg
+    │   ├── outreach-06.jpg
+    │   ├── outreach-07.jpg
+    │   ├── outreach-08.jpg
+    │   ├── outreach-09.jpg
+    │   ├── outreach-10.jpg
+    │   └── outreach-11.jpg
+    ├── faculty/
+    │   ├── convener.jpg
+    │   ├── facilitator-01.jpg
+    │   ├── facilitator-02.jpg
+    │   ├── facilitator-03.jpg
+    │   ├── facilitator-04.jpg
+    │   ├── facilitator-05.jpg
+    │   ├── facilitator-06.jpg
+    │   ├── facilitator-07.jpg
+    │   └── facilitator-08.jpg
+    └── venue/
+        └── hebron-center.jpg
+```
+
+If your current filenames differ, update the corresponding paths in the components rather than renaming your original assets.
+
+For additional photographs, use authentic images of Nigerian students, group learning, creative workshops, and mentorship. Use images with appropriate permission and avoid presenting stock photography as documented Project EQUIP activities.
+
+## Run the project
+
+Open a terminal in the project folder and run:
+
+```
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+Before publishing, check the production build:
+
+```
+npm run typecheck
+npm run build
+npm run start
+```
+
+## Final publishing checklist
+
+- Replace all bracketed facilitator names, titles, biographies, and contact details.
+- Insert your original initiative logo and all 20 portraits/outreach images.
+- Verify the actual five-day camp dates against the November 22–28 calendar window.
+- Replace the illustrative budget amounts with the approved seven-item budget.
+- Confirm sponsorship amounts and the official bank details before publishing.
+- Confirm the University of Ibadan counseling arrangements before describing them as an established partnership.
+- Replace draft initiative descriptions with the official PDF's wording where required.
+- Test all navigation links, mobile layouts, forms, and keyboard interactions.
+- Add a real backend only when you're ready to receive registration and contact submissions.
+
+Important: This is a complete frontend foundation, not a verified deployment. I have not run it in your actual project or tested it against your existing source files. Also, because the official PDF and image files were not attached here, the copy is a human-readable draft based on your blueprint rather than a verbatim reproduction of all official paragraphs.
+
+The central design direction is in place: warm editorial typography, a terracotta sculpture, restrained motion, clean financial displays, and consistent responsive page layouts. The remaining step is replacing draft content with your verified materials and testing the integration in your existing repository.

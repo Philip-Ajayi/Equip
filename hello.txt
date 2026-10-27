@@ -1,0 +1,536 @@
+Give me each file containing full production code, each of the file are not in zip but each of the file as a text i can copy individually not download. and let it follow the blueprint and visually attractive,  beautiful and responsive. Give me all the files, each file individually with its full production code as text
+
+----
+
+Leading Minds Leadership Initiative**, a faith-based NGO dedicated to youth transformation, **Project EQUIP 2026 (one of the 3 programs under it) is an intensive 5-day residential boot camp designed to engage and empower 100 secondary school leavers in Oyo State as they transition into tertiary education. Scheduled for November 22–28, 2026, at Hebron Center in Ibadan, the program aims to bridge the critical post-secondary gap by equipping participants with transformational leadership principles, emotional intelligence, entrepreneurial capacity, and practical tech skills, supported by ongoing post-event mentorship and professional counseling from University of Ibadan counselors. To ensure financial constraints do not prevent access for deserving teenagers, this funding proposal seeks ₦8,450,000 in sponsorships and partnerships (₦84,500 per student) to cover accommodation, feeding, training materials, and logistics, ultimately nurturing purpose-driven, innovative young leaders equipped to drive community transformation.
+FOR BREVITY, the official pdf has:
+About the initiative (A paragraph)
+There is a vision (1 sentence), mission (1 sentence), core values (1 sentence + 7 words), Objectives (3 list), Slogan (2 sentence)
+There are 3 programs under the initiative:
+the first two have 2 sentences each describing what it is all about
+The third one is what the website is all about - main reason we are building the website (has 2 paragraph + 10 list of objectives + 5 paragraphs)
+Expected impact of third program has 3 list explaining it (each has an header + 1 short sentence)
+Post event tracking has 2 list  (each has an header + 1 sentence)
+Request for funding support: Items in our budget 7 each which fee in naira and a grand total. To sponsor us there are 4 tiers of sponsorship each has an header + 1 sentence + expected fund we are xpecting from them). We have our accountability policy (1 paragraph and 3 short list)
+Future plans are 3 full lists
+ We have contact info IG, Tiktok, 2 FB, Email and 2 phone numbers
+Training option for the student are: it is for 1 week: We have 2: digital skills (4 skills), Hand skills and creative crafts (4 skills), digital marketing and business fundamentals (3 skills). Each of 11 skills have 2 sentence of which one talk about Focus, second talks about Expected result
+ Timetable: is divided into 3 across 5 days (1-2, 3-4, and 5). Each has a header + sentence explaining it
+Facilitators (8) :
+First Person has only Name, image, Area of Specialization, Business name, Bio “5 paragraphs”
+Second person has: Name, image, Title and Bio (3 paragraph only)
+Third person has Name, image and bio (2 paragraphs only)
+Fourth person has Name, image and bio (4 paragraphs only) 
+And 4 other people
+We also have the covener who has Name, image and bio (4 paragraphs only) 
+You can add many more more random pictures from the internet to different pages as a placeholder to make it very attractive
+We are only focused on UI/UX no need to add backend functions
+
+In public folders we have 
+1. 11 images from our last school outreach
+2. we have the initiative logo
+3. we have all 8 gacilitator images and the convener image
+4. Use many other picture from online that you feel is necessary across all pages
+
+# MINDSHIFT — THE SUPREME DIGITAL EXPERIENCE DESIGN TRIBUNAL
+## Project EQUIP 2026 | Leading Minds Leadership Initiative
+### Master Prompt for World-Class 3D Website Concept Development, Adversarial Design Evaluation, and Technical Blueprinting
+
+---
+
+# MINDSHIFT — THE SUPREME DIGITAL EXPERIENCE DESIGN TRIBUNAL
+## Project EQUIP 2026 | Leading Minds Leadership Initiative
+### Master Creative Blueprint, Adversarial Evaluation Report, and Engineering Specification
+
+
+---
+
+# PART D: FULL VISUAL AND INTERACTION BLUEPRINT
+
+```
++---------------------------------------------------------------------------------------------------+
+|  GLOBAL STICKY HEADER (Glassmorphic Backdrop Blur, 1px Border #0E1318/10)                         |
+|  [Logo: Leading Minds]   Project EQUIP 2026   |   About   Tracks   Schedule   Faculty   [Support] |
++---------------------------------------------------------------------------------------------------+
+|                                                                                                   |
+|   HERO VIEWPORT (Split 7/5 Asymmetric Grid)                                                       |
+|                                                                                                   |
+|   LEFT COLUMN (Typographic Dominance)             RIGHT COLUMN (R3F Interactive Monolith)         |
+|   +------------------------------------------+    +-------------------------------------------+   |
+|   | BADGE: Oyo State Youth Transformation    |    |                                           |   |
+|   |                                          |    |            / \                            |   |
+|   | HEADING (Display Serif):                 |    |           /   \   <-- Procedural Clay     |   |
+|   | The Critical Transition                  |    |          /  *  \      Monolith with       |   |
+|   | From Secondary School                    |    |         / *   * \     Interactive Cursor  |   |
+|   | To Purpose-Driven Power.                 |    |        |    *    |    Orbit & Scroll      |   |
+|   |                                          |    |        |  *   *  |    Displacement        |   |
+|   | LEAD PARAGRAPH:                          |    |        |    *    |                        |   |
+|   | 5-Day Residential Intensive for 100      |    |         \       /                         |   |
+|   | Leavers at Hebron Center, Ibadan.        |    |          \_____/                          |   |
+|   | November 22-28, 2026.                    |    |                                           |   |
+|   |                                          |    | [FLOATING HUD: 100 Seats | ₦84,500/Capita]|   |
+|   | [EXPLORE CURRICULUM]  [SPONSOR A LEAVER] |    +-------------------------------------------+   |
+|   +------------------------------------------+                                                    |
+|                                                                                                   |
++---------------------------------------------------------------------------------------------------+
+|  IMPACT METRICS STRIP (4-Column Monospaced Ledger)                                                |
+|  100 Leavers Empowered  |  5 Days Residential  |  11 Practical Skills  |  ₦8.45M Target Budget    |
++---------------------------------------------------------------------------------------------------+
+|  THE THREE CURRICULUM TRACKS (Interactive Tabbed Accordion with 3D Monolith Alignment)             |
+|  [1. Digital Skills (4)]    |    [2. Creative Crafts (4)]    |    [3. Business Fundamentals (3)]  |
++---------------------------------------------------------------------------------------------------+
+```
+
+### 1. Color Palette & Material Architecture
+* **Ibadan Earthen Terracotta (`#B84A29`)**: Primary brand accent; used for interactive focal points, active states, key data highlights, and 3D surface material highlights. Symbolizes the red earth of Oyo State and foundational shaping.
+* **Deep Nigerian Ink (`#0E1318`)**: Deep neutral background for high-contrast sections; text primary on light backgrounds.
+* **Raw Linen Canvas (`#F7F5F0`)**: Global body surface color. Warm, tactile, non-glare editorial background that reduces eye strain and establishes warmth.
+* **Ancient Slate (`#212832`)**: Secondary dark surface; card backgrounds in dark sections; borders and subtle divider lines.
+* **Hebron Ochre Gold (`#D99B26`)**: Faith-informed purpose accent; badge indicators, financial goal progress fills, and leadership highlights.
+* **UI Emerald Verification (`#1C7C54`)**: Trust and transparency badge color; used in the accountability policy and budget balance checkouts.
+
+### 2. Typography Strategy
+* **Editorial Display Serif**: `Fraunces` (Google Font variable font, Optical Size 9–144, Weights 400–800) or `Instrument Serif`. Expresses dignity, moral gravity, and institutional credibility.
+  * H1 Hero: `text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[1.05]`
+  * H2 Section Headers: `text-3xl md:text-5xl font-normal tracking-tight leading-[1.15]`
+  * H3 Feature Headers: `text-xl md:text-2xl font-medium tracking-normal`
+* **Structural Grotesque Sans**: `Geist Sans` or `Plus Jakarta Sans` (Weights 400, 500, 600, 700). High-legibility UI typography engineered for dense dashboards, track listings, and narrative body copy.
+  * Body Text: `text-base md:text-lg text-[#0E1318]/80 leading-relaxed font-normal`
+  * Captions & Overlines: `text-xs md:text-sm font-semibold tracking-wider uppercase text-[#B84A29]`
+* **Technical Monospace**: `Geist Mono` or `JetBrains Mono`. Financial figures, timetable timestamps, GPS coordinates for Hebron Center, and budget lines.
+  * Ledger Lines: `font-mono text-sm tracking-tight`
+
+### 3. Motion System & Spring Choreography
+* **Motion Engine**: Motion for React (`motion/react`).
+* **Global Spring Preset**: `const springSmooth = { type: "spring", stiffness: 120, damping: 20, mass: 0.8 };`
+* **Scroll-Linked Parallax**: Utilizes `useScroll` and `useTransform` with clamped output ranges to prevent GPU thread locking.
+* **Reduced Motion Compliance**:
+  ```tsx
+  // lib/motion.ts
+  import { useReducedMotion } from "motion/react";
+  export function useAccessibleAnimation() {
+    const shouldReduceMotion = useReducedMotion();
+    return {
+      fadeUp: {
+        initial: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: shouldReduceMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] }
+      }
+    };
+  }
+  ```
+
+### 4. 3D WebGL Monolith Specification (React Three Fiber)
+* **Mesh Definition**: Procedurally generated asymmetrical dodecahedron / sculpted faceted obelisk geometry with chamfered vertices.
+* **Material Properties**: Custom `MeshStandardMaterial` layered with a procedural noise normal map simulating weathered terracotta rock and metallic gold veining:
+  - `roughness`: 0.72
+  - `metalness`: 0.18
+  - `color`: `#B84A29`
+  - `bumpScale`: 0.05
+* **Lighting Rig**:
+  - Key Light: Warm directional light (`#FFF5EB`, intensity: 1.8) at `[5, 8, 5]`.
+  - Fill Light: Cool ambient skylight (`#B0C4DE`, intensity: 0.6) at `[-5, -2, -2]`.
+  - Rim Light: Ochre accent light (`#D99B26`, intensity: 2.2) at `[0, -5, -5]`.
+* **Interaction Loop**: The mesh subtly tracks cursor movement in viewport coordinates via linear interpolation (`lerp` factor: 0.05). On scroll, the monolith rotates 360 degrees around the Y-axis across the height of the document, translating smoothly along the X-axis to avoid obscuring typographic layouts.
+
+---
+
+# PART E: COMPLETE ROUTE AND FILE ARCHITECTURE
+
+```text
+equip-2026/
+├── app/
+│   ├── layout.tsx                     # Global Root Shell (Font bindings, Global Canvas, Navigation, Footer)
+│   ├── page.tsx                       # Home Page (Master Executive Narrative & Portal)
+│   ├── globals.css                    # Tailwind CSS v4 directives & custom theme variables
+│   ├── about/
+│   │   └── page.tsx                   # Initiative Identity, Vision, Mission, Core Values, Objectives
+│   ├── programs/
+│   │   ├── page.tsx                   # The 3 Flagship Programs Overview
+│   │   └── equip-2026/
+│   │       ├── page.tsx               # Program EQUIP 2026 Overview, 10 Objectives, Methodology
+│   │       ├── training/
+│   │       │   └── page.tsx           # 3 Tracks & 11 Skills Deep Dive (Focus + Expected Result)
+│   │       ├── schedule/
+│   │       │   └── page.tsx           # 3-Phase Timetable (Days 1-2, 3-4, 5) & Hebron Center Map
+│   │       ├── facilitators/
+│   │       │   ├── page.tsx           # Faculty Directory (8 Facilitators + Convener)
+│   │       │   └── [slug]/
+│   │       │       └── page.tsx       # Dynamic Individual Profile (Detailed 2-5 Paragraph Bios)
+│   │       └── impact/
+│   │           └── page.tsx           # 3 Expected Impacts, 2 Post-Event Tracking Mechanisms, Future Plans
+│   ├── support/
+│   │   └── page.tsx                   # ₦8.45M Funding Request, 7 Budget Items, 4 Tiers, Accountability
+│   ├── register/
+│   │   └── page.tsx                   # Student Candidate Prototype Application & Counselor Portal
+│   └── contact/
+│       └── page.tsx                   # Channels (IG, TikTok, 2 FB, Email, 2 Phone Numbers, Address)
+│
+├── components/
+│   ├── layout/
+│   │   ├── site-header.tsx            # Sticky Dual-Tier Glassmorphic Header & Mobile Sheet Trigger
+│   │   ├── site-footer.tsx            # Institutional Anchor, Legal, Contact Aggregator, Back-to-Top
+│   │   ├── mobile-nav.tsx             # Full-screen touch-optimized gesture navigation sheet
+│   │   └── route-tracker.tsx          # Updates 3D Canvas camera coordinates on App Router change
+│   ├── three/
+│   │   ├── global-scene.tsx           # Persistent R3F Canvas with WebGL capability detection
+│   │   ├── living-monolith.tsx        # The procedural clay/gold faceted mesh with lerped transforms
+│   │   ├── studio-environment.tsx     # Custom 3-point light rig and shadow planes
+│   │   └── canvas-fallback.tsx        # CSS 3D matrix / static WebP fallback for low-spec devices
+│   ├── ui/
+│   │   ├── button.tsx                 # Accessible kinetic button with magnetic hover variant
+│   │   ├── badge.tsx                  # Monospaced status tag with pulse indicator
+│   │   ├── section-heading.tsx        # Consistent display serif + overline + lead paragraph wrapper
+│   │   ├── stat-counter.tsx           # Scroll-triggered numeric ticker with spring ease
+│   │   ├── accordion.tsx              # Fully accessible ARIA-compliant disclosure panel
+│   │   ├── modal.tsx                  # Accessible dialog portal for quick biographical previews
+│   │   └── card.tsx                   # Standardized card container with subtle hover elevation
+│   ├── equip/
+│   │   ├── track-selector.tsx         # Tabbed track switcher with morphing pill indicator
+│   │   ├── skill-card.tsx             # 2-sentence curriculum presentation card (Focus + Result)
+│   │   ├── schedule-block.tsx         # Phase 1, 2, 3 calendar accordion with date-range flag badge
+│   │   ├── faculty-card.tsx           # Facilitator card with verified image handling and modal trigger
+│   │   ├── budget-table.tsx           # 7-line interactive financial ledger with percentage bar
+│   │   └── sponsorship-tier-card.tsx  # 4-tier interactive sponsorship commitment selector
+│   └── forms/
+│       └── registration-form.tsx      # Comprehensive client-side prototype application form
+│
+├── data/
+│   ├── initiative.ts                  # About, Vision, Mission, Core Values, Objectives, Slogan, 3 Programs
+│   ├── equip-details.ts               # EQUIP Overview, 10 Objectives, Methodology, Flagged Dates
+│   ├── curriculum.ts                  # 3 Tracks, 11 Skills (Explicit Focus + Expected Result sentences)
+│   ├── timetable.ts                   # 3 Phases across 5 Days with Hebron Center venue specifications
+│   ├── faculty.ts                     # Convener + 8 Facilitators with exact paragraph counts preserved
+│   ├── financials.ts                  # ₦8,450,000 Budget (7 items), 4 Tiers, Accountability Policy
+│   └── contact-info.ts                # IG, TikTok, 2 Facebook accounts, Email, 2 Phone numbers
+│
+├── lib/
+│   ├── constants.ts                   # System-wide configuration tokens, site metadata, routes
+│   ├── formatters.ts                  # Naira currency formatter (`₦8,450,000`), date formatters
+│   ├── motion.ts                      # Motion spring configurations and accessible variants
+│   └── utils.ts                       # Tailwind `cn()` helper (clsx + twMerge)
+│
+└── public/
+    ├── images/
+    │   ├── logo/                      # Leading Minds Initiative official vector/png logo
+    │   ├── outreach/                  # 11 outreach photos from previous school missions (outreach-01.jpg .. 11.jpg)
+    │   ├── faculty/                   # Convener + 8 facilitator verified portraits
+    │   └── venue/                     # Hebron Center architectural reference photography
+    └── models/                        # Pre-compiled glTF backup meshes for low-end fallback
+```
+
+---
+
+# PART F: PAGE-BY-PAGE IMPLEMENTATION SPECIFICATION
+
+```
+====================================================================================================
+DETAILED ROUTE BLUEPRINT & SECTION EXECUTION
+====================================================================================================
+```
+
+### 1. Global Shell: `app/layout.tsx`
+* **Route Role**: Root container hosting fonts, global metadata, persistent R3F Canvas, header, and footer.
+* **Component Architecture**:
+  - `SiteHeader`: Glassmorphic navigation header (`backdrop-blur-md bg-[#F7F5F0]/85 border-b border-[#0E1318]/10`).
+  - `GlobalScene`: Viewport-fixed Three.js canvas (`z-index: 0, pointer-events: none`).
+  - `SiteFooter`: Comprehensive multi-column footer displaying initiative vision, rapid links, contact info, and copyright.
+* **Metadata API**:
+  ```typescript
+  export const metadata: Metadata = {
+    title: "Project EQUIP 2026 | Leading Minds Leadership Initiative",
+    description: "An intensive 5-day residential boot camp empowering 100 secondary school leavers in Oyo State transitioning into tertiary education. November 22–28, 2026 at Hebron Center, Ibadan.",
+    keywords: ["Youth Leadership", "Oyo State", "Project EQUIP 2026", "Secondary School Leavers", "Hebron Center Ibadan", "Leading Minds Leadership Initiative"],
+  };
+  ```
+
+---
+
+### 2. Home Page: `app/page.tsx`
+* **Purpose**: Master executive portal uniting teenagers, parents, and financial sponsors through immediate narrative clarity and dimensional distinction.
+* **Target Audience**: All stakeholder cohorts (Students, Parents, Corporate Sponsors, UI Mentors).
+* **Section Order**:
+  1. **Hero Section (`<HomeHero />`)**:
+     - *Visual Layout*: 12-column asymmetric grid. Left 7 columns hold the typographic headline, date/venue badges, and primary actions. Right 5 columns frame the interactive 3D Monolith.
+     - *Content*:
+       - Overline: `Leading Minds Leadership Initiative Presents`
+       - Display H1: `"Bridging The Critical Transition from Secondary School to Purpose-Driven Leadership."`
+       - Subtitle: `"An intensive 5-day residential boot camp engaging and empowering 100 secondary school leavers in Oyo State. November 22–28, 2026 at Hebron Center, Ibadan."`
+       - Action Cluster: Primary CTA `[Apply for Admission]` (anchors to `/register`), Secondary CTA `[Sponsor a Student — ₦84,500]` (anchors to `/support`).
+       - Flagship Metric Pill: `₦8,450,000 Target Sponsorship | ₦84,500 Full Capita per Student`.
+  2. **Executive Mission Strip (`<InitiativeBriefStrip />`)**:
+     - *Content*: The official one-paragraph summary of Leading Minds Leadership Initiative paired with the official Slogan (2 sentences).
+     - *Interactive Stat Bar*: `100 Leavers | 5 Residential Days | 11 Practical Skills | 8 Specialist Facilitators + UI Counselors`.
+  3. **The Post-Secondary Gap Narrative (`<TheTransitionProblem />`)**:
+     - *Layout*: Editorial two-column split with documentary outreach photography (`public/images/outreach/outreach-01.jpg`).
+     - *Narrative*: Addresses the vulnerability of Nigerian teenagers in the vacuum between secondary school graduation and tertiary matriculation. Explains how emotional intelligence, leadership ethics, and market-ready skills prevent disillusionment and youth drift.
+  4. **Curriculum Tracks Preview (`<TracksPreview />`)**:
+     - *Content*: Interactive card carousel showcasing the 3 core pillars:
+       1. Digital Skills (4 skills preview)
+       2. Hand Skills & Creative Crafts (4 skills preview)
+       3. Digital Marketing & Business Fundamentals (3 skills preview)
+     - *CTA*: `[Explore Full 11-Skill Curriculum ->]` to `/programs/equip-2026/training`.
+  5. **Faculty & Mentorship Showcase (`<FacultyTeaser />`)**:
+     - *Layout*: Grid displaying portraits of the Convener and 8 Facilitators. Highlights the integration of professional psychological counseling supported by University of Ibadan counselors.
+     - *CTA*: `[Meet the Mentors & Facilitators ->]` to `/programs/equip-2026/facilitators`.
+  6. **Sponsorship & Accountability Banner (`<FundingCallout />`)**:
+     - *Visual*: Deep Nigerian Slate container (`#0E1318`) with gold accent accents (`#D99B26`).
+     - *Content*: Explicit breakdown of the ₦8,450,000 goal. Explains how ₦84,500 entirely covers accommodation, feeding, training materials, and logistics for one student.
+     - *Action*: `[Review 7-Item Budget & Sponsorship Tiers]` to `/support`.
+
+---
+
+### 3. About the Initiative: `app/about/page.tsx`
+* **Purpose**: Institutional foundation establishing the credibility, faith-informed ethos, governance, and long-term track record of the Leading Minds Leadership Initiative.
+* **Target Audience**: Corporate partners, church leadership, grantmakers, and skeptical parents.
+* **Section Order**:
+  1. **Hero**: Architectural display heading: `"Nurturing Purpose-Driven, Innovative Young Leaders Equipped to Drive Community Transformation."`
+  2. **About the Initiative Paragraph**: Complete, verbatim official paragraph defining the NGO's genesis and community commitment.
+  3. **Vision & Mission Ledger**:
+     - Vision: One clear sentence in display serif.
+     - Mission: One clear sentence in structured grotesque sans.
+  4. **Core Values Grid**:
+     - *Structure*: 1 official introductory sentence + 7 distinct values presented as high-relief stone cards with monospaced Roman numerals (I through VII).
+  5. **Core Objectives**:
+     - *Structure*: The 3 official initiative objectives detailed with accompanying photographic proof from the 11 outreach mission archives.
+  6. **The Initiative Slogan**:
+     - Two distinct sentences displayed in large-scale italic serif quotes with an earthen terracotta left border.
+  7. **The Three Flagship Programs (`<ThreeProgramsGrid />`)**:
+     - *Program 1*: 2 sentences defining its focus and community scope.
+     - *Program 2*: 2 sentences defining its operational youth model.
+     - *Program 3*: **Project EQUIP 2026** (Highlighted as the current active operational focus with a direct portal button into `/programs/equip-2026`).
+
+---
+
+### 4. Project EQUIP 2026 Overview: `app/programs/equip-2026/page.tsx`
+* **Purpose**: Exhaustive operational specification of the boot camp itself.
+* **Target Audience**: Parents seeking safety and curriculum details; students preparing to apply; civic partners.
+* **Section Order**:
+  1. **Hero**: `"Project EQUIP 2026: The Residential Transition Accelerator"`.
+     - Metadata badges: `November 22–28, 2026` | `Hebron Center, Ibadan` | `100 Selected Leavers`.
+     - *Administrative Confirmation Note*: Explicitly notes the 7 calendar days date span and the 5-day residential boot camp format.
+  2. **Comprehensive Overview**: Verbatim presentation of the 2 official introductory paragraphs defining the post-secondary transition gap.
+  3. **The 10 Programmatic Objectives**:
+     - Displayed as an interactive 10-point numbered ledger. Each item features an expandable breakdown explaining its pedagogical approach.
+  4. **The Residential Environment & Methodology**:
+     - Verbatim presentation of the 5 detailed paragraphs describing camp life at Hebron Center, security provisions, spiritual mentorship atmosphere, peer collaboration, and counseling access.
+  5. **University of Ibadan Counseling Partnership**:
+     - Explains the strategic inclusion of professional psychological counselors from UI to guide students through career aptitude, emotional balance, and adolescent transition stresses.
+  6. **Direct Navigation Links**:
+     - Dual cards: `[Explore Training Options (11 Skills)]` and `[View 3-Phase Schedule]`.
+
+---
+
+### 5. Training Tracks & 11 Skills: `app/programs/equip-2026/training/page.tsx`
+* **Purpose**: Definitive pedagogical directory for the 1-week intensive skills program.
+* **Target Audience**: Students eager to select their practical track; parents evaluating real-world utility; sponsors assessing workforce development value.
+* **Interactive Architecture**: A sticky track switcher allowing instant filtering or smooth scrolling across the 3 tracks:
+  ```
+  [Track 01: Digital Skills]   [Track 02: Hand Skills & Crafts]   [Track 03: Marketing & Business]
+  ```
+* **Track 1: Digital Skills (4 Skills)**:
+  - *Skill 1.1*:
+    - **Focus**: Centered on foundational web literacy, visual UI design principles, and responsive structure creation.
+    - **Expected Result**: Participants build and deploy their first responsive portfolio landing page demonstrating semantic structure.
+  - *Skill 1.2*:
+    - **Focus**: Emphasizes practical software problem-solving, algorithmic thinking, and modern programming fundamentals.
+    - **Expected Result**: Students develop interactive utility scripts and demonstrate logical debugging competence.
+  - *Skill 1.3*:
+    - **Focus**: Explores digital asset creation, vector branding, and user-centered interface layout conventions.
+    - **Expected Result**: Leavers construct a cohesive brand identity kit and mobile application prototype.
+  - *Skill 1.4*:
+    - **Focus**: Dedicated to data management fundamentals, spreadsheet automation, and modern digital productivity workflows.
+    - **Expected Result**: Graduates analyze community datasets and generate clear visual intelligence reports.
+* **Track 2: Hand Skills and Creative Crafts (4 Skills)**:
+  - *Skill 2.1*:
+    - **Focus**: Practical tactile fabrication and physical craft construction utilizing local sustainable materials.
+    - **Expected Result**: Participants manufacture finished, market-viable functional home accessories ready for retail presentation.
+  - *Skill 2.2*:
+    - **Focus**: Technical design drafting and precision leathercraft or textile assembly methods.
+    - **Expected Result**: Students complete custom bespoke lifestyle products demonstrating professional stitching and edge finishing.
+  - *Skill 2.3*:
+    - **Focus**: Sustainable artisanal production, creative repurposing, and decorative interior design craftsmanship.
+    - **Expected Result**: Leavers produce a commercial decorative collection ready for micro-enterprise commercialization.
+  - *Skill 2.4*:
+    - **Focus**: Quality assurance, workshop safety protocols, inventory estimation, and physical tooling management.
+    - **Expected Result**: Graduates draft comprehensive workshop operational plans and material yield calculations.
+* **Track 3: Digital Marketing & Business Fundamentals (3 Skills)**:
+  - *Skill 3.1*:
+    - **Focus**: Social media brand architecture, audience segmentation, and organic digital storytelling strategies.
+    - **Expected Result**: Students launch an end-to-end multi-channel promotional campaign with measurable engagement metrics.
+  - *Skill 3.2*:
+    - **Focus**: Micro-enterprise unit economics, basic bookkeeping, cash-flow monitoring, and pricing psychology.
+    - **Expected Result**: Leavers construct a fully balanced 12-month operating budget and customer breakeven model.
+  - *Skill 3.3*:
+    - **Focus**: Value proposition formulation, client negotiation frameworks, and direct sales presentation craft.
+    - **Expected Result**: Participants deliver a live competitive commercial pitch before a panel of invited entrepreneurs.
+
+---
+
+### 6. Program Timetable & Venue: `app/programs/equip-2026/schedule/page.tsx`
+* **Purpose**: Clear, chronological transparency into the 5-day residential journey at Hebron Center.
+* **Target Audience**: Parents wanting safety/logistics itineraries; leavers preparing for camp rhythm.
+* **Structure**: 3 Phase Panels:
+  1. **Phase 1: Days 1–2 (Foundation & Awakening)**:
+     - Header: Verbatim Phase 1 Official Title.
+     - Sentence: Verbatim official descriptive sentence explaining orientation, transformational leadership grounding, and emotional intelligence baseline assessments.
+     - Schedule Highlights: Arrival and room allocation at Hebron Center, opening convocation, cohort formation, and inaugural leadership plenary.
+  2. **Phase 2: Days 3–4 (Intensive Specialization & Applied Craft)**:
+     - Header: Verbatim Phase 2 Official Title.
+     - Sentence: Verbatim official descriptive sentence detailing deep immersion into the 11 practical training tracks and team enterprise simulations.
+     - Schedule Highlights: Hands-on track workshops (Digital, Hand Skills, Marketing), evening mentor roundtables with University of Ibadan counselors, and project sprint sessions.
+  3. **Phase 3: Day 5 (Exhibition, Commissioning & Future Mapping)**:
+     - Header: Verbatim Phase 3 Official Title.
+     - Sentence: Verbatim official descriptive sentence describing project exhibitions, pitch presentations, graduation commissioning, and post-event tracking orientation.
+     - Schedule Highlights: Grand exhibition before invited sponsors and community leaders, award presentations, commitment pledges, and departure logistics.
+* **Venue Intelligence (`<HebronCenterVenueCard />`)**:
+  - Detailed overview of **Hebron Center, Ibadan**: secure gated residential grounds, dedicated workshop spaces, dining halls, and recreational areas creating an environment free from urban distractions.
+
+---
+
+### 7. Facilitators & Convener Directory: `app/programs/equip-2026/facilitators/page.tsx`
+* **Purpose**: Transparent presentation of the 8 faculty leaders and the convener responsible for mentoring the 100 students.
+* **Target Audience**: Everyone (validates institutional competence, moral safety, and subject-matter expertise).
+* **Directory Layout & Biographies**:
+  1. **The Convener**:
+     - *Presentation*: Dedicated full-width featured profile with official portrait (`public/images/faculty/convener.jpg`).
+     - *Content*: Full Name, Official Title, and the complete **4-paragraph biography** detailing vision, youth advocacy history, spiritual leadership, and civic calling.
+  2. **Facilitator 1**:
+     - *Presentation*: Senior faculty card with portrait (`public/images/faculty/facilitator-01.jpg`).
+     - *Content*: Name, Area of Specialization, Business Name, and the complete **5-paragraph biography** tracing industry track record and community impact.
+  3. **Facilitator 2**:
+     - *Presentation*: Faculty card with portrait (`public/images/faculty/facilitator-02.jpg`).
+     - *Content*: Name, Official Title, and the complete **3-paragraph biography**.
+  4. **Facilitator 3**:
+     - *Presentation*: Faculty card with portrait (`public/images/faculty/facilitator-03.jpg`).
+     - *Content*: Name, and the complete **2-paragraph biography**.
+  5. **Facilitator 4**:
+     - *Presentation*: Faculty card with portrait (`public/images/faculty/facilitator-04.jpg`).
+     - *Content*: Name, and the complete **4-paragraph biography**.
+  6. **Facilitators 5, 6, 7, and 8**:
+     - *Presentation*: Clean, structured faculty cards with respective verified portraits (`facilitator-05.jpg` to `facilitator-08.jpg`).
+     - *Content*: Verified names, specialized domain titles, and their official profile text without fabricating biographical credentials.
+  7. **University of Ibadan Counseling Team Mention**:
+     - A dedicated advisory card acknowledging the clinical guidance, career testing, and adolescent counseling delivered by licensed UI counselors throughout the 5 days.
+
+---
+
+### 8. Impact & Post-Event Tracking: `app/programs/equip-2026/impact/page.tsx`
+* **Purpose**: Communicates long-term return on investment to donors and civic partners.
+* **Target Audience**: Sponsors, grantmakers, government education observers.
+* **Content Schema**:
+  1. **Expected Impact of Project EQUIP 2026 (3 Distinct Items)**:
+     - *Impact Item 1*: Header + exactly one short official sentence defining personal agency and self-leadership.
+     - *Impact Item 2*: Header + exactly one short official sentence defining economic independence and marketable capability.
+     - *Impact Item 3*: Header + exactly one short official sentence defining community transformation and ripple-effect peer mentoring.
+  2. **Post-Event Tracking System (2 Distinct Items)**:
+     - *Tracking Item 1*: Header + exactly one official sentence explaining structured 6-month digital check-ins and academic transition tracking.
+     - *Tracking Item 2*: Header + exactly one official sentence explaining physical mentor-mentee reunions and university campus support networks.
+  3. **Future Plans (3 Comprehensive List Items)**:
+     - *Future Plan 1*: Expansion of Project EQUIP to reach 500 secondary school leavers across all 33 Local Government Areas of Oyo State.
+     - *Future Plan 2*: Establishment of the permanent Leading Minds Innovation & Leadership Hub in Ibadan for continuous post-secondary incubation.
+     - *Future Plan 3*: Strategic endowment fund creation to provide direct tertiary scholarships for top-performing boot camp graduates.
+
+---
+
+### 9. Funding, Budget & Sponsorship: `app/support/page.tsx`
+* **Purpose**: The financial engine of the website, delivering radical accountability and straightforward sponsorship mechanisms.
+* **Target Audience**: Philanthropists, Corporate CSR Directors, Faith Foundations, Alumni Donors.
+* **Section Order**:
+  1. **The Funding Appeal Hero**:
+     - Heading: `"Investing in Oyo State’s Next Generation of Purpose-Driven Leaders."`
+     - Prominent Callout: **₦8,450,000 Total Funding Requirement** | **₦84,500 Unit Cost per Student**.
+  2. **Interactive 7-Item Budget Ledger (`<BudgetBreakdownTable />`)**:
+     - Complete itemized presentation of the 7 budget lines in Naira, with percentage distributions and clear explanations:
+       1. *Accommodation*: ₦X,XXX,XXX (Residential lodging at Hebron Center for 100 students + faculty).
+       2. *Feeding & Nutrition*: ₦X,XXX,XXX (3 balanced meals + daily tea breaks for 5 intensive days).
+       3. *Training Materials & Workshop Consumables*: ₦X,XXX,XXX (Tooling for 11 practical tracks).
+       4. *Logistics & Local Transit*: ₦X,XXX,XXX (Secure bus transportation across Oyo State).
+       5. *Faculty & Counseling Honoraria*: ₦X,XXX,XXX (Facilitators + UI counselors stipend).
+       6. *Program Documentation, Media & Security*: ₦X,XXX,XXX (Paramedics, private security, reporting).
+       7. *Administrative & Contingency Buffer*: ₦X,XXX,XXX (Insurance, emergency health coverage).
+       - **Grand Total Calculation**: **₦8,450,000**.
+  3. **The 4 Sponsorship Tiers (`<SponsorshipTiersGrid />`)**:
+     - *Tier 1 (Platinum / Transformational Partner)*:
+       - Header + One Sentence Description + Expected Fund Contribution.
+     - *Tier 2 (Gold / Cohort Sponsor)*:
+       - Header + One Sentence Description + Expected Fund Contribution.
+     - *Tier 3 (Silver / Student Sponsor)*:
+       - Header + One Sentence Description + Expected Fund Contribution (₦84,500 multiples).
+     - *Tier 4 (Bronze / Community Contributor)*:
+       - Header + One Sentence Description + Expected Fund Contribution.
+  4. **Accountability & Governance Policy**:
+     - Verbatim presentation of the official **1-paragraph governance statement**.
+     - Followed by the **3 short list items** defining external auditing, zero-mismanagement policy, and comprehensive post-event financial reporting sent directly to every registered partner.
+  5. **Direct Banking & Support Information**:
+     - Official banking coordinates placeholder (clearly noting verification requirements before transferring real funds).
+
+---
+
+### 10. Registration Portal (Prototype): `app/register/page.tsx`
+* **Purpose**: Interactive, client-side prototype demonstration of the student admission and counselor referral application flow.
+* **UX Architecture**: Accessible multi-step wizard (`Step 1: Student Demographics` -> `Step 2: Educational Background & Oyo LGA` -> `Step 3: Training Track Selection` -> `Step 4: Personal Statement of Purpose` -> `Step 5: Review & Submission`).
+* **Client-Side Validation & Feedback**: Built with strict React state management, demonstrating real-time inline validation, accessible field errors (`aria-invalid`, `aria-describedby`), and a complete interactive success state confirming receipt of the demonstration dossier.
+
+---
+
+### 11. Contact Channels: `app/contact/page.tsx`
+* **Purpose**: Complete institutional reachability across all verified communications channels.
+* **Content Schema**:
+  - **Social Ecosystem**:
+    - Instagram handle link
+    - TikTok channel link
+    - Facebook Profile 1 link
+    - Facebook Profile 2 link
+  - **Direct Channels**:
+    - Official Initiative Email address
+    - Direct Phone Line 1
+    - Direct Phone Line 2
+  - **Physical Headquarters**: Leading Minds Leadership Initiative operational base, Ibadan, Oyo State, Nigeria.
+  - **Interactive Contact Query Form**: Client-side feedback prototype allowing visitors to send inquiries directly to the organizing committee.
+
+---
+
+# PART G: THREE-MONTH DELIVERY PLAN
+
+```
+====================================================================================================
+THREE-MONTH PRODUCTION SCHEDULE & SPRINT ROADMAP
+====================================================================================================
+Stack: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Motion, React Three Fiber
+Velocity: 6 Two-Week Sprints | Target: Hackathon Triumph & Production Launch
+====================================================================================================
+```
+
+```
+[MONTH 1: FOUNDATION & SHELL]
+Week 01 - Sprint 1A: Design Tokens, Tailwind v4, Next.js 16 Project Scaffold & Data Models
+Week 02 - Sprint 1B: Global Navigation, Header/Footer, Accessible UI Primitives, Static Page Shells
+Week 03 - Sprint 2A: Content Integration (Initiative, EQUIP Overview, 10 Objectives, Biographies)
+Week 04 - Sprint 2B: 3 Tracks & 11 Skills Architecture, Schedule Matrix, Responsive Layout Audit
+
+[MONTH 2: SPATIAL 3D & DYNAMIC INTERACTION]
+Week 05 - Sprint 3A: Persistent Global R3F Canvas Setup, Procedural Terracotta Monolith Mesh
+Week 06 - Sprint 3B: Camera Interpolation System linked to App Router, Mobile CSS 3D Fallback
+Week 07 - Sprint 4A: Motion System Integration (Spring transitions, Section Reveals, Accordions)
+Week 08 - Sprint 4B: Financial Ledger Component (7 Budget Items), 4 Sponsorship Tiers Interactive HUD
+
+[MONTH 3: REFINEMENT, AUDIT & DEMO PREPARATION]
+Week 09 - Sprint 5A: Interactive Registration Wizard Prototype with full ARIA & Client Validation
+Week 10 - Sprint 5B: Complete Outreach Photography Integration, Image Optimization, Responsive Polish
+Week 11 - Sprint 6A: Accessibility Audit (WCAG 2.2 AA), Performance Tuning (Lighthouse 95+ target)
+Week 12 - Sprint 6B: Hackathon Demonstration Sequence Scripting, End-to-End Testing, Final God Audit
+```
+
+### Risk Mitigation & Contingency Matrix
+1. **WebGL Thermal Throttling on Low-End Mobile Devices**:
+   - *Risk*: Android devices running low-power GPUs experience frame stuttering on continuous R3F render loops.
+   - *Mitigation*: The `GlobalScene` component interrogates `navigator.hardwareConcurrency` and WebGL context limits. On devices with `< 4GB RAM` or explicit mobile user agents, real-time 3D rendering is bypassed in favor of a CSS 3D matrix transform displaying pre-rendered, high-resolution WebP views of the monolith. Zero performance penalty.
+2. **Layout Shift during Route Navigation**:
+   - *Risk*: Soft-page transitions in Next.js App Router causing jarring content jumps while the 3D camera orbits.
+   - *Mitigation*: Content containers use fixed min-height wrappers (`min-h-[calc(100vh-5rem)]`) and enter/exit opacity transitions managed by Motion for React with exit animations completed before scroll restoration.
+3. **Delayed Verification of Training Track Texts**:
+   - *Risk*: Stakeholders deliver the final 2-sentence strings for the 11 skills late in Month 2.
+   - *Mitigation*: The `data/curriculum.ts` file isolates content completely from the UI layer. The UI is built and tested against typed schema interfaces (`SkillItem { id: string; name: string; focus: string; expectedResult: string; }`), allowing instant string replacement without touching UI logic.
+
+---
