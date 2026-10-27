@@ -24,7 +24,7 @@ export default function EquipPage() {
       />
 
       {/* Quick Metadata Bar */}
-      <section className="border-b border-black/10 bg-[#fffdf8]">
+      <section className="border-b border-black/10 bg-[#ffffff]">
         <div className="page-shell grid gap-5 py-7 sm:grid-cols-3">
           {[
             { icon: CalendarDays, label: "Program dates", value: initiative.dateLabel },
@@ -32,7 +32,7 @@ export default function EquipPage() {
             { icon: Users, label: "Student cohort", value: `${initiative.participants} sponsored places` },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f0e7db] text-[#b84a29]">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f0e7db] text-[#5925dc]">
                 <item.icon size={19} />
               </div>
               <div>
@@ -70,7 +70,7 @@ export default function EquipPage() {
       </section>
 
       {/* 11 Objectives Grid (Dynamic Count) */}
-      <section className="section-space bg-[#fffdf8]">
+      <section className="section-space bg-[#ffffff]">
         <div className="page-shell">
           <p className="eyebrow">Program Pillars</p>
           <h2 className="section-title">
@@ -80,8 +80,8 @@ export default function EquipPage() {
           <div className="mt-9 grid gap-3 md:grid-cols-2">
             {initiative.equipObjectives.map((objective, index) => (
               <Reveal key={objective}>
-                <div className="flex h-full items-start gap-4 rounded-2xl border border-black/10 bg-white p-5 transition hover:border-[#b84a29]/40">
-                  <span className="font-mono text-xs font-bold text-[#b84a29]">
+                <div className="flex h-full items-start gap-4 rounded-2xl border border-black/10 bg-white p-5 transition hover:border-[#5925dc]/40">
+                  <span className="font-mono text-xs font-bold text-[#5925dc]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm font-medium leading-7 text-[#2f302b]">
@@ -112,9 +112,9 @@ export default function EquipPage() {
               {initiative.methodology.map((item) => (
                 <Reveal key={item.title}>
                   <div className="flex gap-4 rounded-2xl border border-black/10 bg-white p-5">
-                    <CheckCircle2 className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                    <CheckCircle2 className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                     <div>
-                      <h3 className="font-semibold text-[#0e1318]">{item.title}</h3>
+                      <h3 className="font-semibold text-[#0a0f1d]">{item.title}</h3>
                       <p className="mt-2 text-sm leading-7 text-[#66675f]">
                         {item.text}
                       </p>

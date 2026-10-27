@@ -73,10 +73,10 @@ export default function ImpactPage() {
               <Reveal key={item.number}>
                 <article className="panel card-hover h-full rounded-3xl border border-black/10 bg-white p-6 md:p-8">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-[#b84a29]">
+                    <span className="font-mono text-xs font-bold text-[#5925dc]">
                       {item.number}
                     </span>
-                    <item.icon size={24} className="text-[#b84a29]" />
+                    <item.icon size={24} className="text-[#5925dc]" />
                   </div>
                   <h3 className="display mt-8 text-2xl md:text-3xl">{item.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-[#66675f]">
@@ -132,7 +132,7 @@ export default function ImpactPage() {
             {futurePlans.map((plan, index) => (
               <Reveal key={plan.title}>
                 <article className="grid gap-4 rounded-2xl border border-black/10 bg-white p-6 md:grid-cols-[70px_1fr] md:p-8">
-                  <span className="font-mono text-lg font-bold text-[#b84a29]">
+                  <span className="font-mono text-lg font-bold text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <div>

@@ -37,7 +37,7 @@ export default function FacilitatorsPage() {
           <button
             type="button"
             onClick={() => setSelected(convener.id)}
-            className="group grid w-full gap-7 rounded-3xl border border-black/10 bg-white p-5 text-left transition hover:border-[#b84a29]/40 hover:shadow-lg md:grid-cols-[300px_1fr] md:p-8"
+            className="group grid w-full gap-7 rounded-3xl border border-black/10 bg-white p-5 text-left transition hover:border-[#5925dc]/40 hover:shadow-lg md:grid-cols-[300px_1fr] md:p-8"
           >
             <div className="image-frame aspect-[0.9] max-h-[420px] bg-[#f0eae1] flex items-center justify-center">
               {convener.image ? (
@@ -50,7 +50,7 @@ export default function FacilitatorsPage() {
                   }}
                 />
               ) : (
-                <div className="flex flex-col items-center justify-center text-[#b84a29]/60">
+                <div className="flex flex-col items-center justify-center text-[#5925dc]/60">
                   <User size={64} strokeWidth={1.5} />
                   <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#66675f]">
                     Convener
@@ -61,10 +61,10 @@ export default function FacilitatorsPage() {
 
             <div className="flex flex-col justify-center">
               <p className="eyebrow">Program Leadership</p>
-              <h3 className="display mt-4 text-4xl md:text-5xl group-hover:text-[#b84a29] transition-colors">
+              <h3 className="display mt-4 text-4xl md:text-5xl group-hover:text-[#5925dc] transition-colors">
                 {convener.name}
               </h3>
-              <p className="mt-3 text-sm font-semibold text-[#b84a29]">
+              <p className="mt-3 text-sm font-semibold text-[#5925dc]">
                 {convener.role}
               </p>
               <p className="mt-4 text-sm leading-7 text-[#66675f]">
@@ -92,7 +92,7 @@ export default function FacilitatorsPage() {
                 type="button"
                 key={person.id}
                 onClick={() => setSelected(person.id)}
-                className="panel card-hover group overflow-hidden rounded-2xl border border-black/10 bg-white text-left transition hover:border-[#b84a29]/40 hover:shadow-md"
+                className="panel card-hover group overflow-hidden rounded-2xl border border-black/10 bg-white text-left transition hover:border-[#5925dc]/40 hover:shadow-md"
               >
                 <div className="image-frame aspect-[0.9] overflow-hidden bg-[#f0eae1]">
                   {person.image ? (
@@ -106,7 +106,7 @@ export default function FacilitatorsPage() {
                       }}
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center text-[#b84a29]/40">
+                    <div className="flex h-full w-full items-center justify-center text-[#5925dc]/40">
                       <User size={48} />
                     </div>
                   )}
@@ -114,7 +114,7 @@ export default function FacilitatorsPage() {
 
                 <div className="p-6">
                   <div className="flex items-center justify-between">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#b84a29]">
+                    <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#5925dc]">
                       FACILITATOR {String(index + 1).padStart(2, "0")}
                     </p>
                     {person.business && (
@@ -123,13 +123,13 @@ export default function FacilitatorsPage() {
                       </span>
                     )}
                   </div>
-                  <h3 className="mt-3 text-lg font-bold group-hover:text-[#b84a29] transition-colors">
+                  <h3 className="mt-3 text-lg font-bold group-hover:text-[#5925dc] transition-colors">
                     {person.name}
                   </h3>
                   <p className="mt-2 text-xs leading-5 text-[#66675f] line-clamp-2">
                     {person.specialization}
                   </p>
-                  <span className="text-link mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#b84a29]">
+                  <span className="text-link mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#5925dc]">
                     View biography <ArrowUpRight size={14} />
                   </span>
                 </div>
@@ -138,8 +138,8 @@ export default function FacilitatorsPage() {
           </div>
 
           {/* Counseling & Welfare Support (Official Partnership) */}
-          <div className="mt-14 rounded-3xl bg-[#e8e1d4] p-7 md:p-10 border border-[#d6ccbc]">
-            <p className="eyebrow text-[#b84a29]">Post-Event Welfare & Mentorship</p>
+          <div className="mt-14 rounded-3xl bg-[#ede9fe] p-7 md:p-10 border border-[#ddd6fe]">
+            <p className="eyebrow text-[#5925dc]">Post-Event Welfare & Mentorship</p>
             <h2 className="display mt-3 text-3xl md:text-4xl">
               Professional counseling and sustained mentorship.
             </h2>
@@ -164,19 +164,19 @@ export default function FacilitatorsPage() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="faculty-dialog-title"
-            className="max-h-[90dvh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-[#f7f5f0] p-6 shadow-2xl sm:rounded-3xl sm:p-9"
+            className="max-h-[90dvh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-[#f8f9fc] p-6 shadow-2xl sm:rounded-3xl sm:p-9"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-5 border-b border-black/10 pb-5">
               <div>
-                <p className="eyebrow text-[#b84a29]">Faculty Profile</p>
+                <p className="eyebrow text-[#5925dc]">Faculty Profile</p>
                 <h2
                   id="faculty-dialog-title"
                   className="display mt-2 text-3xl md:text-4xl"
                 >
                   {activePerson.name}
                 </h2>
-                <p className="mt-1.5 text-sm font-semibold text-[#b84a29]">
+                <p className="mt-1.5 text-sm font-semibold text-[#5925dc]">
                   {activePerson.role}
                 </p>
                 <p className="mt-1 text-xs text-[#66675f]">

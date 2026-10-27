@@ -65,10 +65,10 @@ export default function SchedulePage() {
               { icon: MapPin, label: "Location", value: "Hebron Center, Idi-Ishin, Ibadan" },
             ].map((item) => (
               <div key={item.label} className="panel flex items-center gap-4 rounded-2xl border border-black/10 bg-white p-5 shadow-xs">
-                <item.icon size={22} className="shrink-0 text-[#b84a29]" />
+                <item.icon size={22} className="shrink-0 text-[#5925dc]" />
                 <div>
                   <p className="text-xs text-[#77766e]">{item.label}</p>
-                  <p className="mt-1 text-sm font-bold text-[#0e1318]">{item.value}</p>
+                  <p className="mt-1 text-sm font-bold text-[#0a0f1d]">{item.value}</p>
                 </div>
               </div>
             ))}
@@ -82,17 +82,17 @@ export default function SchedulePage() {
                 className="grid gap-7 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[220px_1fr] md:p-9"
               >
                 <div>
-                  <span className="font-mono text-xs font-bold text-[#b84a29]">
+                  <span className="font-mono text-xs font-bold text-[#5925dc]">
                     PHASE {phase.number}
                   </span>
                   <h2 className="display mt-3 text-3xl">{phase.days}</h2>
-                  <div className="mt-4 inline-flex rounded-full bg-[#f2e5d6] px-3 py-1 text-xs font-semibold text-[#96381d]">
+                  <div className="mt-4 inline-flex rounded-full bg-[#f0ecfc] px-3 py-1 text-xs font-semibold text-[#3e1699]">
                     Curriculum Phase
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="display text-3xl md:text-4xl text-[#0e1318]">
+                  <h3 className="display text-3xl md:text-4xl text-[#0a0f1d]">
                     {phase.title}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-[#66675f]">
@@ -103,9 +103,9 @@ export default function SchedulePage() {
                     {phase.activities.map((activity) => (
                       <div
                         key={activity}
-                        className="flex items-start gap-3 rounded-xl bg-[#f7f5f0] p-4 text-sm"
+                        className="flex items-start gap-3 rounded-xl bg-[#f8f9fc] p-4 text-sm"
                       >
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#b84a29]" />
+                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#5925dc]" />
                         <span className="leading-6 text-[#3b3c37]">{activity}</span>
                       </div>
                     ))}
@@ -129,7 +129,7 @@ export default function SchedulePage() {
               />
             </div>
 
-            <div className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-9 flex flex-col justify-between">
+            <div className="rounded-3xl bg-[#0a0f1d] p-7 text-white md:p-9 flex flex-col justify-between">
               <div>
                 <MapPin size={24} className="text-[#e9ae56]" />
                 <p className="eyebrow mt-4 text-[#e9ae56]">The Venue</p>

@@ -153,12 +153,12 @@ export default function RegisterPage() {
               <div key={label}>
                 <div
                   className={`h-1.5 rounded-full ${
-                    index <= step ? "bg-[#b84a29]" : "bg-black/10"
+                    index <= step ? "bg-[#5925dc]" : "bg-black/10"
                   }`}
                 />
                 <p
                   className={`mt-2 text-[10px] ${
-                    index === step ? "font-bold text-[#b84a29]" : "text-[#77766e]"
+                    index === step ? "font-bold text-[#5925dc]" : "text-[#77766e]"
                   }`}
                 >
                   {String(index + 1).padStart(2, "0")} · {label}
@@ -299,7 +299,7 @@ export default function RegisterPage() {
                       key={track.id}
                       className={`flex cursor-pointer gap-4 rounded-2xl border p-5 transition-colors ${
                         form.track === track.id
-                          ? "border-[#b84a29] bg-[#fbf0e9]"
+                          ? "border-[#5925dc] bg-[#f4f0fd]"
                           : "border-black/10"
                       }`}
                     >
@@ -309,7 +309,7 @@ export default function RegisterPage() {
                         value={track.id}
                         checked={form.track === track.id}
                         onChange={(e) => update("track", e.target.value)}
-                        className="mt-1 accent-[#b84a29]"
+                        className="mt-1 accent-[#5925dc]"
                       />
                       <span>
                         <span className="block font-semibold">{track.title}</span>

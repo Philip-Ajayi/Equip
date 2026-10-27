@@ -85,18 +85,18 @@ function HeroInteractiveHub() {
   return (
     <div className="relative mx-auto w-full max-w-[540px] lg:ml-auto">
       {/* Ambient background glow */}
-      <div className="absolute inset-4 rounded-3xl bg-[#e7c3a4]/30 blur-2xl" />
+      <div className="absolute inset-4 rounded-3xl bg-[#c4b5fd]/30 blur-2xl" />
 
       {/* Main Interactive Deck */}
-      <div className="relative overflow-hidden rounded-[28px] border border-black/10 bg-[#fffdf8] p-6 shadow-xl transition-all">
+      <div className="relative overflow-hidden rounded-[28px] border border-black/10 bg-[#ffffff] p-6 shadow-xl transition-all">
         {/* Top Header & Tab Switcher */}
         <div className="flex items-center justify-between border-b border-black/10 pb-4">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#b84a29] opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#b84a29]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#5925dc] opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#5925dc]" />
             </span>
-            <span className="font-mono text-[11px] font-semibold tracking-wider text-[#0e1318]">
+            <span className="font-mono text-[11px] font-semibold tracking-wider text-[#0a0f1d]">
               COHORT 2026 PREVIEW
             </span>
           </div>
@@ -106,8 +106,8 @@ function HeroInteractiveHub() {
               onClick={() => setActiveTab("skills")}
               className={`rounded-full px-3 py-1 transition ${
                 activeTab === "skills"
-                  ? "bg-[#b84a29] text-white shadow-sm"
-                  : "text-[#66675f] hover:text-[#0e1318]"
+                  ? "bg-[#5925dc] text-white shadow-sm"
+                  : "text-[#66675f] hover:text-[#0a0f1d]"
               }`}
             >
               Skills
@@ -116,8 +116,8 @@ function HeroInteractiveHub() {
               onClick={() => setActiveTab("schedule")}
               className={`rounded-full px-3 py-1 transition ${
                 activeTab === "schedule"
-                  ? "bg-[#b84a29] text-white shadow-sm"
-                  : "text-[#66675f] hover:text-[#0e1318]"
+                  ? "bg-[#5925dc] text-white shadow-sm"
+                  : "text-[#66675f] hover:text-[#0a0f1d]"
               }`}
             >
               5 Days
@@ -126,8 +126,8 @@ function HeroInteractiveHub() {
               onClick={() => setActiveTab("impact")}
               className={`rounded-full px-3 py-1 transition ${
                 activeTab === "impact"
-                  ? "bg-[#b84a29] text-white shadow-sm"
-                  : "text-[#66675f] hover:text-[#0e1318]"
+                  ? "bg-[#5925dc] text-white shadow-sm"
+                  : "text-[#66675f] hover:text-[#0a0f1d]"
               }`}
             >
               Impact
@@ -148,7 +148,7 @@ function HeroInteractiveHub() {
                   onClick={() => setActiveSkillCategory(idx)}
                   className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
                     activeSkillCategory === idx
-                      ? "border-[#b84a29] bg-[#b84a29]/10 text-[#b84a29]"
+                      ? "border-[#5925dc] bg-[#5925dc]/10 text-[#5925dc]"
                       : "border-black/10 bg-white text-[#66675f] hover:border-black/20"
                   }`}
                 >
@@ -157,17 +157,17 @@ function HeroInteractiveHub() {
               ))}
             </div>
 
-            <div className="mt-4 rounded-2xl border border-black/5 bg-[#f7f5f0] p-4">
-              <p className="text-[11px] font-mono uppercase tracking-wider text-[#b84a29]">
+            <div className="mt-4 rounded-2xl border border-black/5 bg-[#f8f9fc] p-4">
+              <p className="text-[11px] font-mono uppercase tracking-wider text-[#5925dc]">
                 Hands-on Workshops
               </p>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {skillsData[activeSkillCategory].skills.map((skill) => (
                   <span
                     key={skill}
-                    className="flex items-center gap-1 rounded-md bg-white px-2.5 py-1 text-xs font-medium text-[#0e1318] shadow-2xs"
+                    className="flex items-center gap-1 rounded-md bg-white px-2.5 py-1 text-xs font-medium text-[#0a0f1d] shadow-2xs"
                   >
-                    <Check size={12} className="text-[#b84a29]" />
+                    <Check size={12} className="text-[#5925dc]" />
                     {skill}
                   </span>
                 ))}
@@ -189,16 +189,16 @@ function HeroInteractiveHub() {
               {schedulePreview.map((item) => (
                 <div
                   key={item.day}
-                  className="flex items-center justify-between rounded-xl border border-black/5 bg-[#f7f5f0] p-2.5"
+                  className="flex items-center justify-between rounded-xl border border-black/5 bg-[#f8f9fc] p-2.5"
                 >
                   <div>
-                    <span className="font-mono text-[10px] font-bold text-[#b84a29]">
+                    <span className="font-mono text-[10px] font-bold text-[#5925dc]">
                       {item.day}
                     </span>
-                    <p className="text-xs font-bold text-[#0e1318]">{item.title}</p>
+                    <p className="text-xs font-bold text-[#0a0f1d]">{item.title}</p>
                     <p className="text-[11px] text-[#66675f]">{item.desc}</p>
                   </div>
-                  <Calendar size={18} className="text-[#b84a29]/60 shrink-0" />
+                  <Calendar size={18} className="text-[#5925dc]/60 shrink-0" />
                 </div>
               ))}
             </div>
@@ -217,7 +217,7 @@ function HeroInteractiveHub() {
                     onClick={() => setSponsoredCount(qty)}
                     className={`h-7 w-7 rounded-full text-xs font-bold transition ${
                       sponsoredCount === qty
-                        ? "bg-[#b84a29] text-white"
+                        ? "bg-[#5925dc] text-white"
                         : "border border-black/10 bg-white text-[#66675f]"
                     }`}
                   >
@@ -227,7 +227,7 @@ function HeroInteractiveHub() {
               </div>
             </div>
 
-            <div className="mt-4 rounded-2xl bg-[#0e1318] p-4 text-white">
+            <div className="mt-4 rounded-2xl bg-[#0a0f1d] p-4 text-white">
               <p className="text-[11px] text-white/60">Total Sponsorship Impact</p>
               <p className="display mt-1 text-2xl font-bold text-[#e9ae56]">
                 {formatNaira(unitCost * sponsoredCount)}
@@ -250,7 +250,7 @@ function HeroInteractiveHub() {
 
             <Link
               href="/support"
-              className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-[#b84a29] py-2.5 text-xs font-bold text-white transition hover:bg-[#a13f22]"
+              className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-[#5925dc] py-2.5 text-xs font-bold text-white transition hover:bg-[#3e1699]"
             >
               Sponsor {sponsoredCount} {sponsoredCount === 1 ? "student" : "students"}{" "}
               <ArrowRight size={14} />
@@ -261,12 +261,12 @@ function HeroInteractiveHub() {
         {/* Bottom Micro-Card */}
         <div className="mt-2 flex items-center justify-between border-t border-black/10 pt-3 text-xs">
           <div className="flex items-center gap-1.5 text-[#66675f]">
-            <Award size={15} className="text-[#b84a29]" />
+            <Award size={15} className="text-[#5925dc]" />
             <span>100 full scholarships</span>
           </div>
           <Link
             href="/programs/equip-2026/training"
-            className="flex items-center gap-1 font-semibold text-[#b84a29] hover:underline"
+            className="flex items-center gap-1 font-semibold text-[#5925dc] hover:underline"
           >
             All 11 skills <ArrowUpRight size={13} />
           </Link>
@@ -293,7 +293,7 @@ export default function HomePage() {
 
             <h1 className="display mt-7 max-w-[760px] text-6xl sm:text-7xl lg:text-[86px]">
               The next chapter starts{" "}
-              <span className="text-[#b84a29]">with you.</span>
+              <span className="text-[#5925dc]">with you.</span>
             </h1>
 
             <p className="section-copy mt-7 max-w-[570px]">
@@ -322,14 +322,14 @@ export default function HomePage() {
 
             <div className="mt-10 flex items-center gap-4 border-t border-black/10 pt-6">
               <div className="flex -space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#e4c7b3]">
-                  <Users size={16} className="text-[#0e1318]" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#e4c7b3]">
+                  <Users size={16} className="text-[#0a0f1d]" />
                 </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#d9b98b]">
-                  <Compass size={16} className="text-[#0e1318]" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#d9b98b]">
+                  <Compass size={16} className="text-[#0a0f1d]" />
                 </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#c7d4bf]">
-                  <HeartHandshake size={16} className="text-[#0e1318]" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#c7d4bf]">
+                  <HeartHandshake size={16} className="text-[#0a0f1d]" />
                 </div>
               </div>
               <p className="max-w-xs text-xs leading-6 text-[#66675f]">
@@ -344,7 +344,7 @@ export default function HomePage() {
       </section>
 
       {/* Metrics Banner */}
-      <section className="border-y border-black/10 bg-[#fffdf8]">
+      <section className="border-y border-black/10 bg-[#ffffff]">
         <div className="page-shell grid grid-cols-2 gap-6 py-8 md:grid-cols-4 md:gap-4">
           {[
             ["100", "Sponsored student places"],
@@ -394,8 +394,8 @@ export default function HomePage() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-[#e8e1d4] p-5 md:p-7">
-                <Compass className="text-[#b84a29]" size={24} />
+              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-[#ede9fe] p-5 md:p-7">
+                <Compass className="text-[#5925dc]" size={24} />
                 <div>
                   <p className="display text-3xl">Room to grow.</p>
                   <p className="mt-2 text-xs leading-6 text-[#66675f]">
@@ -413,7 +413,7 @@ export default function HomePage() {
         <div className="page-shell">
           <div className="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <p className="eyebrow text-[#b84a29]">Secondary School Outreaches</p>
+              <p className="eyebrow text-[#5925dc]">Secondary School Outreaches</p>
               <h2 className="display text-3xl md:text-4xl">Engaging teenagers where they are.</h2>
             </div>
             <p className="text-xs text-[#66675f] max-w-sm">
@@ -487,7 +487,7 @@ export default function HomePage() {
         <div className="page-shell">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="eyebrow text-[#b84a29]">The team behind the program</p>
+              <p className="eyebrow text-[#5925dc]">The team behind the program</p>
               <h2 className="section-title">
                 Mentorship makes all the difference.
               </h2>
@@ -519,12 +519,12 @@ export default function HomePage() {
                         className="transition duration-300 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center text-[#b84a29]/50">
+                      <div className="flex h-full w-full items-center justify-center text-[#5925dc]/50">
                         <User size={38} />
                       </div>
                     )}
                   </div>
-                  <p className="mt-3 text-sm font-bold text-[#0e1318] group-hover:text-[#b84a29] transition-colors">
+                  <p className="mt-3 text-sm font-bold text-[#0a0f1d] group-hover:text-[#5925dc] transition-colors">
                     {person.name}
                   </p>
                   <p className="mt-1 text-xs text-[#66675f] line-clamp-1">
@@ -540,7 +540,7 @@ export default function HomePage() {
       {/* Call to Action Sponsorship Banner */}
       <section className="section-space-sm">
         <div className="page-shell">
-          <div className="relative overflow-hidden rounded-[30px] bg-[#b84a29] p-7 text-white md:p-12 lg:p-16">
+          <div className="relative overflow-hidden rounded-[30px] bg-[#5925dc] p-7 text-white md:p-12 lg:p-16">
             <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full border border-white/20" />
             <div className="absolute -right-4 -top-12 h-52 w-52 rounded-full border border-white/20" />
 
@@ -558,7 +558,7 @@ export default function HomePage() {
 
               <Link
                 href="/support"
-                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-white px-6 text-sm font-bold text-[#0e1318] transition hover:bg-[#f2e5d6] lg:self-end"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-white px-6 text-sm font-bold text-[#0a0f1d] transition hover:bg-[#f0ecfc] lg:self-end"
               >
                 Sponsor a student <ArrowRight size={16} />
               </Link>
@@ -580,7 +580,7 @@ export default function HomePage() {
       </section>
 
       {/* Value Marquee */}
-      <section className="overflow-hidden border-y border-black/10 bg-[#fffdf8] py-5">
+      <section className="overflow-hidden border-y border-black/10 bg-[#ffffff] py-5">
         <div className="marquee-track">
           <div className="marquee">
             {[0, 1].map((copy) => (
@@ -595,7 +595,7 @@ export default function HomePage() {
                     key={`${copy}-${item}`}
                     className="mx-7 flex items-center gap-7 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-[#66675f]"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#b84a29]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#5925dc]" />
                     {item}
                   </span>
                 ))}

@@ -34,17 +34,17 @@ export default function SupportPage() {
   return (
     <>
       {/* Interactive Hero (Replaces PageHero — Zero 3D Monolith, Zero Sparkles) */}
-      <section className="grid-lines border-b border-black/10 bg-[#fffdf8]">
+      <section className="grid-lines border-b border-black/10 bg-[#ffffff]">
         <div className="page-shell grid min-h-[600px] items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="animate-in">
             <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#b84a29]" />
+              <span className="h-2 w-2 rounded-full bg-[#5925dc]" />
               <p className="eyebrow">Support the Next Generation</p>
             </div>
 
             <h1 className="display mt-5 max-w-[760px] text-5xl sm:text-6xl lg:text-[76px]">
               Help make room for{" "}
-              <span className="text-[#b84a29]">100 young people</span> to grow.
+              <span className="text-[#5925dc]">100 young people</span> to grow.
             </h1>
 
             <p className="section-copy mt-6 max-w-[580px]">
@@ -55,10 +55,10 @@ export default function SupportPage() {
 
             <div className="mt-8 flex flex-wrap gap-3 text-xs font-semibold">
               <span className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-4 py-2">
-                <Users size={14} className="text-[#b84a29]" /> 100 Student Cohort
+                <Users size={14} className="text-[#5925dc]" /> 100 Student Cohort
               </span>
               <span className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-4 py-2">
-                <Target size={14} className="text-[#b84a29]" /> ₦8.45M Campaign Goal
+                <Target size={14} className="text-[#5925dc]" /> ₦8.45M Campaign Goal
               </span>
               <span className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-4 py-2">
                 <ShieldCheck size={14} className="text-[#1c7c54]" /> Verified Allocation
@@ -77,13 +77,13 @@ export default function SupportPage() {
 
           {/* Interactive Sponsorship Impact Calculator */}
           <div className="relative mx-auto w-full max-w-[500px] lg:ml-auto">
-            <div className="absolute inset-4 rounded-3xl bg-[#e7c3a4]/25 blur-2xl" />
+            <div className="absolute inset-4 rounded-3xl bg-[#c4b5fd]/25 blur-2xl" />
 
             <div className="relative overflow-hidden rounded-[28px] border border-black/10 bg-white p-6 shadow-xl md:p-8">
               <div className="flex items-center justify-between border-b border-black/10 pb-4">
                 <div className="flex items-center gap-2">
-                  <Calculator size={16} className="text-[#b84a29]" />
-                  <span className="font-mono text-[11px] font-bold tracking-wider text-[#b84a29]">
+                  <Calculator size={16} className="text-[#5925dc]" />
+                  <span className="font-mono text-[11px] font-bold tracking-wider text-[#5925dc]">
                     IMPACT CALCULATOR
                   </span>
                 </div>
@@ -100,8 +100,8 @@ export default function SupportPage() {
                       onClick={() => setSponsorCount(qty)}
                       className={`rounded-xl py-2.5 text-xs font-bold transition ${
                         sponsorCount === qty
-                          ? "bg-[#b84a29] text-white shadow-xs"
-                          : "border border-black/10 bg-[#f7f5f0] text-[#0e1318] hover:border-black/30"
+                          ? "bg-[#5925dc] text-white shadow-xs"
+                          : "border border-black/10 bg-[#f8f9fc] text-[#0a0f1d] hover:border-black/30"
                       }`}
                     >
                       {qty} {qty === 1 ? "Youth" : "Youths"}
@@ -111,7 +111,7 @@ export default function SupportPage() {
               </div>
 
               {/* Dynamic Cost Display */}
-              <div className="mt-5 rounded-2xl bg-[#0e1318] p-5 text-white">
+              <div className="mt-5 rounded-2xl bg-[#0a0f1d] p-5 text-white">
                 <p className="text-[11px] text-white/60">Calculated Sponsorship Impact</p>
                 <p className="display mt-1 text-3xl font-bold text-[#e9ae56]">
                   {formatNaira(totalPledge)}
@@ -145,7 +145,7 @@ export default function SupportPage() {
               {/* Direct Action Link */}
               <Link
                 href={`/contact?topic=sponsorship&students=${sponsorCount}`}
-                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#b84a29] py-3 text-xs font-bold text-white transition hover:bg-[#a13f22]"
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#5925dc] py-3 text-xs font-bold text-white transition hover:bg-[#3e1699]"
               >
                 Sponsor {sponsorCount} {sponsorCount === 1 ? "Student" : "Students"} ({formatNaira(totalPledge)})
                 <ArrowRight size={14} />
@@ -159,7 +159,7 @@ export default function SupportPage() {
       <section className="section-space-sm">
         <div className="page-shell">
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-3xl bg-[#0e1318] p-6 text-white md:p-8">
+            <div className="rounded-3xl bg-[#0a0f1d] p-6 text-white md:p-8">
               <p className="eyebrow text-[#e9ae56]">Funding target</p>
               <p className="display mt-4 text-4xl md:text-5xl">₦8.45m</p>
               <p className="mt-3 text-xs leading-6 text-white/55">
@@ -208,7 +208,7 @@ export default function SupportPage() {
       </section>
 
       {/* Sponsorship Tiers (Clean Icons — No Sparkles) */}
-      <section id="sponsorship-tiers" className="section-space bg-[#fffdf8]">
+      <section id="sponsorship-tiers" className="section-space bg-[#ffffff]">
         <div className="page-shell">
           <p className="eyebrow">Choose how to help</p>
           <h2 className="section-title">There is more than one way to make a difference.</h2>
@@ -230,15 +230,15 @@ export default function SupportPage() {
                     aria-pressed={active}
                     className={`card-hover flex h-full w-full flex-col rounded-3xl border p-6 text-left transition-colors ${
                       active
-                        ? "border-[#b84a29] bg-[#f7e8de]"
+                        ? "border-[#5925dc] bg-[#f0ecfc]"
                         : "border-black/10 bg-white"
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs text-[#b84a29]">
+                      <span className="font-mono text-xs text-[#5925dc]">
                         0{index + 1}
                       </span>
-                      <TierIcon size={19} className="text-[#b84a29]" />
+                      <TierIcon size={19} className="text-[#5925dc]" />
                     </div>
 
                     <h3 className="display mt-7 text-3xl">{tier.title}</h3>
@@ -252,8 +252,8 @@ export default function SupportPage() {
                     </p>
 
                     <div className="mt-6 flex items-center justify-between border-t border-black/10 pt-4 text-xs font-semibold">
-                      <span className="text-[#0e1318]">{tier.benefit}</span>
-                      <span className="text-[#b84a29]">{active ? "Selected" : "Select"}</span>
+                      <span className="text-[#0a0f1d]">{tier.benefit}</span>
+                      <span className="text-[#5925dc]">{active ? "Selected" : "Select"}</span>
                     </div>
                   </button>
                 </Reveal>
@@ -262,14 +262,14 @@ export default function SupportPage() {
           </div>
 
           {selected && (
-            <div className="mt-6 rounded-3xl border border-[#b84a29]/30 bg-white p-6 shadow-sm md:p-8">
+            <div className="mt-6 rounded-3xl border border-[#5925dc]/30 bg-white p-6 shadow-sm md:p-8">
               <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
                 <div>
-                  <p className="eyebrow text-[#b84a29]">Your selected tier</p>
+                  <p className="eyebrow text-[#5925dc]">Your selected tier</p>
                   <h3 className="display mt-2 text-3xl">{selected.title}</h3>
                   <p className="mt-2 text-sm text-[#66675f]">
                     Proposed contribution:{" "}
-                    <strong className="text-[#0e1318]">
+                    <strong className="text-[#0a0f1d]">
                       {formatNaira(selected.amount)}
                     </strong>
                   </p>
@@ -314,7 +314,7 @@ export default function SupportPage() {
                     className="mt-1 shrink-0 text-[#1c7c54]"
                   />
                   <div>
-                    <h3 className="text-sm font-bold text-[#0e1318]">{item.title}</h3>
+                    <h3 className="text-sm font-bold text-[#0a0f1d]">{item.title}</h3>
                     <p className="mt-1 text-sm leading-7 text-[#526657]">
                       {item.description}
                     </p>
@@ -329,7 +329,7 @@ export default function SupportPage() {
       {/* Ready to Talk CTA */}
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-12">
+          <div className="rounded-3xl bg-[#0a0f1d] p-7 text-white md:p-12">
             <p className="eyebrow text-[#e9ae56]">Ready to talk?</p>
             <h2 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
               Let&apos;s discuss a partnership that makes sense for you.

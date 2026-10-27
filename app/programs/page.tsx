@@ -21,7 +21,7 @@ export default function ProgramsPage() {
               key={program.number}
               className="grid gap-6 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[100px_1fr_auto] md:items-center md:p-9"
             >
-              <span className="font-mono text-3xl text-[#b84a29]">
+              <span className="font-mono text-3xl text-[#5925dc]">
                 {program.number}
               </span>
               <div>
@@ -50,7 +50,7 @@ export default function ProgramsPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#0e1318] p-8 text-white md:p-12">
+          <div className="rounded-3xl bg-[#0a0f1d] p-8 text-white md:p-12">
             <p className="eyebrow text-[#e9ae56]">Our current focus</p>
             <h2 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
               Project EQUIP 2026 brings leadership and practical learning together.

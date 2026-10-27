@@ -19,7 +19,7 @@ export default function TrainingPage() {
       <section className="section-space">
         <div className="page-shell">
           <div className="mb-9 flex flex-wrap gap-3">
-            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold text-[#b84a29]">
+            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold text-[#5925dc]">
               {totalSkills} practical skills
             </span>
             <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold">
@@ -36,8 +36,8 @@ export default function TrainingPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#e8e1d4] p-7 md:p-10 border border-[#d6ccbc]">
-            <p className="eyebrow text-[#b84a29]">Our Training Philosophy</p>
+          <div className="rounded-3xl bg-[#ede9fe] p-7 md:p-10 border border-[#ddd6fe]">
+            <p className="eyebrow text-[#5925dc]">Our Training Philosophy</p>
             <h2 className="display mt-3 text-3xl md:text-5xl">
               Learn it. Make it. Put it to use.
             </h2>

@@ -30,14 +30,14 @@ export default function AboutPage() {
       <section className="section-space">
         <div className="page-shell grid gap-6 md:grid-cols-2">
           <Reveal className="panel rounded-3xl border border-black/10 bg-white p-7 md:p-10">
-            <span className="eyebrow text-[#b84a29]">Our vision</span>
+            <span className="eyebrow text-[#5925dc]">Our vision</span>
             <h2 className="display mt-4 text-3xl md:text-4xl">What we see ahead.</h2>
             <p className="mt-5 text-sm leading-8 text-[#66675f]">
               {initiative.vision}
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-10">
+          <Reveal delay={0.1} className="rounded-3xl bg-[#0a0f1d] p-7 text-white md:p-10">
             <span className="eyebrow text-[#e9ae56]">Our mission</span>
             <h2 className="display mt-4 text-3xl md:text-4xl">What we do daily.</h2>
             <p className="mt-5 text-sm leading-8 text-white/70">
@@ -48,10 +48,10 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="section-space bg-[#fffdf8]">
+      <section className="section-space bg-[#ffffff]">
         <div className="page-shell">
           <div className="max-w-2xl">
-            <p className="eyebrow text-[#b84a29]">The values we live by</p>
+            <p className="eyebrow text-[#5925dc]">The values we live by</p>
             <h2 className="section-title">Character matters as much as competence.</h2>
             <p className="section-copy">{initiative.valuesIntro}</p>
           </div>
@@ -60,7 +60,7 @@ export default function AboutPage() {
             {initiative.values.map((value, index) => (
               <Reveal key={value} delay={index * 0.035}>
                 <div className="card-hover panel h-full rounded-2xl border border-black/10 bg-white p-6 shadow-xs">
-                  <span className="font-mono text-xs font-bold text-[#b84a29]">
+                  <span className="font-mono text-xs font-bold text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <h3 className="display mt-6 text-2xl md:text-3xl">{value}</h3>
@@ -90,11 +90,11 @@ export default function AboutPage() {
             {initiative.objectives.map((objective, index) => (
               <Reveal key={objective.title}>
                 <div className="flex gap-5 rounded-2xl border border-black/10 bg-white p-5 md:p-7 shadow-xs">
-                  <span className="font-mono text-sm font-bold text-[#b84a29]">
+                  <span className="font-mono text-sm font-bold text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#0e1318]">
+                    <h3 className="text-lg font-semibold text-[#0a0f1d]">
                       {objective.title}
                     </h3>
                     <p className="mt-2 text-sm leading-7 text-[#66675f]">
@@ -141,19 +141,19 @@ export default function AboutPage() {
               <Reveal key={program.number}>
                 <article className="panel card-hover flex h-full flex-col rounded-3xl border border-black/10 bg-white p-6 md:p-8 shadow-xs">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-[#b84a29]">
+                    <span className="font-mono text-xs font-bold text-[#5925dc]">
                       PROGRAM {program.number}
                     </span>
                     {program.number === "03" ? (
-                      <Lightbulb className="text-[#b84a29]" size={22} />
+                      <Lightbulb className="text-[#5925dc]" size={22} />
                     ) : (
-                      <Heart className="text-[#b84a29]" size={22} />
+                      <Heart className="text-[#5925dc]" size={22} />
                     )}
                   </div>
                   <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.14em] text-[#77766e]">
                     {program.status}
                   </p>
-                  <h3 className="display mt-2 text-2xl md:text-3xl text-[#0e1318]">
+                  <h3 className="display mt-2 text-2xl md:text-3xl text-[#0a0f1d]">
                     {program.title}
                   </h3>
                   <p className="mt-4 flex-1 text-sm leading-7 text-[#66675f]">
@@ -165,7 +165,7 @@ export default function AboutPage() {
                         ? "/programs/equip-2026"
                         : "/programs"
                     }
-                    className="text-link mt-7 inline-flex items-center gap-1.5 text-xs font-bold text-[#b84a29]"
+                    className="text-link mt-7 inline-flex items-center gap-1.5 text-xs font-bold text-[#5925dc]"
                   >
                     Learn more <ArrowRight size={14} />
                   </Link>
@@ -179,9 +179,9 @@ export default function AboutPage() {
       {/* Accountability Statement */}
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#e8e1d4] p-7 md:p-10 border border-[#d6ccbc]">
-            <ShieldCheck size={28} className="text-[#b84a29]" />
-            <h2 className="display mt-4 text-3xl md:text-4xl text-[#0e1318]">
+          <div className="rounded-3xl bg-[#ede9fe] p-7 md:p-10 border border-[#ddd6fe]">
+            <ShieldCheck size={28} className="text-[#5925dc]" />
+            <h2 className="display mt-4 text-3xl md:text-4xl text-[#0a0f1d]">
               A mission rooted in trust and stewardship.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-[#55564f]">
