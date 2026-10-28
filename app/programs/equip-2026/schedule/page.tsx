@@ -62,7 +62,7 @@ export default function SchedulePage() {
             {[
               { icon: CalendarDays, label: "Program dates", value: "November 22–28, 2026" },
               { icon: Clock3, label: "Camp format", value: "5-day residential boot camp" },
-              { icon: MapPin, label: "Location", value: "Hebron Center, Idi-Ishin, Ibadan" },
+              { icon: MapPin, label: "Location", value: "Jericho, Ibadan" },
             ].map((item) => (
               <div key={item.label} className="panel flex items-center gap-4 rounded-2xl border border-black/10 bg-white p-5 shadow-xs">
                 <item.icon size={22} className="shrink-0 text-[#5925dc]" />
@@ -124,7 +124,7 @@ export default function SchedulePage() {
             <div className="image-frame min-h-[320px] rounded-3xl overflow-hidden">
               <SafeImage
                 src="/images/venue/hebron-center.jpg"
-                alt="Hebron Center, Idi-Ishin, Ibadan"
+                alt="Jericho, Ibadan"
                 loading="lazy"
               />
             </div>
@@ -133,7 +133,7 @@ export default function SchedulePage() {
               <div>
                 <MapPin size={24} className="text-[#e9ae56]" />
                 <p className="eyebrow mt-4 text-[#e9ae56]">The Venue</p>
-                <h2 className="display mt-2 text-3xl md:text-4xl">Hebron Center, Idi-Ishin, Ibadan</h2>
+                <h2 className="display mt-2 text-3xl md:text-4xl">Jericho, Ibadan</h2>
                 <p className="mt-4 text-sm leading-7 text-white/70">
                   A secure, conducive, and fully equipped residential facility providing safe lodging,
                   catered dining halls, technical labs, and creative workshops for all 100 participants.

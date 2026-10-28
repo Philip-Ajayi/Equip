@@ -163,7 +163,7 @@ export default function SupportPage() {
               <p className="eyebrow text-[#e9ae56]">Funding target</p>
               <p className="display mt-4 text-4xl md:text-5xl">₦8.45m</p>
               <p className="mt-3 text-xs leading-6 text-white/55">
-                Proposed total requirement for 100 students at Hebron Center.
+                Proposed total requirement for 100 students.
               </p>
             </div>
 

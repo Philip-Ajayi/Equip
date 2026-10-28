@@ -41,7 +41,7 @@ function HeroInteractiveHub() {
   const [activeSkillCategory, setActiveSkillCategory] = useState<number>(0);
   const [sponsoredCount, setSponsoredCount] = useState<number>(1);
 
-  // Aligned with the official 11 Project EQUIP curriculum tracks
+  // Aligned with the official 13 Project EQUIP curriculum tracks
   const skillsData = [
     {
       category: "Digital Skills",
@@ -69,6 +69,8 @@ function HeroInteractiveHub() {
         "Social Media Growth",
         "Financial Costing & Margins",
         "Personal Digital Branding",
+        "Public Speaking & Pitching Skill",
+        "Leadership & Team Development",
       ],
       outcome: "A 7-day content schedule, product unit-pricing sheet, and optimized professional profile.",
     },
@@ -268,7 +270,7 @@ function HeroInteractiveHub() {
             href="/programs/equip-2026/training"
             className="flex items-center gap-1 font-semibold text-[#5925dc] hover:underline"
           >
-            All 11 skills <ArrowUpRight size={13} />
+            All 13 skills <ArrowUpRight size={13} />
           </Link>
         </div>
       </div>
@@ -349,7 +351,7 @@ export default function HomePage() {
           {[
             ["100", "Sponsored student places"],
             ["05", "Residential learning days"],
-            ["11", "Practical skills"],
+            ["13", "Practical skills"],
             ["₦8.45m", "Total campaign funding"],
           ].map(([value, label]) => (
             <div key={label} className="border-l border-black/10 pl-4 md:pl-6">
@@ -453,7 +455,7 @@ export default function HomePage() {
               href="/programs/equip-2026/training"
               className="outline-button border-white/20 text-white hover:bg-white/10"
             >
-              Explore all 11 skills <ArrowRight size={16} />
+              Explore all 13 skills <ArrowRight size={16} />
             </Link>
           </div>
 
