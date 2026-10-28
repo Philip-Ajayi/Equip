@@ -49,7 +49,7 @@ In public folders we have
 
 ```
 +---------------------------------------------------------------------------------------------------+
-|  GLOBAL STICKY HEADER (Glassmorphic Backdrop Blur, 1px Border #0E1318/10)                         |
+|  GLOBAL STICKY HEADER (Glassmorphic Backdrop Blur, 1px Border #0a0f1d/10)                         |
 |  [Logo: Leading Minds]   Project EQUIP 2026   |   About   Tracks   Schedule   Faculty   [Support] |
 +---------------------------------------------------------------------------------------------------+
 |                                                                                                   |
@@ -82,9 +82,9 @@ In public folders we have
 ```
 
 ### 1. Color Palette & Material Architecture
-* **Ibadan Earthen Terracotta (`#B84A29`)**: Primary brand accent; used for interactive focal points, active states, key data highlights, and 3D surface material highlights. Symbolizes the red earth of Oyo State and foundational shaping.
-* **Deep Nigerian Ink (`#0E1318`)**: Deep neutral background for high-contrast sections; text primary on light backgrounds.
-* **Raw Linen Canvas (`#F7F5F0`)**: Global body surface color. Warm, tactile, non-glare editorial background that reduces eye strain and establishes warmth.
+* **Ibadan Earthen Terracotta (`#5925dc`)**: Primary brand accent; used for interactive focal points, active states, key data highlights, and 3D surface material highlights. Symbolizes the red earth of Oyo State and foundational shaping.
+* **Deep Nigerian Ink (`#0a0f1d`)**: Deep neutral background for high-contrast sections; text primary on light backgrounds.
+* **Raw Linen Canvas (`#f8f9fc`)**: Global body surface color. Warm, tactile, non-glare editorial background that reduces eye strain and establishes warmth.
 * **Ancient Slate (`#212832`)**: Secondary dark surface; card backgrounds in dark sections; borders and subtle divider lines.
 * **Hebron Ochre Gold (`#D99B26`)**: Faith-informed purpose accent; badge indicators, financial goal progress fills, and leadership highlights.
 * **UI Emerald Verification (`#1C7C54`)**: Trust and transparency badge color; used in the accountability policy and budget balance checkouts.
@@ -95,8 +95,8 @@ In public folders we have
   * H2 Section Headers: `text-3xl md:text-5xl font-normal tracking-tight leading-[1.15]`
   * H3 Feature Headers: `text-xl md:text-2xl font-medium tracking-normal`
 * **Structural Grotesque Sans**: `Geist Sans` or `Plus Jakarta Sans` (Weights 400, 500, 600, 700). High-legibility UI typography engineered for dense dashboards, track listings, and narrative body copy.
-  * Body Text: `text-base md:text-lg text-[#0E1318]/80 leading-relaxed font-normal`
-  * Captions & Overlines: `text-xs md:text-sm font-semibold tracking-wider uppercase text-[#B84A29]`
+  * Body Text: `text-base md:text-lg text-[#0a0f1d]/80 leading-relaxed font-normal`
+  * Captions & Overlines: `text-xs md:text-sm font-semibold tracking-wider uppercase text-[#5925dc]`
 * **Technical Monospace**: `Geist Mono` or `JetBrains Mono`. Financial figures, timetable timestamps, GPS coordinates for Hebron Center, and budget lines.
   * Ledger Lines: `font-mono text-sm tracking-tight`
 
@@ -125,7 +125,7 @@ In public folders we have
 * **Material Properties**: Custom `MeshStandardMaterial` layered with a procedural noise normal map simulating weathered terracotta rock and metallic gold veining:
   - `roughness`: 0.72
   - `metalness`: 0.18
-  - `color`: `#B84A29`
+  - `color`: `#5925dc`
   - `bumpScale`: 0.05
 * **Lighting Rig**:
   - Key Light: Warm directional light (`#FFF5EB`, intensity: 1.8) at `[5, 8, 5]`.
@@ -232,7 +232,7 @@ DETAILED ROUTE BLUEPRINT & SECTION EXECUTION
 ### 1. Global Shell: `app/layout.tsx`
 * **Route Role**: Root container hosting fonts, global metadata, persistent R3F Canvas, header, and footer.
 * **Component Architecture**:
-  - `SiteHeader`: Glassmorphic navigation header (`backdrop-blur-md bg-[#F7F5F0]/85 border-b border-[#0E1318]/10`).
+  - `SiteHeader`: Glassmorphic navigation header (`backdrop-blur-md bg-[#f8f9fc]/85 border-b border-[#0a0f1d]/10`).
   - `GlobalScene`: Viewport-fixed Three.js canvas (`z-index: 0, pointer-events: none`).
   - `SiteFooter`: Comprehensive multi-column footer displaying initiative vision, rapid links, contact info, and copyright.
 * **Metadata API**:
@@ -274,7 +274,7 @@ DETAILED ROUTE BLUEPRINT & SECTION EXECUTION
      - *Layout*: Grid displaying portraits of the Convener and 8 Facilitators. Highlights the integration of professional psychological counseling supported by University of Ibadan counselors.
      - *CTA*: `[Meet the Mentors & Facilitators ->]` to `/programs/equip-2026/facilitators`.
   6. **Sponsorship & Accountability Banner (`<FundingCallout />`)**:
-     - *Visual*: Deep Nigerian Slate container (`#0E1318`) with gold accent accents (`#D99B26`).
+     - *Visual*: Deep Nigerian Slate container (`#0a0f1d`) with gold accent accents (`#D99B26`).
      - *Content*: Explicit breakdown of the ₦8,450,000 goal. Explains how ₦84,500 entirely covers accommodation, feeding, training materials, and logistics for one student.
      - *Action*: `[Review 7-Item Budget & Sponsorship Tiers]` to `/support`.
 

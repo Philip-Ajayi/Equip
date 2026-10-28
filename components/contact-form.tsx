@@ -18,7 +18,7 @@ export default function ContactForm() {
     return (
       <div className="rounded-3xl border border-[#1c7c54]/20 bg-[#eaf3e9] p-8 md:p-10 text-left">
         <CheckCircle2 size={32} className="text-[#1c7c54]" />
-        <h3 className="display mt-4 text-2xl md:text-3xl text-[#0e1318]">
+        <h3 className="display mt-4 text-2xl md:text-3xl text-[#0a0f1d]">
           Thank you for reaching out.
         </h3>
         <p className="mt-2 text-sm leading-7 text-[#3f5746]">
@@ -40,11 +40,11 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className="field-label block text-xs font-semibold text-[#0e1318] mb-1.5" htmlFor="contact-name">
+          <label className="field-label block text-xs font-semibold text-[#0a0f1d] mb-1.5" htmlFor="contact-name">
             Your name
           </label>
           <input
-            className="input-field w-full rounded-xl border border-black/10 bg-[#fbf9f5] px-4 py-3 text-sm outline-none transition focus:border-[#b84a29]"
+            className="input-field w-full rounded-xl border border-black/10 bg-[#fbf9f5] px-4 py-3 text-sm outline-none transition focus:border-[#5925dc]"
             id="contact-name"
             name="name"
             placeholder="Full name"
@@ -54,11 +54,11 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label className="field-label block text-xs font-semibold text-[#0e1318] mb-1.5" htmlFor="contact-email">
+          <label className="field-label block text-xs font-semibold text-[#0a0f1d] mb-1.5" htmlFor="contact-email">
             Email address
           </label>
           <input
-            className="input-field w-full rounded-xl border border-black/10 bg-[#fbf9f5] px-4 py-3 text-sm outline-none transition focus:border-[#b84a29]"
+            className="input-field w-full rounded-xl border border-black/10 bg-[#fbf9f5] px-4 py-3 text-sm outline-none transition focus:border-[#5925dc]"
             id="contact-email"
             name="email"
             type="email"
@@ -70,11 +70,11 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="field-label block text-xs font-semibold text-[#0e1318] mb-1.5" htmlFor="contact-topic">
+        <label className="field-label block text-xs font-semibold text-[#0a0f1d] mb-1.5" htmlFor="contact-topic">
           What would you like to discuss?
         </label>
         <select
-          className="input-field w-full rounded-xl border border-black/10 bg-[#fbf9f5] px-4 py-3 text-sm outline-none transition focus:border-[#b84a29]"
+          className="input-field w-full rounded-xl border border-black/10 bg-[#fbf9f5] px-4 py-3 text-sm outline-none transition focus:border-[#5925dc]"
           id="contact-topic"
           name="topic"
           defaultValue="sponsorship"
@@ -87,11 +87,11 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="field-label block text-xs font-semibold text-[#0e1318] mb-1.5" htmlFor="contact-message">
+        <label className="field-label block text-xs font-semibold text-[#0a0f1d] mb-1.5" htmlFor="contact-message">
           Your message
         </label>
         <textarea
-          className="input-field min-h-32 w-full resize-y rounded-xl border border-black/10 bg-[#fbf9f5] p-4 text-sm outline-none transition focus:border-[#b84a29]"
+          className="input-field min-h-32 w-full resize-y rounded-xl border border-black/10 bg-[#fbf9f5] p-4 text-sm outline-none transition focus:border-[#5925dc]"
           id="contact-message"
           name="message"
           placeholder="Tell us a little about your enquiry or organization..."

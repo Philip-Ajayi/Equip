@@ -289,11 +289,11 @@ export default function HomePage() {
       <section className="grid-lines overflow-hidden">
         <div className="page-shell grid min-h-[650px] items-center gap-10 py-12 md:py-20 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="animate-in">
-            <p className="eyebrow">Leading Minds Leadership Initiative presents</p>
+            <p className="eyebrow">Leading Minds Leadership Initiative presents Project Equip</p>
 
             <h1 className="display mt-7 max-w-[760px] text-6xl sm:text-7xl lg:text-[86px]">
               The next chapter starts{" "}
-              <span className="text-[#5925dc]">with you.</span>
+              <span className="text-[#322b46]">with you.</span>
             </h1>
 
             <p className="section-copy mt-7 max-w-[570px]">

@@ -12,7 +12,7 @@ export default function BudgetLedger() {
 
   return (
     <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
-      <div className="flex flex-col justify-between gap-5 bg-[#0e1318] p-6 text-white md:flex-row md:items-end md:p-8">
+      <div className="flex flex-col justify-between gap-5 bg-[#0a0f1d] p-6 text-white md:flex-row md:items-end md:p-8">
         <div>
           <p className="eyebrow text-[#e9ae56]">Provisional budget</p>
           <p className="display mt-3 text-4xl md:text-5xl">
@@ -49,7 +49,7 @@ export default function BudgetLedger() {
                 aria-expanded={isOpen}
                 className="grid w-full grid-cols-[30px_1fr_auto_18px] items-center gap-3 py-5 text-left md:grid-cols-[40px_1fr_150px_115px_20px]"
               >
-                <span className="font-mono text-xs text-[#b84a29]">
+                <span className="font-mono text-xs text-[#5925dc]">
                   0{index + 1}
                 </span>
 
@@ -59,7 +59,7 @@ export default function BudgetLedger() {
                   </span>
                   <span className="mt-2 block h-1.5 w-full overflow-hidden rounded-full bg-[#eee9df] md:max-w-[200px]">
                     <span
-                      className="block h-full rounded-full bg-[#b84a29]"
+                      className="block h-full rounded-full bg-[#5925dc]"
                       style={{ width: `${percentage}%` }}
                     />
                   </span>
@@ -80,7 +80,7 @@ export default function BudgetLedger() {
               </button>
 
               {isOpen && (
-                <div className="mb-5 ml-10 rounded-xl bg-[#f7f5f0] p-4 md:ml-[52px]">
+                <div className="mb-5 ml-10 rounded-xl bg-[#f8f9fc] p-4 md:ml-[52px]">
                   <p className="text-sm leading-7 text-[#66675f]">
                     {item.description}
                   </p>
@@ -93,7 +93,7 @@ export default function BudgetLedger() {
           );
         })}
 
-        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#f7f5f0] p-5">
+        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#f8f9fc] p-5">
           <div>
             <p className="text-sm font-bold">Grand total</p>
             <p className="mt-1 text-xs text-[#66675f]">

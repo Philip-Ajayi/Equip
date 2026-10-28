@@ -16,7 +16,7 @@ const footerLinks = [
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#0e1318] text-white">
+    <footer className="bg-[#0a0f1d] text-white">
       <div className="page-shell py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr_0.8fr]">
           {/* Brand & Mission Statement */}

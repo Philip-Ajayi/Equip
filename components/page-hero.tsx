@@ -48,7 +48,7 @@ export default function PageHero({
 
           <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 rounded-2xl border border-white/50 bg-white/85 p-4 backdrop-blur-lg md:inset-x-5 md:bottom-5">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#b84a29]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#5925dc]">
                 Project EQUIP 2026
               </p>
               <p className="mt-1 text-sm font-semibold">

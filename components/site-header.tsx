@@ -22,7 +22,7 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f7f5f0]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f9fc]/90 backdrop-blur-xl">
       <div className="page-shell flex min-h-[76px] items-center justify-between gap-5">
         <Link
           href="/"
@@ -46,10 +46,10 @@ export default function SiteHeader() {
 
           <div className="leading-tight">
             <span className="block text-[13px] font-bold tracking-tight">
-              Leading Minds
+              Project
             </span>
             <span className="mt-1 block text-[9px] uppercase tracking-[0.15em] text-[#77766e]">
-              Leadership Initiative
+              Equip
             </span>
           </div>
         </Link>
@@ -62,9 +62,9 @@ export default function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[12px] font-semibold transition-colors hover:text-[#b84a29] ${
+              className={`text-[12px] font-semibold transition-colors hover:text-[#5925dc] ${
                 pathname === link.href
-                  ? "text-[#b84a29]"
+                  ? "text-[#5925dc]"
                   : "text-[#4d504d]"
               }`}
             >
@@ -98,7 +98,7 @@ export default function SiteHeader() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className="border-t border-black/10 bg-[#f7f5f0] px-[18px] py-5 lg:hidden"
+          className="border-t border-black/10 bg-[#f8f9fc] px-[18px] py-5 lg:hidden"
         >
           <div className="mx-auto flex max-w-[1240px] flex-col">
             {links.map((link, index) => (
@@ -109,7 +109,7 @@ export default function SiteHeader() {
                 className="flex items-center justify-between border-b border-black/10 py-4 text-sm font-semibold"
               >
                 <span>{link.label}</span>
-                <span className="font-mono text-xs text-[#b84a29]">
+                <span className="font-mono text-xs text-[#5925dc]">
                   0{index + 1}
                 </span>
               </Link>

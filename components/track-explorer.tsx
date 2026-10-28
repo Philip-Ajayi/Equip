@@ -37,8 +37,8 @@ export default function TrackExplorer() {
               }}
               className={`rounded-2xl border p-5 text-left transition-all ${
                 active
-                  ? "border-[#b84a29] bg-[#b84a29] text-white"
-                  : "border-black/10 bg-white hover:border-[#b84a29]/50"
+                  ? "border-[#5925dc] bg-[#5925dc] text-white"
+                  : "border-black/10 bg-white hover:border-[#5925dc]/50"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -90,7 +90,7 @@ export default function TrackExplorer() {
                     setExpandedSkill(expanded ? null : skill.id)
                   }
                 >
-                  <span className="font-mono text-xs text-[#b84a29]">
+                  <span className="font-mono text-xs text-[#5925dc]">
                     {track.number}.{index + 1}
                   </span>
 
@@ -109,7 +109,7 @@ export default function TrackExplorer() {
                 {expanded && (
                   <div className="grid gap-5 px-5 pb-7 pl-[52px] md:grid-cols-2 md:px-7 md:pl-[68px]">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#b84a29]">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5925dc]">
                         What you will learn
                       </p>
                       <p className="mt-2 text-sm leading-7 text-[#66675f]">

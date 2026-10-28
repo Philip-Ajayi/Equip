@@ -184,12 +184,12 @@ This is the visual foundation. The warm canvas, oversized serif headings, fine b
 @import "tailwindcss";
 
 @theme {
-  --color-linen: #f7f5f0;
-  --color-paper: #fffdf8;
-  --color-ink: #0e1318;
+  --color-linen: #f8f9fc;
+  --color-paper: #ffffff;
+  --color-ink: #0a0f1d;
   --color-slate: #212832;
-  --color-clay: #b84a29;
-  --color-clay-dark: #96381d;
+  --color-clay: #5925dc;
+  --color-clay-dark: #3e1699;
   --color-ochre: #d99b26;
   --color-sage: #dfe7dc;
   --color-emerald: #1c7c54;
@@ -199,11 +199,11 @@ This is the visual foundation. The warm canvas, oversized serif headings, fine b
 
 :root {
   color-scheme: light;
-  --page: #f7f5f0;
-  --ink: #0e1318;
+  --page: #f8f9fc;
+  --ink: #0a0f1d;
   --muted: #66675f;
   --line: rgba(14, 19, 24, 0.12);
-  --clay: #b84a29;
+  --clay: #5925dc;
   --radius-card: 24px;
 }
 
@@ -525,7 +525,7 @@ img {
   background:
     radial-gradient(ellipse at 33% 22%, rgba(255, 231, 197, 0.75), transparent 20%),
     radial-gradient(ellipse at 65% 60%, rgba(94, 29, 14, 0.7), transparent 44%),
-    linear-gradient(130deg, #d37a51 0%, #b84a29 38%, #722f21 75%, #30231f 100%);
+    linear-gradient(130deg, #d37a51 0%, #5925dc 38%, #722f21 75%, #30231f 100%);
   box-shadow:
     inset -24px -20px 60px rgba(14, 19, 24, 0.3),
     inset 10px 5px 30px rgba(255, 255, 255, 0.12),
@@ -1252,7 +1252,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f7f5f0",
+  themeColor: "#f8f9fc",
 };
 
 export default function RootLayout({
@@ -1303,7 +1303,7 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f7f5f0]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f9fc]/90 backdrop-blur-xl">
       <div className="page-shell flex min-h-[76px] items-center justify-between gap-5">
         <Link
           href="/"
@@ -1343,9 +1343,9 @@ export default function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[12px] font-semibold transition-colors hover:text-[#b84a29] ${
+              className={`text-[12px] font-semibold transition-colors hover:text-[#5925dc] ${
                 pathname === link.href
-                  ? "text-[#b84a29]"
+                  ? "text-[#5925dc]"
                   : "text-[#4d504d]"
               }`}
             >
@@ -1379,7 +1379,7 @@ export default function SiteHeader() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className="border-t border-black/10 bg-[#f7f5f0] px-[18px] py-5 lg:hidden"
+          className="border-t border-black/10 bg-[#f8f9fc] px-[18px] py-5 lg:hidden"
         >
           <div className="mx-auto flex max-w-[1240px] flex-col">
             {links.map((link, index) => (
@@ -1390,7 +1390,7 @@ export default function SiteHeader() {
                 className="flex items-center justify-between border-b border-black/10 py-4 text-sm font-semibold"
               >
                 <span>{link.label}</span>
-                <span className="font-mono text-xs text-[#b84a29]">
+                <span className="font-mono text-xs text-[#5925dc]">
                   0{index + 1}
                 </span>
               </Link>
@@ -1445,12 +1445,12 @@ const footerLinks = [
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#0e1318] text-white">
+    <footer className="bg-[#0a0f1d] text-white">
       <div className="page-shell py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr_0.8fr]">
           <div>
             <Link href="/" className="inline-flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#b84a29] font-serif text-xl">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#5925dc] font-serif text-xl">
                 L
               </div>
               <div>
@@ -1597,7 +1597,7 @@ export default function PageHero({
 
           <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 rounded-2xl border border-white/50 bg-white/85 p-4 backdrop-blur-lg md:inset-x-5 md:bottom-5">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#b84a29]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#5925dc]">
                 Project EQUIP 2026
               </p>
               <p className="mt-1 text-sm font-semibold">
@@ -1706,8 +1706,8 @@ export default function TrackExplorer() {
               }}
               className={`rounded-2xl border p-5 text-left transition-all ${
                 active
-                  ? "border-[#b84a29] bg-[#b84a29] text-white"
-                  : "border-black/10 bg-white hover:border-[#b84a29]/50"
+                  ? "border-[#5925dc] bg-[#5925dc] text-white"
+                  : "border-black/10 bg-white hover:border-[#5925dc]/50"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -1759,7 +1759,7 @@ export default function TrackExplorer() {
                     setExpandedSkill(expanded ? null : skill.id)
                   }
                 >
-                  <span className="font-mono text-xs text-[#b84a29]">
+                  <span className="font-mono text-xs text-[#5925dc]">
                     {track.number}.{index + 1}
                   </span>
 
@@ -1778,7 +1778,7 @@ export default function TrackExplorer() {
                 {expanded && (
                   <div className="grid gap-5 px-5 pb-7 pl-[52px] md:grid-cols-2 md:px-7 md:pl-[68px]">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#b84a29]">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5925dc]">
                         What you will learn
                       </p>
                       <p className="mt-2 text-sm leading-7 text-[#66675f]">
@@ -1831,7 +1831,7 @@ export default function BudgetLedger() {
 
   return (
     <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
-      <div className="flex flex-col justify-between gap-5 bg-[#0e1318] p-6 text-white md:flex-row md:items-end md:p-8">
+      <div className="flex flex-col justify-between gap-5 bg-[#0a0f1d] p-6 text-white md:flex-row md:items-end md:p-8">
         <div>
           <p className="eyebrow text-[#e9ae56]">Provisional budget</p>
           <p className="display mt-3 text-4xl md:text-5xl">
@@ -1868,7 +1868,7 @@ export default function BudgetLedger() {
                 aria-expanded={isOpen}
                 className="grid w-full grid-cols-[30px_1fr_auto_18px] items-center gap-3 py-5 text-left md:grid-cols-[40px_1fr_150px_115px_20px]"
               >
-                <span className="font-mono text-xs text-[#b84a29]">
+                <span className="font-mono text-xs text-[#5925dc]">
                   0{index + 1}
                 </span>
 
@@ -1878,7 +1878,7 @@ export default function BudgetLedger() {
                   </span>
                   <span className="mt-2 block h-1.5 w-full overflow-hidden rounded-full bg-[#eee9df] md:max-w-[200px]">
                     <span
-                      className="block h-full rounded-full bg-[#b84a29]"
+                      className="block h-full rounded-full bg-[#5925dc]"
                       style={{ width: `${percentage}%` }}
                     />
                   </span>
@@ -1899,7 +1899,7 @@ export default function BudgetLedger() {
               </button>
 
               {isOpen && (
-                <div className="mb-5 ml-10 rounded-xl bg-[#f7f5f0] p-4 md:ml-[52px]">
+                <div className="mb-5 ml-10 rounded-xl bg-[#f8f9fc] p-4 md:ml-[52px]">
                   <p className="text-sm leading-7 text-[#66675f]">
                     {item.description}
                   </p>
@@ -1912,7 +1912,7 @@ export default function BudgetLedger() {
           );
         })}
 
-        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#f7f5f0] p-5">
+        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#f8f9fc] p-5">
           <div>
             <p className="text-sm font-bold">Grand total</p>
             <p className="mt-1 text-xs text-[#66675f]">
@@ -2090,7 +2090,7 @@ export default function HomePage() {
 
             <h1 className="display mt-7 max-w-[760px] text-6xl sm:text-7xl lg:text-[86px]">
               The next chapter starts{" "}
-              <span className="text-[#b84a29]">with you.</span>
+              <span className="text-[#5925dc]">with you.</span>
             </h1>
 
             <p className="section-copy mt-7 max-w-[570px]">
@@ -2119,13 +2119,13 @@ export default function HomePage() {
 
             <div className="mt-10 flex items-center gap-4 border-t border-black/10 pt-6">
               <div className="flex -space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#e4c7b3]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#e4c7b3]">
                   <Users size={16} />
                 </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#d9b98b]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#d9b98b]">
                   <Sparkles size={16} />
                 </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f7f5f0] bg-[#c7d4bf]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#c7d4bf]">
                   <HeartHandshake size={16} />
                 </div>
               </div>
@@ -2137,7 +2137,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[520px] lg:ml-auto">
-            <div className="absolute inset-8 rounded-full bg-[#e7c3a4]/40 blur-3xl" />
+            <div className="absolute inset-8 rounded-full bg-[#c4b5fd]/40 blur-3xl" />
             <div className="relative mx-auto flex aspect-[0.91] max-h-[560px] items-center justify-center">
               <div className="absolute inset-0 rounded-[48%_48%_24px_24px] border border-black/10" />
               <div className="absolute inset-[7%] rounded-[48%_48%_24px_24px] border border-black/10" />
@@ -2147,14 +2147,14 @@ export default function HomePage() {
               </div>
 
               <div className="floating-label left-0 top-[20%]">
-                <p className="font-mono text-[10px] text-[#b84a29]">
+                <p className="font-mono text-[10px] text-[#5925dc]">
                   THE OPPORTUNITY
                 </p>
                 <p className="mt-1 text-sm font-bold">100 young people</p>
               </div>
 
               <div className="floating-label bottom-[16%] right-0">
-                <p className="font-mono text-[10px] text-[#b84a29]">
+                <p className="font-mono text-[10px] text-[#5925dc]">
                   SUPPORT A STUDENT
                 </p>
                 <p className="mt-1 text-lg font-bold">
@@ -2162,7 +2162,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="absolute right-[10%] top-[9%] flex h-14 w-14 items-center justify-center rounded-full bg-[#d99b26] text-[#0e1318] shadow-xl">
+              <div className="absolute right-[10%] top-[9%] flex h-14 w-14 items-center justify-center rounded-full bg-[#d99b26] text-[#0a0f1d] shadow-xl">
                 <Sparkles size={22} />
               </div>
             </div>
@@ -2174,7 +2174,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-black/10 bg-[#fffdf8]">
+      <section className="border-y border-black/10 bg-[#ffffff]">
         <div className="page-shell grid grid-cols-2 gap-6 py-8 md:grid-cols-4 md:gap-4">
           {[
             ["100", "Student places"],
@@ -2231,8 +2231,8 @@ export default function HomePage() {
                   }}
                 />
               </div>
-              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-[#e8e1d4] p-5 md:p-7">
-                <Sparkles className="text-[#b84a29]" size={23} />
+              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-[#ede9fe] p-5 md:p-7">
+                <Sparkles className="text-[#5925dc]" size={23} />
                 <div>
                   <p className="display text-3xl">Room to grow.</p>
                   <p className="mt-2 text-xs leading-6 text-[#66675f]">
@@ -2323,7 +2323,7 @@ export default function HomePage() {
                         event.currentTarget.style.display = "none";
                       }}
                     />
-                    <div className="absolute inset-0 -z-0 bg-gradient-to-t from-[#0e1318]/20 to-transparent" />
+                    <div className="absolute inset-0 -z-0 bg-gradient-to-t from-[#0a0f1d]/20 to-transparent" />
                   </div>
                   <p className="mt-3 text-sm font-bold">{person.name}</p>
                   <p className="mt-1 text-xs text-[#66675f]">
@@ -2338,7 +2338,7 @@ export default function HomePage() {
 
       <section className="section-space-sm">
         <div className="page-shell">
-          <div className="relative overflow-hidden rounded-[30px] bg-[#b84a29] p-7 text-white md:p-12 lg:p-16">
+          <div className="relative overflow-hidden rounded-[30px] bg-[#5925dc] p-7 text-white md:p-12 lg:p-16">
             <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full border border-white/20" />
             <div className="absolute -right-4 -top-12 h-52 w-52 rounded-full border border-white/20" />
 
@@ -2356,7 +2356,7 @@ export default function HomePage() {
 
               <Link
                 href="/support"
-                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-white px-6 text-sm font-bold text-[#0e1318] transition hover:bg-[#f2e5d6] lg:self-end"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-white px-6 text-sm font-bold text-[#0a0f1d] transition hover:bg-[#f0ecfc] lg:self-end"
               >
                 See how to support <ArrowRight size={16} />
               </Link>
@@ -2377,7 +2377,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="overflow-hidden border-y border-black/10 bg-[#fffdf8] py-5">
+      <section className="overflow-hidden border-y border-black/10 bg-[#ffffff] py-5">
         <div className="marquee-track">
           <div className="marquee">
             {[0, 1].map((copy) => (
@@ -2392,7 +2392,7 @@ export default function HomePage() {
                     key={`${copy}-${item}`}
                     className="mx-7 flex items-center gap-7 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-[#66675f]"
                   >
-                    <Sparkles size={13} className="text-[#b84a29]" />
+                    <Sparkles size={13} className="text-[#5925dc]" />
                     {item}
                   </span>
                 ))}
@@ -2459,7 +2459,7 @@ export default function AboutPage() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-10">
+          <Reveal delay={0.1} className="rounded-3xl bg-[#0a0f1d] p-7 text-white md:p-10">
             <span className="eyebrow text-[#e9ae56]">Our mission</span>
             <h2 className="display mt-5 text-4xl">What we work towards.</h2>
             <p className="mt-5 text-sm leading-8 text-white/65">
@@ -2469,7 +2469,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-space bg-[#fffdf8]">
+      <section className="section-space bg-[#ffffff]">
         <div className="page-shell">
           <div className="max-w-2xl">
             <p className="eyebrow">The values we live by</p>
@@ -2481,7 +2481,7 @@ export default function AboutPage() {
             {initiative.values.map((value, index) => (
               <Reveal key={value} delay={index * 0.035}>
                 <div className="card-hover panel h-full p-6">
-                  <span className="font-mono text-xs text-[#b84a29]">
+                  <span className="font-mono text-xs text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <h3 className="display mt-7 text-3xl">{value}</h3>
@@ -2510,7 +2510,7 @@ export default function AboutPage() {
             {initiative.objectives.map((objective, index) => (
               <Reveal key={objective.title}>
                 <div className="flex gap-5 rounded-2xl border border-black/10 p-5 md:p-7">
-                  <span className="font-mono text-sm text-[#b84a29]">
+                  <span className="font-mono text-sm text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <div>
@@ -2559,13 +2559,13 @@ export default function AboutPage() {
               <Reveal key={program.number}>
                 <article className="panel card-hover flex h-full flex-col p-6 md:p-7">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs text-[#b84a29]">
+                    <span className="font-mono text-xs text-[#5925dc]">
                       {program.number}
                     </span>
                     {program.number === "03" ? (
-                      <Lightbulb className="text-[#b84a29]" size={21} />
+                      <Lightbulb className="text-[#5925dc]" size={21} />
                     ) : (
-                      <Heart className="text-[#b84a29]" size={21} />
+                      <Heart className="text-[#5925dc]" size={21} />
                     )}
                   </div>
                   <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.14em] text-[#77766e]">
@@ -2594,8 +2594,8 @@ export default function AboutPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#e8e1d4] p-7 md:p-10">
-            <ShieldCheck size={26} className="text-[#b84a29]" />
+          <div className="rounded-3xl bg-[#ede9fe] p-7 md:p-10">
+            <ShieldCheck size={26} className="text-[#5925dc]" />
             <h2 className="display mt-4 text-4xl">
               A mission built on trust.
             </h2>
@@ -2640,7 +2640,7 @@ export default function ProgramsPage() {
               key={program.number}
               className="grid gap-6 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[100px_1fr_auto] md:items-center md:p-9"
             >
-              <span className="font-mono text-3xl text-[#b84a29]">
+              <span className="font-mono text-3xl text-[#5925dc]">
                 {program.number}
               </span>
               <div>
@@ -2669,7 +2669,7 @@ export default function ProgramsPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#0e1318] p-8 text-white md:p-12">
+          <div className="rounded-3xl bg-[#0a0f1d] p-8 text-white md:p-12">
             <p className="eyebrow text-[#e9ae56]">Our current focus</p>
             <h2 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
               Project EQUIP 2026 brings leadership and practical learning together.
@@ -2715,7 +2715,7 @@ export default function EquipPage() {
         imageAlt="Students taking part in a group learning activity"
       />
 
-      <section className="border-b border-black/10 bg-[#fffdf8]">
+      <section className="border-b border-black/10 bg-[#ffffff]">
         <div className="page-shell grid gap-5 py-7 sm:grid-cols-3">
           {[
             { icon: CalendarDays, label: "Program dates", value: initiative.dateLabel },
@@ -2723,7 +2723,7 @@ export default function EquipPage() {
             { icon: Users, label: "Student cohort", value: "100 places" },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f0e7db] text-[#b84a29]">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f0e7db] text-[#5925dc]">
                 <item.icon size={19} />
               </div>
               <div>
@@ -2759,7 +2759,7 @@ export default function EquipPage() {
         </div>
       </section>
 
-      <section className="section-space bg-[#fffdf8]">
+      <section className="section-space bg-[#ffffff]">
         <div className="page-shell">
           <p className="eyebrow">What participants will work towards</p>
           <h2 className="section-title">Ten goals for the week.</h2>
@@ -2768,7 +2768,7 @@ export default function EquipPage() {
             {initiative.equipObjectives.map((objective, index) => (
               <Reveal key={objective}>
                 <div className="flex h-full gap-4 rounded-2xl border border-black/10 bg-white p-5">
-                  <span className="font-mono text-xs text-[#b84a29]">
+                  <span className="font-mono text-xs text-[#5925dc]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm leading-7">{objective}</p>
@@ -2796,7 +2796,7 @@ export default function EquipPage() {
               {initiative.methodology.map((item, index) => (
                 <Reveal key={item.title}>
                   <div className="flex gap-4 rounded-2xl border border-black/10 p-5">
-                    <CheckCircle2 className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                    <CheckCircle2 className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                     <div>
                       <h3 className="font-semibold">{item.title}</h3>
                       <p className="mt-2 text-sm leading-7 text-[#66675f]">
@@ -2884,7 +2884,7 @@ export default function TrainingPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#e8e1d4] p-7 md:p-10">
+          <div className="rounded-3xl bg-[#ede9fe] p-7 md:p-10">
             <p className="eyebrow">The idea</p>
             <h2 className="display mt-4 text-4xl md:text-5xl">
               Learn it. Make it. Put it to use.
@@ -2975,7 +2975,7 @@ export default function SchedulePage() {
               { icon: MapPin, label: "Location", value: "Hebron Center, Ibadan" },
             ].map((item) => (
               <div key={item.label} className="panel flex items-center gap-4 p-5">
-                <item.icon size={21} className="shrink-0 text-[#b84a29]" />
+                <item.icon size={21} className="shrink-0 text-[#5925dc]" />
                 <div>
                   <p className="text-xs text-[#77766e]">{item.label}</p>
                   <p className="mt-1 text-sm font-bold">{item.value}</p>
@@ -2991,11 +2991,11 @@ export default function SchedulePage() {
                 className="grid gap-7 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[220px_1fr] md:p-9"
               >
                 <div>
-                  <span className="font-mono text-xs text-[#b84a29]">
+                  <span className="font-mono text-xs text-[#5925dc]">
                     PHASE {phase.number}
                   </span>
                   <h2 className="display mt-4 text-3xl">{phase.days}</h2>
-                  <div className="mt-4 inline-flex rounded-full bg-[#f2e5d6] px-3 py-1 text-xs font-semibold text-[#96381d]">
+                  <div className="mt-4 inline-flex rounded-full bg-[#f0ecfc] px-3 py-1 text-xs font-semibold text-[#3e1699]">
                     Planned phase
                   </div>
                 </div>
@@ -3012,9 +3012,9 @@ export default function SchedulePage() {
                     {phase.activities.map((activity) => (
                       <div
                         key={activity}
-                        className="flex items-start gap-3 rounded-xl bg-[#f7f5f0] p-4"
+                        className="flex items-start gap-3 rounded-xl bg-[#f8f9fc] p-4"
                       >
-                        <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#b84a29]" />
+                        <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#5925dc]" />
                         <span className="text-sm leading-6">{activity}</span>
                       </div>
                     ))}
@@ -3040,7 +3040,7 @@ export default function SchedulePage() {
               />
             </div>
 
-            <div className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-9">
+            <div className="rounded-3xl bg-[#0a0f1d] p-7 text-white md:p-9">
               <MapPin size={24} className="text-[#e9ae56]" />
               <p className="eyebrow mt-5 text-[#e9ae56]">The venue</p>
               <h2 className="display mt-3 text-4xl">Hebron Center, Ibadan</h2>
@@ -3108,7 +3108,7 @@ export default function FacilitatorsPage() {
           <button
             type="button"
             onClick={() => setSelected(convener.id)}
-            className="grid w-full gap-7 rounded-3xl border border-black/10 bg-white p-5 text-left transition hover:border-[#b84a29]/40 md:grid-cols-[300px_1fr] md:p-8"
+            className="grid w-full gap-7 rounded-3xl border border-black/10 bg-white p-5 text-left transition hover:border-[#5925dc]/40 md:grid-cols-[300px_1fr] md:p-8"
           >
             <div className="image-frame aspect-[0.9] max-h-[420px]">
               <img
@@ -3125,7 +3125,7 @@ export default function FacilitatorsPage() {
               <h3 className="display mt-4 text-4xl md:text-5xl">
                 {convener.name}
               </h3>
-              <p className="mt-3 text-sm font-semibold text-[#b84a29]">
+              <p className="mt-3 text-sm font-semibold text-[#5925dc]">
                 {convener.role}
               </p>
               <p className="mt-4 text-sm leading-7 text-[#66675f]">
@@ -3166,7 +3166,7 @@ export default function FacilitatorsPage() {
                 </div>
 
                 <div className="p-5">
-                  <p className="font-mono text-[10px] text-[#b84a29]">
+                  <p className="font-mono text-[10px] text-[#5925dc]">
                     FACILITATOR {String(index + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-3 text-base font-bold">{person.name}</h3>
@@ -3181,7 +3181,7 @@ export default function FacilitatorsPage() {
             ))}
           </div>
 
-          <div className="mt-12 rounded-3xl bg-[#e8e1d4] p-7 md:p-10">
+          <div className="mt-12 rounded-3xl bg-[#ede9fe] p-7 md:p-10">
             <p className="eyebrow">Additional guidance</p>
             <h2 className="display mt-4 text-4xl">
               Professional support matters, too.
@@ -3206,7 +3206,7 @@ export default function FacilitatorsPage() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="faculty-dialog-title"
-            className="max-h-[90dvh] w-full max-w-3xl overflow-y-auto rounded-t-3xl bg-[#f7f5f0] p-6 sm:rounded-3xl sm:p-9"
+            className="max-h-[90dvh] w-full max-w-3xl overflow-y-auto rounded-t-3xl bg-[#f8f9fc] p-6 sm:rounded-3xl sm:p-9"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-5">
@@ -3218,7 +3218,7 @@ export default function FacilitatorsPage() {
                 >
                   {activePerson.name}
                 </h2>
-                <p className="mt-2 text-sm text-[#b84a29]">
+                <p className="mt-2 text-sm text-[#5925dc]">
                   {activePerson.role}
                 </p>
               </div>
@@ -3332,10 +3332,10 @@ export default function ImpactPage() {
               <Reveal key={item.number}>
                 <article className="panel card-hover h-full p-6 md:p-8">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs text-[#b84a29]">
+                    <span className="font-mono text-xs text-[#5925dc]">
                       {item.number}
                     </span>
-                    <item.icon size={24} className="text-[#b84a29]" />
+                    <item.icon size={24} className="text-[#5925dc]" />
                   </div>
                   <h3 className="display mt-8 text-3xl">{item.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-[#66675f]">
@@ -3390,7 +3390,7 @@ export default function ImpactPage() {
             {futurePlans.map((plan, index) => (
               <Reveal key={plan.title}>
                 <article className="grid gap-4 rounded-2xl border border-black/10 p-6 md:grid-cols-[70px_1fr] md:p-8">
-                  <span className="font-mono text-lg text-[#b84a29]">
+                  <span className="font-mono text-lg text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <div>
@@ -3464,7 +3464,7 @@ export default function SupportPage() {
       <section className="section-space-sm">
         <div className="page-shell">
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-3xl bg-[#0e1318] p-6 text-white md:p-8">
+            <div className="rounded-3xl bg-[#0a0f1d] p-6 text-white md:p-8">
               <p className="eyebrow text-[#e9ae56]">Funding target</p>
               <p className="display mt-4 text-4xl md:text-5xl">₦8.45m</p>
               <p className="mt-3 text-xs leading-6 text-white/55">
@@ -3511,7 +3511,7 @@ export default function SupportPage() {
         </div>
       </section>
 
-      <section id="sponsorship-tiers" className="section-space bg-[#fffdf8]">
+      <section id="sponsorship-tiers" className="section-space bg-[#ffffff]">
         <div className="page-shell">
           <p className="eyebrow">Choose how to help</p>
           <h2 className="section-title">There is more than one way to make a difference.</h2>
@@ -3533,18 +3533,18 @@ export default function SupportPage() {
                     aria-pressed={active}
                     className={`card-hover flex h-full w-full flex-col rounded-3xl border p-6 text-left transition-colors ${
                       active
-                        ? "border-[#b84a29] bg-[#f7e8de]"
+                        ? "border-[#5925dc] bg-[#f0ecfc]"
                         : "border-black/10 bg-white"
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs text-[#b84a29]">
+                      <span className="font-mono text-xs text-[#5925dc]">
                         0{index + 1}
                       </span>
                       {index === 0 ? (
-                        <Sparkles size={19} className="text-[#b84a29]" />
+                        <Sparkles size={19} className="text-[#5925dc]" />
                       ) : (
-                        <HandHeart size={19} className="text-[#b84a29]" />
+                        <HandHeart size={19} className="text-[#5925dc]" />
                       )}
                     </div>
 
@@ -3569,7 +3569,7 @@ export default function SupportPage() {
           </div>
 
           {selected && (
-            <div className="mt-6 rounded-3xl border border-[#b84a29]/20 bg-white p-6 md:p-8">
+            <div className="mt-6 rounded-3xl border border-[#5925dc]/20 bg-white p-6 md:p-8">
               <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
                 <div>
                   <p className="eyebrow">Your selected level</p>
@@ -3631,7 +3631,7 @@ export default function SupportPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#0e1318] p-7 text-white md:p-12">
+          <div className="rounded-3xl bg-[#0a0f1d] p-7 text-white md:p-12">
             <p className="eyebrow text-[#e9ae56]">Ready to talk?</p>
             <h2 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
               Let&apos;s discuss a partnership that makes sense for you.
@@ -3815,12 +3815,12 @@ export default function RegisterPage() {
               <div key={label}>
                 <div
                   className={`h-1.5 rounded-full ${
-                    index <= step ? "bg-[#b84a29]" : "bg-black/10"
+                    index <= step ? "bg-[#5925dc]" : "bg-black/10"
                   }`}
                 />
                 <p
                   className={`mt-2 text-[10px] ${
-                    index === step ? "font-bold text-[#b84a29]" : "text-[#77766e]"
+                    index === step ? "font-bold text-[#5925dc]" : "text-[#77766e]"
                   }`}
                 >
                   {String(index + 1).padStart(2, "0")} · {label}
@@ -3961,7 +3961,7 @@ export default function RegisterPage() {
                       key={track.id}
                       className={`flex cursor-pointer gap-4 rounded-2xl border p-5 transition-colors ${
                         form.track === track.id
-                          ? "border-[#b84a29] bg-[#fbf0e9]"
+                          ? "border-[#5925dc] bg-[#f4f0fd]"
                           : "border-black/10"
                       }`}
                     >
@@ -3971,7 +3971,7 @@ export default function RegisterPage() {
                         value={track.id}
                         checked={form.track === track.id}
                         onChange={(e) => update("track", e.target.value)}
-                        className="mt-1 accent-[#b84a29]"
+                        className="mt-1 accent-[#5925dc]"
                       />
                       <span>
                         <span className="block font-semibold">{track.title}</span>
@@ -4134,7 +4134,7 @@ export default function ContactPage() {
                   rel="noreferrer"
                   className="card-hover flex items-center gap-4 rounded-2xl border border-black/10 bg-white p-4"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f2e5d6] text-[#b84a29]">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f0ecfc] text-[#5925dc]">
                     <channel.icon size={19} />
                   </div>
                   <div className="min-w-0">
@@ -4149,7 +4149,7 @@ export default function ContactPage() {
 
             <div className="mt-3 space-y-3">
               <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
-                <Mail className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                <Mail className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                 <div>
                   <p className="text-xs text-[#77766e]">Email</p>
                   <a
@@ -4162,7 +4162,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
-                <Phone className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                <Phone className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                 <div>
                   <p className="text-xs text-[#77766e]">Phone numbers</p>
                   <p className="mt-1 text-sm font-semibold">
@@ -4175,7 +4175,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
-                <MapPin className="mt-1 shrink-0 text-[#b84a29]" size={19} />
+                <MapPin className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                 <div>
                   <p className="text-xs text-[#77766e]">Location</p>
                   <p className="mt-1 text-sm font-semibold">

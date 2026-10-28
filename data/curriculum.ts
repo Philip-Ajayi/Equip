@@ -61,6 +61,7 @@ export const curriculum: Track[] = [
         result:
           "Participants develop a complete Brand Identity Pack featuring a custom logo, brand color palette guide, and three branded marketing templates.",
       },
+      
     ],
   },
   {
@@ -136,6 +137,22 @@ export const curriculum: Track[] = [
           "Building an authentic digital footprint, maintaining online safety, and showcasing skills effectively on platforms like LinkedIn, Instagram, or X to attract clients, mentors, and employers.",
         result:
           "A fully audited and optimized professional social profile positioned for career, freelance, or vocational opportunities.",
+      },
+      {
+        id: "business-4",
+        title: "Public Speaking & Pitching Skills",
+        focus:
+          "Mastering vocal delivery, confident body language, storytelling frameworks, stage presence, and crafting compelling elevator pitches to sell ideas, products, or services to an audience.",
+        result:
+          "A polished 2-to-3-minute venture pitch delivered live with confidence and supported by a concise pitch deck.",
+      },
+      {
+        id: "business-5",
+        title: "Leadership & Team Development",
+        focus:
+          "Essential leadership dynamics: collaborative problem-solving, task delegation, conflict resolution, active listening, and motivating peers toward a shared goal in a startup environment.",
+        result:
+          "A collaborative team project charter outlining defined roles, operating agreements, and an action plan for execution.",
       },
     ],
   },
