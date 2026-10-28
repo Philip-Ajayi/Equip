@@ -124,7 +124,7 @@ export default function SiteHeader() {
             </Link>
 
             <Link
-              href="/register"
+              href="https://bit.ly/projectequip2026reg"
               onClick={closeMenu}
               className="outline-button mt-3 w-full"
             >

@@ -41,7 +41,7 @@ function HeroInteractiveHub() {
   const [activeSkillCategory, setActiveSkillCategory] = useState<number>(0);
   const [sponsoredCount, setSponsoredCount] = useState<number>(1);
 
-  // Aligned with the official 13 Project EQUIP curriculum tracks
+  // Aligned with the official Project EQUIP curriculum tracks
   const skillsData = [
     {
       category: "Digital Skills",
@@ -185,7 +185,7 @@ function HeroInteractiveHub() {
         {activeTab === "schedule" && (
           <div className="py-3">
             <p className="text-xs text-[#66675f]">
-              Residential schedule at Hebron Center, Idi-Ishin:
+              Jericho Ibadan:
             </p>
             <div className="mt-3 space-y-2">
               {schedulePreview.map((item) => (
@@ -284,6 +284,7 @@ function HeroInteractiveHub() {
 
 export default function HomePage() {
   const confirmedFaculty = faculty.filter((person) => !person.name.startsWith("["));
+  const allFacultyMembers = [convener, ...confirmedFaculty];
 
   return (
     <>
@@ -362,7 +363,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Narrative Section featuring Secondary School Images 1, 2, and 3 */}
+      {/* Narrative Section */}
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
@@ -382,7 +383,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-3">
             <Reveal className="image-frame min-h-[270px] overflow-hidden rounded-2xl">
               <SafeImage
-                src={schoolPhotos[0]} // /schools/1.jpeg
+                src={schoolPhotos[0]}
                 alt="Secondary school outreach session"
                 loading="lazy"
               />
@@ -391,7 +392,7 @@ export default function HomePage() {
             <Reveal delay={0.1} className="flex flex-col gap-3">
               <div className="image-frame min-h-[160px] flex-1 overflow-hidden rounded-2xl">
                 <SafeImage
-                  src={schoolPhotos[1]} // /schools/2.jpeg
+                  src={schoolPhotos[1]}
                   alt="Students engaged in leadership training"
                   loading="lazy"
                 />
@@ -410,7 +411,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Real Outreach Gallery from public/schools/ (Images 4, 5, 6, 7, 8, 9) */}
+      {/* Real Outreach Gallery */}
       <section className="pb-16 pt-4 bg-[#fbf9f5] border-y border-black/5">
         <div className="page-shell">
           <div className="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
@@ -484,29 +485,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Facilitator & Team Preview */}
+      {/* Faculty Section - Renders ALL facilitators */}
       <section className="section-space">
         <div className="page-shell">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="eyebrow text-[#5925dc]">The team behind the program</p>
+              <p className="eyebrow text-[#5925dc]">Faculty & Mentors</p>
               <h2 className="section-title">
-                Mentorship makes all the difference.
+                Meet the faculty.
               </h2>
               <p className="section-copy">
-                Meet the convener, vocational entrepreneurs, tech practitioners, and
-                counselors committed to guiding each participant personally.
+                The convener, vocational entrepreneurs, tech practitioners, and leadership
+                consultants committed to guiding each participant throughout the boot camp.
               </p>
               <Link
                 href="/programs/equip-2026/facilitators"
                 className="text-link mt-6"
               >
-                Meet the faculty <ArrowRight size={16} />
+                View full facilitator profiles <ArrowRight size={16} />
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {[convener, ...confirmedFaculty.slice(0, 5)].map((person) => (
+            {/* Grid rendering all confirmed faculty members */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+              {allFacultyMembers.map((person) => (
                 <Link
                   key={person.id}
                   href="/programs/equip-2026/facilitators"

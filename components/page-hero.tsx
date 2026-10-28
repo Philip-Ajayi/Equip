@@ -55,9 +55,6 @@ export default function PageHero({
                 Preparing young people for what comes next.
               </p>
             </div>
-            <span className="shrink-0 font-mono text-xs text-black/50">
-              01 / 26
-            </span>
           </div>
         </div>
       </div>
