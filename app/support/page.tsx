@@ -33,35 +33,38 @@ export default function SupportPage() {
 
   return (
     <>
-      {/* Interactive Hero (Replaces PageHero — Zero 3D Monolith, Zero Sparkles) */}
-      <section className="grid-lines border-b border-white/10 bg-[#0e1736]">
+      {/* Interactive Hero */}
+      <section className="grid-lines border-b border-white/10 bg-gradient-to-b from-[#091026] via-[#060b18] to-[#050b18]">
         <div className="page-shell grid min-h-[600px] items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="animate-in">
             <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#5925dc]" />
-              <p className="eyebrow">Support the Next Generation</p>
+              <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
+              <p className="eyebrow text-[#d4af37]">Support the Next Generation</p>
             </div>
 
-            <h1 className="display mt-5 max-w-[760px] text-5xl sm:text-6xl lg:text-[76px]">
+            <h1 className="display mt-5 max-w-[760px] text-5xl text-white sm:text-6xl lg:text-[76px]">
               Help make room for{" "}
-              <span className="text-[#5925dc]">100 young people</span> to grow.
+              <span className="bg-gradient-to-r from-[#c4b5fd] via-[#a78bfa] to-[#d4af37] bg-clip-text text-transparent">
+                100 young people
+              </span>{" "}
+              to grow.
             </h1>
 
-            <p className="section-copy mt-6 max-w-[580px]">
+            <p className="section-copy mt-6 max-w-[580px] text-slate-300">
               Project EQUIP 2026 is funded through partnerships and sponsorships.
               Every contribution directly covers residential lodging, wholesome
               meals, practical workshop kits, and mentor-led vocational tracks.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3 text-xs font-semibold">
-              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2">
-                <Users size={14} className="text-[#5925dc]" /> 100 Student Cohort
+              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-slate-200">
+                <Users size={14} className="text-[#a78bfa]" /> 100 Student Cohort
               </span>
-              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2">
-                <Target size={14} className="text-[#5925dc]" /> ₦8.45M Campaign Goal
+              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-slate-200">
+                <Target size={14} className="text-[#d4af37]" /> ₦8.45M Campaign Goal
               </span>
-              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2">
-                <ShieldCheck size={14} className="text-[#1c7c54]" /> Verified Allocation
+              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-slate-200">
+                <ShieldCheck size={14} className="text-[#10b981]" /> Verified Allocation
               </span>
             </div>
 
@@ -77,13 +80,13 @@ export default function SupportPage() {
 
           {/* Interactive Sponsorship Impact Calculator */}
           <div className="relative mx-auto w-full max-w-[500px] lg:ml-auto">
-            <div className="absolute inset-4 rounded-3xl bg-[#c4b5fd]/25 blur-2xl" />
+            <div className="absolute inset-4 rounded-3xl bg-[#703bf7]/25 blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0e1736] p-6 shadow-xl md:p-8">
+            <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-[#0e1736]/95 p-6 shadow-2xl backdrop-blur-xl md:p-8">
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex items-center gap-2">
-                  <Calculator size={16} className="text-[#5925dc]" />
-                  <span className="font-mono text-[11px] font-bold tracking-wider text-[#5925dc]">
+                  <Calculator size={16} className="text-[#d4af37]" />
+                  <span className="font-mono text-[11px] font-bold tracking-wider text-[#d4af37]">
                     IMPACT CALCULATOR
                   </span>
                 </div>
@@ -100,8 +103,8 @@ export default function SupportPage() {
                       onClick={() => setSponsorCount(qty)}
                       className={`rounded-xl py-2.5 text-xs font-bold transition ${
                         sponsorCount === qty
-                          ? "bg-[#5925dc] text-white shadow-xs"
-                          : "border border-white/10 bg-[#080e23] text-white hover:border-black/30"
+                          ? "bg-[#703bf7] text-white shadow-md"
+                          : "border border-white/10 bg-[#080e23] text-slate-300 hover:border-white/30 hover:text-white"
                       }`}
                     >
                       {qty} {qty === 1 ? "Youth" : "Youths"}
@@ -111,33 +114,33 @@ export default function SupportPage() {
               </div>
 
               {/* Dynamic Cost Display */}
-              <div className="mt-5 rounded-2xl bg-[#0a0f1d] p-5 text-white">
-                <p className="text-[11px] text-white/60">Calculated Sponsorship Impact</p>
-                <p className="display mt-1 text-3xl font-bold text-[#e9ae56]">
+              <div className="mt-5 rounded-2xl border border-white/10 bg-[#060b1b] p-5 text-white">
+                <p className="text-[11px] text-slate-400">Calculated Sponsorship Impact</p>
+                <p className="display mt-1 text-3xl font-bold text-[#d4af37]">
                   {formatNaira(totalPledge)}
                 </p>
-                <p className="mt-1 text-[11px] text-white/70">
+                <p className="mt-1 text-[11px] text-slate-300">
                   Full 5-day residential scholarship for {sponsorCount}{" "}
                   {sponsorCount === 1 ? "secondary school leaver" : "secondary school leavers"}.
                 </p>
 
                 {/* Real-time Tangible Deliverables */}
-                <div className="mt-4 space-y-2 border-t border-white/10 pt-4 text-xs text-white/90">
+                <div className="mt-4 space-y-2 border-t border-white/10 pt-4 text-xs text-slate-200">
                   <div className="flex items-center justify-between">
-                    <span className="text-white/60">Hot meals provided</span>
-                    <span className="font-semibold">{sponsorCount * 15} meals (3/day)</span>
+                    <span className="text-slate-400">Hot meals provided</span>
+                    <span className="font-semibold text-white">{sponsorCount * 15} meals (3/day)</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-white/60">Residential nights</span>
-                    <span className="font-semibold">{sponsorCount * 5} safe bed-nights</span>
+                    <span className="text-slate-400">Residential nights</span>
+                    <span className="font-semibold text-white">{sponsorCount * 5} safe bed-nights</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-white/60">Hands-on learning kits</span>
-                    <span className="font-semibold">{sponsorCount} complete toolkits</span>
+                    <span className="text-slate-400">Hands-on learning kits</span>
+                    <span className="font-semibold text-white">{sponsorCount} complete toolkits</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-white/60">Dedicated mentorship</span>
-                    <span className="font-semibold">{sponsorCount * 16} workshop hours</span>
+                    <span className="text-slate-400">Dedicated mentorship</span>
+                    <span className="font-semibold text-white">{sponsorCount * 16} workshop hours</span>
                   </div>
                 </div>
               </div>
@@ -145,7 +148,7 @@ export default function SupportPage() {
               {/* Direct Action Link */}
               <Link
                 href={`/contact?topic=sponsorship&students=${sponsorCount}`}
-                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#5925dc] py-3 text-xs font-bold text-white transition hover:bg-[#3e1699]"
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#703bf7] to-[#5925dc] py-3 text-xs font-bold text-white transition hover:opacity-90 shadow-lg"
               >
                 Sponsor {sponsorCount} {sponsorCount === 1 ? "Student" : "Students"} ({formatNaira(totalPledge)})
                 <ArrowRight size={14} />
@@ -156,20 +159,20 @@ export default function SupportPage() {
       </section>
 
       {/* Target Metrics */}
-      <section className="section-space-sm">
+      <section className="section-space-sm bg-[#050b18]">
         <div className="page-shell">
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-3xl bg-[#0a0f1d] p-6 text-white md:p-8">
-              <p className="eyebrow text-[#e9ae56]">Funding target</p>
-              <p className="display mt-4 text-4xl md:text-5xl">₦8.45m</p>
-              <p className="mt-3 text-xs leading-6 text-white/55">
+            <div className="rounded-3xl border border-white/10 bg-[#0e1736] p-6 text-white md:p-8">
+              <p className="eyebrow text-[#d4af37]">Funding target</p>
+              <p className="display mt-4 text-4xl text-[#d4af37] md:text-5xl">₦8.45m</p>
+              <p className="mt-3 text-xs leading-6 text-slate-300">
                 Proposed total requirement for 100 students.
               </p>
             </div>
 
-            <div className="panel p-6 md:p-8">
-              <p className="eyebrow">Cost per student</p>
-              <p className="display mt-4 text-4xl md:text-5xl">
+            <div className="panel border border-white/10 bg-[#0e1736] p-6 md:p-8">
+              <p className="eyebrow text-[#d4af37]">Cost per student</p>
+              <p className="display mt-4 text-4xl text-white md:text-5xl">
                 {formatNaira(unitCost)}
               </p>
               <p className="mt-3 text-xs leading-6 text-slate-300">
@@ -177,9 +180,9 @@ export default function SupportPage() {
               </p>
             </div>
 
-            <div className="panel p-6 md:p-8">
-              <p className="eyebrow">Cohort scale</p>
-              <p className="display mt-4 text-4xl md:text-5xl">100</p>
+            <div className="panel border border-white/10 bg-[#0e1736] p-6 md:p-8">
+              <p className="eyebrow text-[#d4af37]">Cohort scale</p>
+              <p className="display mt-4 text-4xl text-white md:text-5xl">100</p>
               <p className="mt-3 text-xs leading-6 text-slate-300">
                 Secondary school leavers receiving full sponsorship.
               </p>
@@ -189,17 +192,17 @@ export default function SupportPage() {
       </section>
 
       {/* Budget Breakdown */}
-      <section className="section-space">
+      <section className="section-space bg-[#080e23] border-t border-white/10">
         <div className="page-shell">
-          <p className="eyebrow">Where the money goes</p>
-          <h2 className="section-title">A clear look at the proposed budget.</h2>
-          <p className="section-copy mb-9">
+          <p className="eyebrow text-[#d4af37]">Where the money goes</p>
+          <h2 className="section-title text-white">A clear look at the proposed budget.</h2>
+          <p className="section-copy mb-9 text-slate-300">
             Each line below represents an illustrative allocation towards
             delivering the camp. These amounts reflect planned operational
             provisions for housing, catering, toolkits, and mentor logistics.
           </p>
           <BudgetLedger />
-          <p className="mt-4 text-xs leading-6 text-slate-300">
+          <p className="mt-4 text-xs leading-6 text-slate-400">
             The budget is a demonstration allocation, not a verified quotation.
             Actual costs and supporting estimates are reconciled transparently
             before and after program delivery.
@@ -207,12 +210,12 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Sponsorship Tiers (Clean Icons — No Sparkles) */}
-      <section id="sponsorship-tiers" className="section-space bg-[#0e1736]">
+      {/* Sponsorship Tiers (Fixed: Active Card will NEVER turn white) */}
+      <section id="sponsorship-tiers" className="section-space bg-[#050b18] border-t border-white/10">
         <div className="page-shell">
-          <p className="eyebrow">Choose how to help</p>
-          <h2 className="section-title">There is more than one way to make a difference.</h2>
-          <p className="section-copy">
+          <p className="eyebrow text-[#d4af37]">Choose how to help</p>
+          <h2 className="section-title text-white">There is more than one way to make a difference.</h2>
+          <p className="section-copy text-slate-300">
             Select a proposed sponsorship level to review its deliverables. You
             can then connect with the team to finalize your partnership.
           </p>
@@ -228,22 +231,22 @@ export default function SupportPage() {
                     type="button"
                     onClick={() => setSelectedTier(active ? null : tier.id)}
                     aria-pressed={active}
-                    className={`card-hover flex h-full w-full flex-col rounded-3xl border p-6 text-left transition-colors ${
+                    className={`card-hover relative flex h-full w-full flex-col rounded-3xl border p-6 text-left transition-all ${
                       active
-                        ? "border-[#5925dc] bg-[#f0ecfc]"
-                        : "border-white/10 bg-[#0e1736]"
+                        ? "border-[#d4af37] bg-gradient-to-b from-[#220f4b] to-[#0e1736] ring-2 ring-[#d4af37]/50 shadow-[0_0_35px_rgba(212,175,55,0.25)]"
+                        : "border-white/10 bg-[#0e1736] hover:border-white/25 hover:bg-[#121c40]"
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs text-[#5925dc]">
+                      <span className={`font-mono text-xs font-bold ${active ? "text-[#d4af37]" : "text-[#a78bfa]"}`}>
                         0{index + 1}
                       </span>
-                      <TierIcon size={19} className="text-[#5925dc]" />
+                      <TierIcon size={20} className={active ? "text-[#d4af37]" : "text-[#a78bfa]"} />
                     </div>
 
-                    <h3 className="display mt-7 text-3xl">{tier.title}</h3>
+                    <h3 className="display mt-7 text-3xl text-white">{tier.title}</h3>
 
-                    <p className="mt-4 text-2xl font-semibold tabular-nums">
+                    <p className="mt-4 text-2xl font-bold tabular-nums text-[#d4af37]">
                       {formatNaira(tier.amount)}
                     </p>
 
@@ -252,8 +255,10 @@ export default function SupportPage() {
                     </p>
 
                     <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs font-semibold">
-                      <span className="text-white">{tier.benefit}</span>
-                      <span className="text-[#5925dc]">{active ? "Selected" : "Select"}</span>
+                      <span className="text-slate-200">{tier.benefit}</span>
+                      <span className={active ? "text-[#d4af37] font-bold flex items-center gap-1" : "text-[#a78bfa]"}>
+                        {active ? "Selected ✓" : "Select"}
+                      </span>
                     </div>
                   </button>
                 </Reveal>
@@ -262,14 +267,14 @@ export default function SupportPage() {
           </div>
 
           {selected && (
-            <div className="mt-6 rounded-3xl border border-[#5925dc]/30 bg-[#0e1736] p-6 shadow-sm md:p-8">
+            <div className="mt-6 rounded-3xl border border-[#d4af37]/40 bg-gradient-to-r from-[#1c0d3d] via-[#141b3d] to-[#0e1736] p-6 shadow-xl md:p-8">
               <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
                 <div>
-                  <p className="eyebrow text-[#5925dc]">Your selected tier</p>
-                  <h3 className="display mt-2 text-3xl">{selected.title}</h3>
+                  <p className="eyebrow text-[#d4af37]">Your selected tier</p>
+                  <h3 className="display mt-2 text-3xl text-white">{selected.title}</h3>
                   <p className="mt-2 text-sm text-slate-300">
                     Proposed contribution:{" "}
-                    <strong className="text-white">
+                    <strong className="text-[#d4af37] text-base">
                       {formatNaira(selected.amount)}
                     </strong>
                   </p>
@@ -287,22 +292,22 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Accountability Section */}
-      <section className="section-space">
+      {/* Accountability Section (Fixed: Deep Midnight Emerald palette so item.title is clearly readable) */}
+      <section className="section-space bg-[#080e23] border-t border-white/10">
         <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="eyebrow">Accountability</p>
-            <h2 className="section-title">Support deserves a clear account.</h2>
-            <p className="section-copy">
+            <p className="eyebrow text-[#10b981]">Accountability</p>
+            <h2 className="section-title text-white">Support deserves a clear account.</h2>
+            <p className="section-copy text-slate-300">
               Financial transparency is part of responsible stewardship.
               Supporters receive comprehensive post-program impact documentation
               accounting for how every naira was expended.
             </p>
-            <ShieldCheck className="mt-7 text-[#1c7c54]" size={36} />
+            <ShieldCheck className="mt-7 text-[#10b981]" size={40} />
           </div>
 
-          <div className="rounded-3xl border border-[#1c7c54]/20 bg-[#edf3e9] p-6 md:p-9">
-            <p className="text-sm leading-8 text-[#435b49]">
+          <div className="rounded-3xl border border-[#10b981]/30 bg-[#07191d] p-6 md:p-9 shadow-lg">
+            <p className="text-sm leading-8 text-emerald-200/90">
               {accountability.statement}
             </p>
 
@@ -310,12 +315,12 @@ export default function SupportPage() {
               {accountability.commitments.map((item) => (
                 <div key={item.title} className="flex gap-3">
                   <CheckCircle2
-                    size={19}
-                    className="mt-1 shrink-0 text-[#1c7c54]"
+                    size={20}
+                    className="mt-1 shrink-0 text-[#10b981]"
                   />
                   <div>
-                    <h3 className="text-sm font-bold text-white">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-7 text-[#526657]">
+                    <h3 className="text-base font-bold text-white">{item.title}</h3>
+                    <p className="mt-1 text-sm leading-7 text-slate-300">
                       {item.description}
                     </p>
                   </div>
@@ -327,18 +332,21 @@ export default function SupportPage() {
       </section>
 
       {/* Ready to Talk CTA */}
-      <section className="pb-20">
+      <section className="pb-20 bg-[#080e23]">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#0a0f1d] p-7 text-white md:p-12">
-            <p className="eyebrow text-[#e9ae56]">Ready to talk?</p>
-            <h2 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
+          <div className="relative overflow-hidden rounded-[30px] border border-[#a78bfa]/30 bg-gradient-to-r from-[#2a1065] via-[#4318a8] to-[#1e0a4f] p-7 text-white shadow-2xl md:p-12">
+            <p className="eyebrow text-[#d4af37]">Ready to talk?</p>
+            <h2 className="display mt-4 max-w-3xl text-4xl text-white md:text-6xl">
               Let&apos;s discuss a partnership that makes sense for you.
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-white/60">
+            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-200">
               Contact the initiative to explore individual sponsorships, corporate
               partnerships, equipment donations, and transparent reporting schedules.
             </p>
-            <Link href="/contact?topic=sponsorship" className="clay-button mt-7">
+            <Link
+              href="/contact?topic=sponsorship"
+              className="mt-7 inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-[#d4af37] px-8 text-sm font-bold text-[#050b18] shadow-lg transition hover:bg-[#e9ae56]"
+            >
               Contact the team <ArrowRight size={16} />
             </Link>
           </div>
