@@ -204,3 +204,23 @@ body {
   border-color: #703bf7;
   box-shadow: 0 0 0 3px rgba(112, 59, 247, 0.25);
 }
+
+/* ========================================================
+   INSTANT ACCENT OVERRIDES FOR DARK SURFACES
+   ======================================================== */
+
+/* 1. Turns all dark purple text into luminous electric violet across the entire site */
+[class*="text-[#5925dc]"] {
+  color: #a78bfa !important;
+}
+
+/* 2. Keeps eyebrows & prestigious indicators in radiant Champagne Gold */
+.eyebrow,
+.eyebrow[class*="text-"] {
+  color: #d4af37 !important;
+}
+
+/* 3. Softens any dark purple tint backgrounds so they glow on dark navy */
+[class*="bg-[#5925dc]/10"] {
+  background-color: rgba(167, 139, 250, 0.12) !important;
+}
