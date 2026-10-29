@@ -71,7 +71,7 @@ export default function ImpactPage() {
           <div className="mt-9 grid gap-6 md:grid-cols-3">
             {impacts.map((item) => (
               <Reveal key={item.number}>
-                <article className="panel card-hover h-full rounded-3xl border border-black/10 bg-white p-6 md:p-8">
+                <article className="panel card-hover h-full rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:p-8">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-[#5925dc]">
                       {item.number}
@@ -79,7 +79,7 @@ export default function ImpactPage() {
                     <item.icon size={24} className="text-[#5925dc]" />
                   </div>
                   <h3 className="display mt-8 text-2xl md:text-3xl">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-[#66675f]">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {item.description}
                   </p>
                 </article>
@@ -107,7 +107,7 @@ export default function ImpactPage() {
             {followUp.map((item, index) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                className="rounded-2xl border border-white/10 bg-[#0e1736]/[0.04] p-6"
               >
                 <p className="font-mono text-xs text-[#e9ae56]">
                   0{index + 1}
@@ -131,13 +131,13 @@ export default function ImpactPage() {
           <div className="mt-9 space-y-4">
             {futurePlans.map((plan, index) => (
               <Reveal key={plan.title}>
-                <article className="grid gap-4 rounded-2xl border border-black/10 bg-white p-6 md:grid-cols-[70px_1fr] md:p-8">
+                <article className="grid gap-4 rounded-2xl border border-white/10 bg-[#0e1736] p-6 md:grid-cols-[70px_1fr] md:p-8">
                   <span className="font-mono text-lg font-bold text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <div>
                     <h3 className="display text-2xl md:text-3xl">{plan.title}</h3>
-                    <p className="mt-3 max-w-3xl text-sm leading-7 text-[#66675f]">
+                    <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
                       {plan.description}
                     </p>
                   </div>

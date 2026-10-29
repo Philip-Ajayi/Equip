@@ -11,7 +11,7 @@ export default function BudgetLedger() {
   const total = budget.reduce((sum, item) => sum + item.amount, 0);
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
+    <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0e1736]">
       <div className="flex flex-col justify-between gap-5 bg-[#0a0f1d] p-6 text-white md:flex-row md:items-end md:p-8">
         <div>
           <p className="eyebrow text-[#e9ae56]">Provisional budget</p>
@@ -23,7 +23,7 @@ export default function BudgetLedger() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/15 bg-white/5 p-4">
+        <div className="rounded-2xl border border-white/15 bg-[#0e1736]/5 p-4">
           <p className="text-[10px] uppercase tracking-[0.14em] text-white/55">
             Estimated cost per student
           </p>
@@ -41,7 +41,7 @@ export default function BudgetLedger() {
           return (
             <div
               key={item.id}
-              className="border-b border-black/10 last:border-0"
+              className="border-b border-white/10 last:border-0"
             >
               <button
                 type="button"
@@ -69,7 +69,7 @@ export default function BudgetLedger() {
                   {formatNaira(item.amount)}
                 </span>
 
-                <span className="hidden text-right font-mono text-xs text-[#77766e] md:block">
+                <span className="hidden text-right font-mono text-xs text-slate-300 md:block">
                   {percentage.toFixed(1)}%
                 </span>
 
@@ -80,8 +80,8 @@ export default function BudgetLedger() {
               </button>
 
               {isOpen && (
-                <div className="mb-5 ml-10 rounded-xl bg-[#f8f9fc] p-4 md:ml-[52px]">
-                  <p className="text-sm leading-7 text-[#66675f]">
+                <div className="mb-5 ml-10 rounded-xl bg-[#080e23] p-4 md:ml-[52px]">
+                  <p className="text-sm leading-7 text-slate-300">
                     {item.description}
                   </p>
                   <p className="mt-3 flex items-center gap-2 text-xs font-semibold text-[#1c7c54]">
@@ -93,10 +93,10 @@ export default function BudgetLedger() {
           );
         })}
 
-        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#f8f9fc] p-5">
+        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#080e23] p-5">
           <div>
             <p className="text-sm font-bold">Grand total</p>
-            <p className="mt-1 text-xs text-[#66675f]">
+            <p className="mt-1 text-xs text-slate-300">
               All seven budget lines
             </p>
           </div>

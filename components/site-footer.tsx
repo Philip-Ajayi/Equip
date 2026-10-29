@@ -113,7 +113,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="my-10 h-px bg-white/10" />
+        <div className="my-10 h-px bg-[#0e1736]/10" />
 
         {/* Bottom Bar */}
         <div className="flex flex-col justify-between gap-3 text-xs text-white/45 sm:flex-row">

@@ -90,15 +90,15 @@ function HeroInteractiveHub() {
       <div className="absolute inset-4 rounded-3xl bg-[#c4b5fd]/30 blur-2xl" />
 
       {/* Main Interactive Deck */}
-      <div className="relative overflow-hidden rounded-[28px] border border-black/10 bg-[#ffffff] p-6 shadow-xl transition-all">
+      <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0e1736] p-6 shadow-xl transition-all">
         {/* Top Header & Tab Switcher */}
-        <div className="flex items-center justify-between border-b border-black/10 pb-4">
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#5925dc] opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#5925dc]" />
             </span>
-            <span className="font-mono text-[11px] font-semibold tracking-wider text-[#0a0f1d]">
+            <span className="font-mono text-[11px] font-semibold tracking-wider text-white">
               COHORT 2026 PREVIEW
             </span>
           </div>
@@ -109,7 +109,7 @@ function HeroInteractiveHub() {
               className={`rounded-full px-3 py-1 transition ${
                 activeTab === "skills"
                   ? "bg-[#5925dc] text-white shadow-sm"
-                  : "text-[#66675f] hover:text-[#0a0f1d]"
+                  : "text-slate-300 hover:text-white"
               }`}
             >
               Skills
@@ -119,7 +119,7 @@ function HeroInteractiveHub() {
               className={`rounded-full px-3 py-1 transition ${
                 activeTab === "schedule"
                   ? "bg-[#5925dc] text-white shadow-sm"
-                  : "text-[#66675f] hover:text-[#0a0f1d]"
+                  : "text-slate-300 hover:text-white"
               }`}
             >
               5 Days
@@ -129,7 +129,7 @@ function HeroInteractiveHub() {
               className={`rounded-full px-3 py-1 transition ${
                 activeTab === "impact"
                   ? "bg-[#5925dc] text-white shadow-sm"
-                  : "text-[#66675f] hover:text-[#0a0f1d]"
+                  : "text-slate-300 hover:text-white"
               }`}
             >
               Impact
@@ -140,7 +140,7 @@ function HeroInteractiveHub() {
         {/* Tab 1: Interactive Skills Matrix */}
         {activeTab === "skills" && (
           <div className="py-4">
-            <p className="text-xs font-semibold text-[#66675f]">
+            <p className="text-xs font-semibold text-slate-300">
               Select a learning track to preview specialized skills:
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -151,7 +151,7 @@ function HeroInteractiveHub() {
                   className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
                     activeSkillCategory === idx
                       ? "border-[#5925dc] bg-[#5925dc]/10 text-[#5925dc]"
-                      : "border-black/10 bg-white text-[#66675f] hover:border-black/20"
+                      : "border-white/10 bg-[#0e1736] text-slate-300 hover:border-black/20"
                   }`}
                 >
                   {item.category}
@@ -159,7 +159,7 @@ function HeroInteractiveHub() {
               ))}
             </div>
 
-            <div className="mt-4 rounded-2xl border border-black/5 bg-[#f8f9fc] p-4">
+            <div className="mt-4 rounded-2xl border border-white/10 bg-[#080e23] p-4">
               <p className="text-[11px] font-mono uppercase tracking-wider text-[#5925dc]">
                 Hands-on Workshops
               </p>
@@ -167,14 +167,14 @@ function HeroInteractiveHub() {
                 {skillsData[activeSkillCategory].skills.map((skill) => (
                   <span
                     key={skill}
-                    className="flex items-center gap-1 rounded-md bg-white px-2.5 py-1 text-xs font-medium text-[#0a0f1d] shadow-2xs"
+                    className="flex items-center gap-1 rounded-md bg-[#0e1736] px-2.5 py-1 text-xs font-medium text-white shadow-2xs"
                   >
                     <Check size={12} className="text-[#5925dc]" />
                     {skill}
                   </span>
                 ))}
               </div>
-              <p className="mt-3 text-xs leading-5 text-[#66675f]">
+              <p className="mt-3 text-xs leading-5 text-slate-300">
                 {skillsData[activeSkillCategory].outcome}
               </p>
             </div>
@@ -184,21 +184,21 @@ function HeroInteractiveHub() {
         {/* Tab 2: 5-Day Interactive Timeline */}
         {activeTab === "schedule" && (
           <div className="py-3">
-            <p className="text-xs text-[#66675f]">
+            <p className="text-xs text-slate-300">
               Jericho Ibadan:
             </p>
             <div className="mt-3 space-y-2">
               {schedulePreview.map((item) => (
                 <div
                   key={item.day}
-                  className="flex items-center justify-between rounded-xl border border-black/5 bg-[#f8f9fc] p-2.5"
+                  className="flex items-center justify-between rounded-xl border border-white/10 bg-[#080e23] p-2.5"
                 >
                   <div>
                     <span className="font-mono text-[10px] font-bold text-[#5925dc]">
                       {item.day}
                     </span>
-                    <p className="text-xs font-bold text-[#0a0f1d]">{item.title}</p>
-                    <p className="text-[11px] text-[#66675f]">{item.desc}</p>
+                    <p className="text-xs font-bold text-white">{item.title}</p>
+                    <p className="text-[11px] text-slate-300">{item.desc}</p>
                   </div>
                   <Calendar size={18} className="text-[#5925dc]/60 shrink-0" />
                 </div>
@@ -211,7 +211,7 @@ function HeroInteractiveHub() {
         {activeTab === "impact" && (
           <div className="py-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-[#66675f]">Select student count:</span>
+              <span className="text-xs text-slate-300">Select student count:</span>
               <div className="flex gap-1.5">
                 {[1, 2, 5, 10].map((qty) => (
                   <button
@@ -220,7 +220,7 @@ function HeroInteractiveHub() {
                     className={`h-7 w-7 rounded-full text-xs font-bold transition ${
                       sponsoredCount === qty
                         ? "bg-[#5925dc] text-white"
-                        : "border border-black/10 bg-white text-[#66675f]"
+                        : "border border-white/10 bg-[#0e1736] text-slate-300"
                     }`}
                   >
                     {qty}
@@ -261,8 +261,8 @@ function HeroInteractiveHub() {
         )}
 
         {/* Bottom Micro-Card */}
-        <div className="mt-2 flex items-center justify-between border-t border-black/10 pt-3 text-xs">
-          <div className="flex items-center gap-1.5 text-[#66675f]">
+        <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-3 text-xs">
+          <div className="flex items-center gap-1.5 text-slate-300">
             <Award size={15} className="text-[#5925dc]" />
             <span>100 full scholarships</span>
           </div>
@@ -275,7 +275,7 @@ function HeroInteractiveHub() {
         </div>
       </div>
 
-      <p className="mt-2 text-center font-mono text-[10px] tracking-[0.14em] text-[#77766e]">
+      <p className="mt-2 text-center font-mono text-[10px] tracking-[0.14em] text-slate-300">
         PURPOSE · INTEGRITY · EXCELLENCE · SERVICE
       </p>
     </div>
@@ -306,10 +306,10 @@ export default function HomePage() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold">
-              <span className="rounded-full border border-black/10 bg-white/70 px-4 py-2">
+              <span className="rounded-full border border-white/10 bg-[#0e1736]/70 px-4 py-2">
                 {initiative.dateLabel}
               </span>
-              <span className="rounded-full border border-black/10 bg-white/70 px-4 py-2">
+              <span className="rounded-full border border-white/10 bg-[#0e1736]/70 px-4 py-2">
                 {initiative.venue}
               </span>
             </div>
@@ -323,19 +323,19 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="mt-10 flex items-center gap-4 border-t border-black/10 pt-6">
+            <div className="mt-10 flex items-center gap-4 border-t border-white/10 pt-6">
               <div className="flex -space-x-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#e4c7b3]">
-                  <Users size={16} className="text-[#0a0f1d]" />
+                  <Users size={16} className="text-white" />
                 </div>
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#d9b98b]">
-                  <Compass size={16} className="text-[#0a0f1d]" />
+                  <Compass size={16} className="text-white" />
                 </div>
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#c7d4bf]">
-                  <HeartHandshake size={16} className="text-[#0a0f1d]" />
+                  <HeartHandshake size={16} className="text-white" />
                 </div>
               </div>
-              <p className="max-w-xs text-xs leading-6 text-[#66675f]">
+              <p className="max-w-xs text-xs leading-6 text-slate-300">
                 Leadership, practical vocational learning, mentorship, and a clear bridge to tertiary life.
               </p>
             </div>
@@ -347,7 +347,7 @@ export default function HomePage() {
       </section>
 
       {/* Metrics Banner */}
-      <section className="border-y border-black/10 bg-[#ffffff]">
+      <section className="border-y border-white/10 bg-[#0e1736]">
         <div className="page-shell grid grid-cols-2 gap-6 py-8 md:grid-cols-4 md:gap-4">
           {[
             ["100", "Sponsored student places"],
@@ -355,9 +355,9 @@ export default function HomePage() {
             ["13", "Practical skills"],
             ["₦8.45m", "Total campaign funding"],
           ].map(([value, label]) => (
-            <div key={label} className="border-l border-black/10 pl-4 md:pl-6">
+            <div key={label} className="border-l border-white/10 pl-4 md:pl-6">
               <p className="metric">{value}</p>
-              <p className="mt-2 text-xs text-[#66675f]">{label}</p>
+              <p className="mt-2 text-xs text-slate-300">{label}</p>
             </div>
           ))}
         </div>
@@ -397,11 +397,11 @@ export default function HomePage() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-[#ede9fe] p-5 md:p-7">
+              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-gradient-to-br from-[#1d0d42] to-[#0e1736] p-5 md:p-7">
                 <Compass className="text-[#5925dc]" size={24} />
                 <div>
                   <p className="display text-3xl">Room to grow.</p>
-                  <p className="mt-2 text-xs leading-6 text-[#66675f]">
+                  <p className="mt-2 text-xs leading-6 text-slate-300">
                     Character development. Vocational mastery. Dedicated mentors.
                   </p>
                 </div>
@@ -412,14 +412,14 @@ export default function HomePage() {
       </section>
 
       {/* Real Outreach Gallery */}
-      <section className="pb-16 pt-4 bg-[#fbf9f5] border-y border-black/5">
+      <section className="pb-16 pt-4 bg-[#080e23] border-y border-white/10">
         <div className="page-shell">
           <div className="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
             <div>
               <p className="eyebrow text-[#5925dc]">Secondary School Outreaches</p>
               <h2 className="display text-3xl md:text-4xl">Engaging teenagers where they are.</h2>
             </div>
-            <p className="text-xs text-[#66675f] max-w-sm">
+            <p className="text-xs text-slate-300 max-w-sm">
               Snapshots from our ongoing mobile leadership academies and youth outreaches across Oyo State.
             </p>
           </div>
@@ -428,7 +428,7 @@ export default function HomePage() {
             {schoolPhotos.slice(3, 9).map((photoPath, index) => (
               <div
                 key={photoPath}
-                className="image-frame aspect-square overflow-hidden rounded-xl border border-black/10 bg-white shadow-2xs"
+                className="image-frame aspect-square overflow-hidden rounded-xl border border-white/10 bg-[#0e1736] shadow-2xs"
               >
                 <SafeImage
                   src={photoPath}
@@ -454,7 +454,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/programs/equip-2026/training"
-              className="outline-button border-white/20 text-white hover:bg-white/10"
+              className="outline-button border-white/20 text-white hover:bg-[#0e1736]/10"
             >
               Explore all 13 skills <ArrowRight size={16} />
             </Link>
@@ -465,7 +465,7 @@ export default function HomePage() {
               <Reveal key={track.id}>
                 <Link
                   href="/programs/equip-2026/training"
-                  className="card-hover block h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-7 transition hover:border-white/25"
+                  className="card-hover block h-full rounded-3xl border border-white/10 bg-[#0e1736]/[0.04] p-6 md:p-7 transition hover:border-white/25"
                 >
                   <span className="font-mono text-xs text-[#e9ae56]">
                     TRACK {track.number}
@@ -528,10 +528,10 @@ export default function HomePage() {
                       </div>
                     )}
                   </div>
-                  <p className="mt-3 text-sm font-bold text-[#0a0f1d] group-hover:text-[#5925dc] transition-colors">
+                  <p className="mt-3 text-sm font-bold text-white group-hover:text-[#5925dc] transition-colors">
                     {person.name}
                   </p>
-                  <p className="mt-1 text-xs text-[#66675f] line-clamp-1">
+                  <p className="mt-1 text-xs text-slate-300 line-clamp-1">
                     {person.specialization}
                   </p>
                 </Link>
@@ -562,7 +562,7 @@ export default function HomePage() {
 
               <Link
                 href="/support"
-                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-white px-6 text-sm font-bold text-[#0a0f1d] transition hover:bg-[#f0ecfc] lg:self-end"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-[#0e1736] px-6 text-sm font-bold text-white transition hover:bg-[#f0ecfc] lg:self-end"
               >
                 Sponsor a student <ArrowRight size={16} />
               </Link>
@@ -584,7 +584,7 @@ export default function HomePage() {
       </section>
 
       {/* Value Marquee */}
-      <section className="overflow-hidden border-y border-black/10 bg-[#ffffff] py-5">
+      <section className="overflow-hidden border-y border-white/10 bg-[#0e1736] py-5">
         <div className="marquee-track">
           <div className="marquee">
             {[0, 1].map((copy) => (
@@ -597,7 +597,7 @@ export default function HomePage() {
                 ].map((item) => (
                   <span
                     key={`${copy}-${item}`}
-                    className="mx-7 flex items-center gap-7 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-[#66675f]"
+                    className="mx-7 flex items-center gap-7 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-slate-300"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-[#5925dc]" />
                     {item}
@@ -611,7 +611,7 @@ export default function HomePage() {
 
       {/* Location Bar */}
       <section className="py-5">
-        <div className="page-shell flex flex-wrap items-center justify-between gap-3 text-xs text-[#77766e]">
+        <div className="page-shell flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
           <span>{initiative.venue}</span>
           <Link href="/programs/equip-2026/schedule" className="text-link">
             See the full week schedule <ArrowDown size={14} />

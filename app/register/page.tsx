@@ -105,8 +105,8 @@ export default function RegisterPage() {
               by Leading Minds Leadership Initiative.
             </p>
 
-            <div className="mt-7 rounded-2xl bg-white/80 p-5">
-              <p className="text-xs text-[#66675f]">Selected training track</p>
+            <div className="mt-7 rounded-2xl bg-[#0e1736]/80 p-5">
+              <p className="text-xs text-slate-300">Selected training track</p>
               <p className="mt-2 font-semibold">
                 {curriculum.find((track) => track.id === form.track)?.title}
               </p>
@@ -158,7 +158,7 @@ export default function RegisterPage() {
                 />
                 <p
                   className={`mt-2 text-[10px] ${
-                    index === step ? "font-bold text-[#5925dc]" : "text-[#77766e]"
+                    index === step ? "font-bold text-[#5925dc]" : "text-slate-300"
                   }`}
                 >
                   {String(index + 1).padStart(2, "0")} · {label}
@@ -167,7 +167,7 @@ export default function RegisterPage() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-3xl border border-black/10 bg-white p-6 md:p-10">
+          <div className="mt-8 rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:p-10">
             {step === 0 && (
               <div className="space-y-5">
                 <h2 className="display text-3xl">Your details</h2>
@@ -287,7 +287,7 @@ export default function RegisterPage() {
             {step === 2 && (
               <div>
                 <h2 className="display text-3xl">Choose a learning track</h2>
-                <p className="mt-3 text-sm leading-7 text-[#66675f]">
+                <p className="mt-3 text-sm leading-7 text-slate-300">
                   Choose the area you would most like to explore. Final
                   admission and track allocation arrangements remain subject
                   to confirmation.
@@ -300,7 +300,7 @@ export default function RegisterPage() {
                       className={`flex cursor-pointer gap-4 rounded-2xl border p-5 transition-colors ${
                         form.track === track.id
                           ? "border-[#5925dc] bg-[#f4f0fd]"
-                          : "border-black/10"
+                          : "border-white/10"
                       }`}
                     >
                       <input
@@ -313,7 +313,7 @@ export default function RegisterPage() {
                       />
                       <span>
                         <span className="block font-semibold">{track.title}</span>
-                        <span className="mt-2 block text-sm leading-6 text-[#66675f]">
+                        <span className="mt-2 block text-sm leading-6 text-slate-300">
                           {track.description}
                         </span>
                       </span>
@@ -343,9 +343,9 @@ export default function RegisterPage() {
                   ].map(([label, value]) => (
                     <div
                       key={label}
-                      className="flex flex-col justify-between gap-1 border-b border-black/10 pb-3 sm:flex-row sm:gap-4"
+                      className="flex flex-col justify-between gap-1 border-b border-white/10 pb-3 sm:flex-row sm:gap-4"
                     >
-                      <span className="text-xs text-[#77766e]">{label}</span>
+                      <span className="text-xs text-slate-300">{label}</span>
                       <span className="text-sm font-semibold">{value}</span>
                     </div>
                   ))}
@@ -364,14 +364,14 @@ export default function RegisterPage() {
                     required
                     minLength={20}
                   />
-                  <p className="mt-2 text-xs text-[#77766e]">
+                  <p className="mt-2 text-xs text-slate-300">
                     Please write at least 20 characters.
                   </p>
                 </div>
               </div>
             )}
 
-            <div className="mt-9 flex flex-wrap items-center justify-between gap-3 border-t border-black/10 pt-6">
+            <div className="mt-9 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-6">
               <button
                 type="button"
                 onClick={previous}
@@ -390,7 +390,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <p className="mt-5 text-xs leading-6 text-[#77766e]">
+          <p className="mt-5 text-xs leading-6 text-slate-300">
             Please do not enter sensitive personal information. This prototype
             keeps its application state in the current browser session only.
           </p>

@@ -19,7 +19,7 @@ export default function ProgramsPage() {
           {initiative.programs.map((program) => (
             <article
               key={program.number}
-              className="grid gap-6 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[100px_1fr_auto] md:items-center md:p-9"
+              className="grid gap-6 rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:grid-cols-[100px_1fr_auto] md:items-center md:p-9"
             >
               <span className="font-mono text-3xl text-[#5925dc]">
                 {program.number}
@@ -29,7 +29,7 @@ export default function ProgramsPage() {
                 <h2 className="display mt-3 text-3xl md:text-4xl">
                   {program.title}
                 </h2>
-                <p className="mt-4 max-w-3xl text-sm leading-7 text-[#66675f]">
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
                   {program.description}
                 </p>
               </div>

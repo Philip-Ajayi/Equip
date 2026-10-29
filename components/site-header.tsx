@@ -22,7 +22,7 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f9fc]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080e23]/90 backdrop-blur-xl">
       <div className="page-shell flex min-h-[76px] items-center justify-between gap-5">
         <Link
           href="/"
@@ -30,7 +30,7 @@ export default function SiteHeader() {
           className="flex shrink-0 items-center gap-3"
           aria-label="Leading Minds home"
         >
-          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white">
+          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-[#0e1736]">
             {/* Replace with your exact logo filename if different. */}
             <img
               src="/logo.png"
@@ -48,7 +48,7 @@ export default function SiteHeader() {
             <span className="block text-[13px] font-bold tracking-tight">
               Project
             </span>
-            <span className="mt-1 block text-[9px] uppercase tracking-[0.15em] text-[#77766e]">
+            <span className="mt-1 block text-[9px] uppercase tracking-[0.15em] text-slate-300">
               Equip
             </span>
           </div>
@@ -84,7 +84,7 @@ export default function SiteHeader() {
 
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
@@ -98,7 +98,7 @@ export default function SiteHeader() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className="border-t border-black/10 bg-[#f8f9fc] px-[18px] py-5 lg:hidden"
+          className="border-t border-white/10 bg-[#080e23] px-[18px] py-5 lg:hidden"
         >
           <div className="mx-auto flex max-w-[1240px] flex-col">
             {links.map((link, index) => (
@@ -106,7 +106,7 @@ export default function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="flex items-center justify-between border-b border-black/10 py-4 text-sm font-semibold"
+                className="flex items-center justify-between border-b border-white/10 py-4 text-sm font-semibold"
               >
                 <span>{link.label}</span>
                 <span className="font-mono text-xs text-[#5925dc]">

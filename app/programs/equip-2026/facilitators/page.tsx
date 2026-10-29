@@ -37,7 +37,7 @@ export default function FacilitatorsPage() {
           <button
             type="button"
             onClick={() => setSelected(convener.id)}
-            className="group grid w-full gap-7 rounded-3xl border border-black/10 bg-white p-5 text-left transition hover:border-[#5925dc]/40 hover:shadow-lg md:grid-cols-[300px_1fr] md:p-8"
+            className="group grid w-full gap-7 rounded-3xl border border-white/10 bg-[#0e1736] p-5 text-left transition hover:border-[#5925dc]/40 hover:shadow-lg md:grid-cols-[300px_1fr] md:p-8"
           >
             <div className="image-frame aspect-[0.9] max-h-[420px] bg-[#f0eae1] flex items-center justify-center">
               {convener.image ? (
@@ -52,7 +52,7 @@ export default function FacilitatorsPage() {
               ) : (
                 <div className="flex flex-col items-center justify-center text-[#5925dc]/60">
                   <User size={64} strokeWidth={1.5} />
-                  <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#66675f]">
+                  <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-300">
                     Convener
                   </span>
                 </div>
@@ -67,7 +67,7 @@ export default function FacilitatorsPage() {
               <p className="mt-3 text-sm font-semibold text-[#5925dc]">
                 {convener.role}
               </p>
-              <p className="mt-4 text-sm leading-7 text-[#66675f]">
+              <p className="mt-4 text-sm leading-7 text-slate-300">
                 {convener.paragraphs?.[0] ||
                   "Convener of Leading Minds Leadership Initiative, providing strategic vision, direction, and mentorship for Project EQUIP 2026."}
               </p>
@@ -92,7 +92,7 @@ export default function FacilitatorsPage() {
                 type="button"
                 key={person.id}
                 onClick={() => setSelected(person.id)}
-                className="panel card-hover group overflow-hidden rounded-2xl border border-black/10 bg-white text-left transition hover:border-[#5925dc]/40 hover:shadow-md"
+                className="panel card-hover group overflow-hidden rounded-2xl border border-white/10 bg-[#0e1736] text-left transition hover:border-[#5925dc]/40 hover:shadow-md"
               >
                 <div className="image-frame aspect-[0.9] overflow-hidden bg-[#f0eae1]">
                   {person.image ? (
@@ -118,7 +118,7 @@ export default function FacilitatorsPage() {
                       FACILITATOR {String(index + 1).padStart(2, "0")}
                     </p>
                     {person.business && (
-                      <span className="rounded-full bg-[#f4efe8] px-2.5 py-0.5 text-[10px] font-medium text-[#77766e]">
+                      <span className="rounded-full bg-[#f4efe8] px-2.5 py-0.5 text-[10px] font-medium text-slate-300">
                         {person.business}
                       </span>
                     )}
@@ -126,7 +126,7 @@ export default function FacilitatorsPage() {
                   <h3 className="mt-3 text-lg font-bold group-hover:text-[#5925dc] transition-colors">
                     {person.name}
                   </h3>
-                  <p className="mt-2 text-xs leading-5 text-[#66675f] line-clamp-2">
+                  <p className="mt-2 text-xs leading-5 text-slate-300 line-clamp-2">
                     {person.specialization}
                   </p>
                   <span className="text-link mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#5925dc]">
@@ -138,7 +138,7 @@ export default function FacilitatorsPage() {
           </div>
 
           {/* Counseling & Welfare Support (Official Partnership) */}
-          <div className="mt-14 rounded-3xl bg-[#ede9fe] p-7 md:p-10 border border-[#ddd6fe]">
+          <div className="mt-14 rounded-3xl bg-gradient-to-br from-[#1d0d42] to-[#0e1736] p-7 md:p-10 border border-[#703bf7]/30">
             <p className="eyebrow text-[#5925dc]">Post-Event Welfare & Mentorship</p>
             <h2 className="display mt-3 text-3xl md:text-4xl">
               Professional counseling and sustained mentorship.
@@ -164,10 +164,10 @@ export default function FacilitatorsPage() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="faculty-dialog-title"
-            className="max-h-[90dvh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-[#f8f9fc] p-6 shadow-2xl sm:rounded-3xl sm:p-9"
+            className="max-h-[90dvh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-[#080e23] p-6 shadow-2xl sm:rounded-3xl sm:p-9"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-5 border-b border-black/10 pb-5">
+            <div className="flex items-start justify-between gap-5 border-b border-white/10 pb-5">
               <div>
                 <p className="eyebrow text-[#5925dc]">Faculty Profile</p>
                 <h2
@@ -179,7 +179,7 @@ export default function FacilitatorsPage() {
                 <p className="mt-1.5 text-sm font-semibold text-[#5925dc]">
                   {activePerson.role}
                 </p>
-                <p className="mt-1 text-xs text-[#66675f]">
+                <p className="mt-1 text-xs text-slate-300">
                   {activePerson.specialization}
                   {activePerson.business ? ` • ${activePerson.business}` : ""}
                 </p>
@@ -189,7 +189,7 @@ export default function FacilitatorsPage() {
                 type="button"
                 onClick={() => setSelected(null)}
                 aria-label="Close biography"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 transition hover:bg-black/5"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 transition hover:bg-black/5"
               >
                 <X size={18} />
               </button>
@@ -206,7 +206,7 @@ export default function FacilitatorsPage() {
                   </p>
                 ))
               ) : (
-                <p className="text-sm italic text-[#77766e]">
+                <p className="text-sm italic text-slate-300">
                   Full biography and session details will be published shortly.
                 </p>
               )}

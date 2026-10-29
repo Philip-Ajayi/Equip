@@ -95,7 +95,7 @@ In public folders we have
   * H2 Section Headers: `text-3xl md:text-5xl font-normal tracking-tight leading-[1.15]`
   * H3 Feature Headers: `text-xl md:text-2xl font-medium tracking-normal`
 * **Structural Grotesque Sans**: `Geist Sans` or `Plus Jakarta Sans` (Weights 400, 500, 600, 700). High-legibility UI typography engineered for dense dashboards, track listings, and narrative body copy.
-  * Body Text: `text-base md:text-lg text-[#0a0f1d]/80 leading-relaxed font-normal`
+  * Body Text: `text-base md:text-lg text-white/80 leading-relaxed font-normal`
   * Captions & Overlines: `text-xs md:text-sm font-semibold tracking-wider uppercase text-[#5925dc]`
 * **Technical Monospace**: `Geist Mono` or `JetBrains Mono`. Financial figures, timetable timestamps, GPS coordinates for Hebron Center, and budget lines.
   * Ledger Lines: `font-mono text-sm tracking-tight`
@@ -232,7 +232,7 @@ DETAILED ROUTE BLUEPRINT & SECTION EXECUTION
 ### 1. Global Shell: `app/layout.tsx`
 * **Route Role**: Root container hosting fonts, global metadata, persistent R3F Canvas, header, and footer.
 * **Component Architecture**:
-  - `SiteHeader`: Glassmorphic navigation header (`backdrop-blur-md bg-[#f8f9fc]/85 border-b border-[#0a0f1d]/10`).
+  - `SiteHeader`: Glassmorphic navigation header (`backdrop-blur-md bg-[#080e23]/85 border-b border-[#0a0f1d]/10`).
   - `GlobalScene`: Viewport-fixed Three.js canvas (`z-index: 0, pointer-events: none`).
   - `SiteFooter`: Comprehensive multi-column footer displaying initiative vision, rapid links, contact info, and copyright.
 * **Metadata API**:

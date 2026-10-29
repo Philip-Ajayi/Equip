@@ -1303,7 +1303,7 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f9fc]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080e23]/90 backdrop-blur-xl">
       <div className="page-shell flex min-h-[76px] items-center justify-between gap-5">
         <Link
           href="/"
@@ -1311,7 +1311,7 @@ export default function SiteHeader() {
           className="flex shrink-0 items-center gap-3"
           aria-label="Leading Minds home"
         >
-          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white">
+          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-[#0e1736]">
             {/* Replace with your exact logo filename if different. */}
             <img
               src="/images/logo/logo.png"
@@ -1329,7 +1329,7 @@ export default function SiteHeader() {
             <span className="block text-[13px] font-bold tracking-tight">
               Leading Minds
             </span>
-            <span className="mt-1 block text-[9px] uppercase tracking-[0.15em] text-[#77766e]">
+            <span className="mt-1 block text-[9px] uppercase tracking-[0.15em] text-slate-300">
               Leadership Initiative
             </span>
           </div>
@@ -1365,7 +1365,7 @@ export default function SiteHeader() {
 
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
@@ -1379,7 +1379,7 @@ export default function SiteHeader() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className="border-t border-black/10 bg-[#f8f9fc] px-[18px] py-5 lg:hidden"
+          className="border-t border-white/10 bg-[#080e23] px-[18px] py-5 lg:hidden"
         >
           <div className="mx-auto flex max-w-[1240px] flex-col">
             {links.map((link, index) => (
@@ -1387,7 +1387,7 @@ export default function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="flex items-center justify-between border-b border-black/10 py-4 text-sm font-semibold"
+                className="flex items-center justify-between border-b border-white/10 py-4 text-sm font-semibold"
               >
                 <span>{link.label}</span>
                 <span className="font-mono text-xs text-[#5925dc]">
@@ -1526,7 +1526,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="my-10 h-px bg-white/10" />
+        <div className="my-10 h-px bg-[#0e1736]/10" />
 
         <div className="flex flex-col justify-between gap-3 text-xs text-white/45 sm:flex-row">
           <p>
@@ -1570,7 +1570,7 @@ export default function PageHero({
   primaryHref,
 }: PageHeroProps) {
   return (
-    <section className="grid-lines border-b border-black/10">
+    <section className="grid-lines border-b border-white/10">
       <div className="page-shell grid gap-10 py-16 md:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="animate-in">
           <p className="eyebrow">{eyebrow}</p>
@@ -1595,7 +1595,7 @@ export default function PageHero({
             <div className="monolith absolute inset-[13%] min-h-0" />
           )}
 
-          <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 rounded-2xl border border-white/50 bg-white/85 p-4 backdrop-blur-lg md:inset-x-5 md:bottom-5">
+          <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 rounded-2xl border border-white/50 bg-[#0e1736]/85 p-4 backdrop-blur-lg md:inset-x-5 md:bottom-5">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#5925dc]">
                 Project EQUIP 2026
@@ -1707,7 +1707,7 @@ export default function TrackExplorer() {
               className={`rounded-2xl border p-5 text-left transition-all ${
                 active
                   ? "border-[#5925dc] bg-[#5925dc] text-white"
-                  : "border-black/10 bg-white hover:border-[#5925dc]/50"
+                  : "border-white/10 bg-[#0e1736] hover:border-[#5925dc]/50"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -1740,17 +1740,17 @@ export default function TrackExplorer() {
               {track.title}
             </h2>
           </div>
-          <p className="max-w-lg text-sm leading-7 text-[#66675f]">
+          <p className="max-w-lg text-sm leading-7 text-slate-300">
             {track.description}
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
+        <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0e1736]">
           {track.skills.map((skill, index) => {
             const expanded = expandedSkill === skill.id;
 
             return (
-              <div key={skill.id} className="border-b border-black/10 last:border-0">
+              <div key={skill.id} className="border-b border-white/10 last:border-0">
                 <button
                   type="button"
                   className="flex w-full items-center gap-4 px-5 py-5 text-left md:px-7"
@@ -1781,7 +1781,7 @@ export default function TrackExplorer() {
                       <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5925dc]">
                         What you will learn
                       </p>
-                      <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                      <p className="mt-2 text-sm leading-7 text-slate-300">
                         {skill.focus}
                       </p>
                     </div>
@@ -1790,7 +1790,7 @@ export default function TrackExplorer() {
                       <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#1c7c54]">
                         What you can do
                       </p>
-                      <p className="mt-2 flex gap-2 text-sm leading-7 text-[#66675f]">
+                      <p className="mt-2 flex gap-2 text-sm leading-7 text-slate-300">
                         <Check
                           size={17}
                           className="mt-1 shrink-0 text-[#1c7c54]"
@@ -1830,7 +1830,7 @@ export default function BudgetLedger() {
   const total = budget.reduce((sum, item) => sum + item.amount, 0);
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
+    <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0e1736]">
       <div className="flex flex-col justify-between gap-5 bg-[#0a0f1d] p-6 text-white md:flex-row md:items-end md:p-8">
         <div>
           <p className="eyebrow text-[#e9ae56]">Provisional budget</p>
@@ -1842,7 +1842,7 @@ export default function BudgetLedger() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/15 bg-white/5 p-4">
+        <div className="rounded-2xl border border-white/15 bg-[#0e1736]/5 p-4">
           <p className="text-[10px] uppercase tracking-[0.14em] text-white/55">
             Estimated cost per student
           </p>
@@ -1860,7 +1860,7 @@ export default function BudgetLedger() {
           return (
             <div
               key={item.id}
-              className="border-b border-black/10 last:border-0"
+              className="border-b border-white/10 last:border-0"
             >
               <button
                 type="button"
@@ -1888,7 +1888,7 @@ export default function BudgetLedger() {
                   {formatNaira(item.amount)}
                 </span>
 
-                <span className="hidden text-right font-mono text-xs text-[#77766e] md:block">
+                <span className="hidden text-right font-mono text-xs text-slate-300 md:block">
                   {percentage.toFixed(1)}%
                 </span>
 
@@ -1899,8 +1899,8 @@ export default function BudgetLedger() {
               </button>
 
               {isOpen && (
-                <div className="mb-5 ml-10 rounded-xl bg-[#f8f9fc] p-4 md:ml-[52px]">
-                  <p className="text-sm leading-7 text-[#66675f]">
+                <div className="mb-5 ml-10 rounded-xl bg-[#080e23] p-4 md:ml-[52px]">
+                  <p className="text-sm leading-7 text-slate-300">
                     {item.description}
                   </p>
                   <p className="mt-3 flex items-center gap-2 text-xs font-semibold text-[#1c7c54]">
@@ -1912,10 +1912,10 @@ export default function BudgetLedger() {
           );
         })}
 
-        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#f8f9fc] p-5">
+        <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#080e23] p-5">
           <div>
             <p className="text-sm font-bold">Grand total</p>
-            <p className="mt-1 text-xs text-[#66675f]">
+            <p className="mt-1 text-xs text-slate-300">
               All seven budget lines
             </p>
           </div>
@@ -2039,7 +2039,7 @@ export default function ContactForm() {
         Preview submission <ArrowRight size={16} />
       </button>
 
-      <p className="text-xs leading-6 text-[#77766e]">
+      <p className="text-xs leading-6 text-slate-300">
         Preview only. No personal information is transmitted or saved.
       </p>
     </form>
@@ -2100,10 +2100,10 @@ export default function HomePage() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold">
-              <span className="rounded-full border border-black/10 bg-white/70 px-4 py-2">
+              <span className="rounded-full border border-white/10 bg-[#0e1736]/70 px-4 py-2">
                 November 22–28, 2026
               </span>
-              <span className="rounded-full border border-black/10 bg-white/70 px-4 py-2">
+              <span className="rounded-full border border-white/10 bg-[#0e1736]/70 px-4 py-2">
                 Hebron Center, Ibadan
               </span>
             </div>
@@ -2117,7 +2117,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="mt-10 flex items-center gap-4 border-t border-black/10 pt-6">
+            <div className="mt-10 flex items-center gap-4 border-t border-white/10 pt-6">
               <div className="flex -space-x-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#f8f9fc] bg-[#e4c7b3]">
                   <Users size={16} />
@@ -2129,7 +2129,7 @@ export default function HomePage() {
                   <HeartHandshake size={16} />
                 </div>
               </div>
-              <p className="max-w-xs text-xs leading-6 text-[#66675f]">
+              <p className="max-w-xs text-xs leading-6 text-slate-300">
                 Leadership, practical learning, mentorship, and a better start
                 to the next chapter.
               </p>
@@ -2139,8 +2139,8 @@ export default function HomePage() {
           <div className="relative mx-auto w-full max-w-[520px] lg:ml-auto">
             <div className="absolute inset-8 rounded-full bg-[#c4b5fd]/40 blur-3xl" />
             <div className="relative mx-auto flex aspect-[0.91] max-h-[560px] items-center justify-center">
-              <div className="absolute inset-0 rounded-[48%_48%_24px_24px] border border-black/10" />
-              <div className="absolute inset-[7%] rounded-[48%_48%_24px_24px] border border-black/10" />
+              <div className="absolute inset-0 rounded-[48%_48%_24px_24px] border border-white/10" />
+              <div className="absolute inset-[7%] rounded-[48%_48%_24px_24px] border border-white/10" />
               <div className="monolith w-[64%] max-w-[340px] min-h-[420px]">
                 <div className="orbit" />
                 <div className="orbit orbit-two" />
@@ -2162,19 +2162,19 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="absolute right-[10%] top-[9%] flex h-14 w-14 items-center justify-center rounded-full bg-[#d99b26] text-[#0a0f1d] shadow-xl">
+              <div className="absolute right-[10%] top-[9%] flex h-14 w-14 items-center justify-center rounded-full bg-[#d99b26] text-white shadow-xl">
                 <Sparkles size={22} />
               </div>
             </div>
 
-            <p className="mt-1 text-center font-mono text-[10px] tracking-[0.12em] text-[#77766e]">
+            <p className="mt-1 text-center font-mono text-[10px] tracking-[0.12em] text-slate-300">
               PURPOSE · SKILLS · CHARACTER · COMMUNITY
             </p>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-black/10 bg-[#ffffff]">
+      <section className="border-y border-white/10 bg-[#0e1736]">
         <div className="page-shell grid grid-cols-2 gap-6 py-8 md:grid-cols-4 md:gap-4">
           {[
             ["100", "Student places"],
@@ -2182,9 +2182,9 @@ export default function HomePage() {
             ["11", "Practical skills"],
             ["₦8.45m", "Funding target"],
           ].map(([value, label]) => (
-            <div key={label} className="border-l border-black/10 pl-4 md:pl-6">
+            <div key={label} className="border-l border-white/10 pl-4 md:pl-6">
               <p className="metric">{value}</p>
-              <p className="mt-2 text-xs text-[#66675f]">{label}</p>
+              <p className="mt-2 text-xs text-slate-300">{label}</p>
             </div>
           ))}
         </div>
@@ -2231,11 +2231,11 @@ export default function HomePage() {
                   }}
                 />
               </div>
-              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-[#ede9fe] p-5 md:p-7">
+              <div className="flex flex-1 flex-col justify-between rounded-2xl bg-gradient-to-br from-[#1d0d42] to-[#0e1736] p-5 md:p-7">
                 <Sparkles className="text-[#5925dc]" size={23} />
                 <div>
                   <p className="display text-3xl">Room to grow.</p>
-                  <p className="mt-2 text-xs leading-6 text-[#66675f]">
+                  <p className="mt-2 text-xs leading-6 text-slate-300">
                     Good guidance. Practical skills. People who care.
                   </p>
                 </div>
@@ -2267,7 +2267,7 @@ export default function HomePage() {
               <Reveal key={track.id}>
                 <Link
                   href="/programs/equip-2026/training"
-                  className="card-hover block h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-7"
+                  className="card-hover block h-full rounded-3xl border border-white/10 bg-[#0e1736]/[0.04] p-6 md:p-7"
                 >
                   <span className="font-mono text-xs text-[#e9ae56]">
                     TRACK {track.number}
@@ -2326,7 +2326,7 @@ export default function HomePage() {
                     <div className="absolute inset-0 -z-0 bg-gradient-to-t from-[#0a0f1d]/20 to-transparent" />
                   </div>
                   <p className="mt-3 text-sm font-bold">{person.name}</p>
-                  <p className="mt-1 text-xs text-[#66675f]">
+                  <p className="mt-1 text-xs text-slate-300">
                     {person.specialization}
                   </p>
                 </Link>
@@ -2356,7 +2356,7 @@ export default function HomePage() {
 
               <Link
                 href="/support"
-                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-white px-6 text-sm font-bold text-[#0a0f1d] transition hover:bg-[#f0ecfc] lg:self-end"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 self-start rounded-full bg-[#0e1736] px-6 text-sm font-bold text-white transition hover:bg-[#f0ecfc] lg:self-end"
               >
                 See how to support <ArrowRight size={16} />
               </Link>
@@ -2377,7 +2377,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="overflow-hidden border-y border-black/10 bg-[#ffffff] py-5">
+      <section className="overflow-hidden border-y border-white/10 bg-[#0e1736] py-5">
         <div className="marquee-track">
           <div className="marquee">
             {[0, 1].map((copy) => (
@@ -2390,7 +2390,7 @@ export default function HomePage() {
                 ].map((item) => (
                   <span
                     key={`${copy}-${item}`}
-                    className="mx-7 flex items-center gap-7 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-[#66675f]"
+                    className="mx-7 flex items-center gap-7 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-slate-300"
                   >
                     <Sparkles size={13} className="text-[#5925dc]" />
                     {item}
@@ -2403,7 +2403,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-5">
-        <div className="page-shell flex flex-wrap items-center justify-between gap-3 text-xs text-[#77766e]">
+        <div className="page-shell flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
           <span>{initiative.venue}</span>
           <Link href="/programs/equip-2026/schedule" className="text-link">
             See the program schedule <ArrowDown size={14} />
@@ -2454,7 +2454,7 @@ export default function AboutPage() {
           <Reveal className="panel p-7 md:p-10">
             <span className="eyebrow">Our vision</span>
             <h2 className="display mt-5 text-4xl">What we hope to see.</h2>
-            <p className="mt-5 text-sm leading-8 text-[#66675f]">
+            <p className="mt-5 text-sm leading-8 text-slate-300">
               {initiative.vision}
             </p>
           </Reveal>
@@ -2469,7 +2469,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-space bg-[#ffffff]">
+      <section className="section-space bg-[#0e1736]">
         <div className="page-shell">
           <div className="max-w-2xl">
             <p className="eyebrow">The values we live by</p>
@@ -2485,7 +2485,7 @@ export default function AboutPage() {
                     0{index + 1}
                   </span>
                   <h3 className="display mt-7 text-3xl">{value}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#66675f]">
+                  <p className="mt-3 text-sm leading-7 text-slate-300">
                     {valueDescriptions[index]}
                   </p>
                 </div>
@@ -2509,7 +2509,7 @@ export default function AboutPage() {
           <div className="space-y-4">
             {initiative.objectives.map((objective, index) => (
               <Reveal key={objective.title}>
-                <div className="flex gap-5 rounded-2xl border border-black/10 p-5 md:p-7">
+                <div className="flex gap-5 rounded-2xl border border-white/10 p-5 md:p-7">
                   <span className="font-mono text-sm text-[#5925dc]">
                     0{index + 1}
                   </span>
@@ -2517,7 +2517,7 @@ export default function AboutPage() {
                     <h3 className="text-lg font-semibold">
                       {objective.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                    <p className="mt-2 text-sm leading-7 text-slate-300">
                       {objective.text}
                     </p>
                   </div>
@@ -2568,11 +2568,11 @@ export default function AboutPage() {
                       <Heart className="text-[#5925dc]" size={21} />
                     )}
                   </div>
-                  <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.14em] text-[#77766e]">
+                  <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-300">
                     {program.status}
                   </p>
                   <h3 className="display mt-3 text-3xl">{program.title}</h3>
-                  <p className="mt-4 flex-1 text-sm leading-7 text-[#66675f]">
+                  <p className="mt-4 flex-1 text-sm leading-7 text-slate-300">
                     {program.description}
                   </p>
                   <Link
@@ -2594,12 +2594,12 @@ export default function AboutPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#ede9fe] p-7 md:p-10">
+          <div className="rounded-3xl bg-gradient-to-br from-[#1d0d42] to-[#0e1736] p-7 md:p-10">
             <ShieldCheck size={26} className="text-[#5925dc]" />
             <h2 className="display mt-4 text-4xl">
               A mission built on trust.
             </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#66675f]">
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
               Our commitment is to handle people, partnerships, and resources
               with care. As the initiative grows, its public materials should
               clearly explain its work and report its outcomes.
@@ -2638,7 +2638,7 @@ export default function ProgramsPage() {
           {initiative.programs.map((program) => (
             <article
               key={program.number}
-              className="grid gap-6 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[100px_1fr_auto] md:items-center md:p-9"
+              className="grid gap-6 rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:grid-cols-[100px_1fr_auto] md:items-center md:p-9"
             >
               <span className="font-mono text-3xl text-[#5925dc]">
                 {program.number}
@@ -2648,7 +2648,7 @@ export default function ProgramsPage() {
                 <h2 className="display mt-3 text-3xl md:text-4xl">
                   {program.title}
                 </h2>
-                <p className="mt-4 max-w-3xl text-sm leading-7 text-[#66675f]">
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
                   {program.description}
                 </p>
               </div>
@@ -2715,7 +2715,7 @@ export default function EquipPage() {
         imageAlt="Students taking part in a group learning activity"
       />
 
-      <section className="border-b border-black/10 bg-[#ffffff]">
+      <section className="border-b border-white/10 bg-[#0e1736]">
         <div className="page-shell grid gap-5 py-7 sm:grid-cols-3">
           {[
             { icon: CalendarDays, label: "Program dates", value: initiative.dateLabel },
@@ -2727,7 +2727,7 @@ export default function EquipPage() {
                 <item.icon size={19} />
               </div>
               <div>
-                <p className="text-xs text-[#77766e]">{item.label}</p>
+                <p className="text-xs text-slate-300">{item.label}</p>
                 <p className="mt-1 text-sm font-bold">{item.value}</p>
               </div>
             </div>
@@ -2745,13 +2745,13 @@ export default function EquipPage() {
           </div>
           <div className="space-y-5">
             {initiative.equipOverview.map((paragraph) => (
-              <p key={paragraph} className="text-base leading-8 text-[#66675f]">
+              <p key={paragraph} className="text-base leading-8 text-slate-300">
                 {paragraph}
               </p>
             ))}
             <div className="rounded-2xl border border-[#d99b26]/40 bg-[#f6edda] p-5">
               <p className="text-sm font-bold">A date to confirm</p>
-              <p className="mt-2 text-sm leading-7 text-[#66675f]">
+              <p className="mt-2 text-sm leading-7 text-slate-300">
                 {initiative.programNote}
               </p>
             </div>
@@ -2759,7 +2759,7 @@ export default function EquipPage() {
         </div>
       </section>
 
-      <section className="section-space bg-[#ffffff]">
+      <section className="section-space bg-[#0e1736]">
         <div className="page-shell">
           <p className="eyebrow">What participants will work towards</p>
           <h2 className="section-title">Ten goals for the week.</h2>
@@ -2767,7 +2767,7 @@ export default function EquipPage() {
           <div className="mt-9 grid gap-3 md:grid-cols-2">
             {initiative.equipObjectives.map((objective, index) => (
               <Reveal key={objective}>
-                <div className="flex h-full gap-4 rounded-2xl border border-black/10 bg-white p-5">
+                <div className="flex h-full gap-4 rounded-2xl border border-white/10 bg-[#0e1736] p-5">
                   <span className="font-mono text-xs text-[#5925dc]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -2795,11 +2795,11 @@ export default function EquipPage() {
             <div className="space-y-3">
               {initiative.methodology.map((item, index) => (
                 <Reveal key={item.title}>
-                  <div className="flex gap-4 rounded-2xl border border-black/10 p-5">
+                  <div className="flex gap-4 rounded-2xl border border-white/10 p-5">
                     <CheckCircle2 className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                     <div>
                       <h3 className="font-semibold">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                      <p className="mt-2 text-sm leading-7 text-slate-300">
                         {item.text}
                       </p>
                     </div>
@@ -2867,13 +2867,13 @@ export default function TrainingPage() {
       <section className="section-space">
         <div className="page-shell">
           <div className="mb-9 flex flex-wrap gap-3">
-            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold">
+            <span className="rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-xs font-semibold">
               {totalSkills} practical skills
             </span>
-            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold">
+            <span className="rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-xs font-semibold">
               3 learning tracks
             </span>
-            <span className="rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold">
+            <span className="rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-xs font-semibold">
               One-week program
             </span>
           </div>
@@ -2884,12 +2884,12 @@ export default function TrainingPage() {
 
       <section className="pb-20">
         <div className="page-shell">
-          <div className="rounded-3xl bg-[#ede9fe] p-7 md:p-10">
+          <div className="rounded-3xl bg-gradient-to-br from-[#1d0d42] to-[#0e1736] p-7 md:p-10">
             <p className="eyebrow">The idea</p>
             <h2 className="display mt-4 text-4xl md:text-5xl">
               Learn it. Make it. Put it to use.
             </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#66675f]">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
               These are proposed learning outcomes for the program. Final
               module availability, equipment, class sizes, and practical
               assessments should be confirmed by the organizers before
@@ -2977,7 +2977,7 @@ export default function SchedulePage() {
               <div key={item.label} className="panel flex items-center gap-4 p-5">
                 <item.icon size={21} className="shrink-0 text-[#5925dc]" />
                 <div>
-                  <p className="text-xs text-[#77766e]">{item.label}</p>
+                  <p className="text-xs text-slate-300">{item.label}</p>
                   <p className="mt-1 text-sm font-bold">{item.value}</p>
                 </div>
               </div>
@@ -2988,7 +2988,7 @@ export default function SchedulePage() {
             {phases.map((phase) => (
               <article
                 key={phase.number}
-                className="grid gap-7 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[220px_1fr] md:p-9"
+                className="grid gap-7 rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:grid-cols-[220px_1fr] md:p-9"
               >
                 <div>
                   <span className="font-mono text-xs text-[#5925dc]">
@@ -3004,7 +3004,7 @@ export default function SchedulePage() {
                   <h3 className="display text-3xl md:text-4xl">
                     {phase.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-[#66675f]">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {phase.description}
                   </p>
 
@@ -3012,7 +3012,7 @@ export default function SchedulePage() {
                     {phase.activities.map((activity) => (
                       <div
                         key={activity}
-                        className="flex items-start gap-3 rounded-xl bg-[#f8f9fc] p-4"
+                        className="flex items-start gap-3 rounded-xl bg-[#080e23] p-4"
                       >
                         <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#5925dc]" />
                         <span className="text-sm leading-6">{activity}</span>
@@ -3057,7 +3057,7 @@ export default function SchedulePage() {
             </div>
           </div>
 
-          <p className="mt-5 text-xs leading-6 text-[#77766e]">
+          <p className="mt-5 text-xs leading-6 text-slate-300">
             Date note: November 22–28 spans seven calendar days, while the
             program is described as a five-day residential boot camp. The
             precise arrival and departure dates need confirmation.
@@ -3108,7 +3108,7 @@ export default function FacilitatorsPage() {
           <button
             type="button"
             onClick={() => setSelected(convener.id)}
-            className="grid w-full gap-7 rounded-3xl border border-black/10 bg-white p-5 text-left transition hover:border-[#5925dc]/40 md:grid-cols-[300px_1fr] md:p-8"
+            className="grid w-full gap-7 rounded-3xl border border-white/10 bg-[#0e1736] p-5 text-left transition hover:border-[#5925dc]/40 md:grid-cols-[300px_1fr] md:p-8"
           >
             <div className="image-frame aspect-[0.9] max-h-[420px]">
               <img
@@ -3128,7 +3128,7 @@ export default function FacilitatorsPage() {
               <p className="mt-3 text-sm font-semibold text-[#5925dc]">
                 {convener.role}
               </p>
-              <p className="mt-4 text-sm leading-7 text-[#66675f]">
+              <p className="mt-4 text-sm leading-7 text-slate-300">
                 {convener.paragraphs[0]}
               </p>
               <span className="text-link mt-6">
@@ -3170,7 +3170,7 @@ export default function FacilitatorsPage() {
                     FACILITATOR {String(index + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-3 text-base font-bold">{person.name}</h3>
-                  <p className="mt-2 text-xs leading-6 text-[#66675f]">
+                  <p className="mt-2 text-xs leading-6 text-slate-300">
                     {person.specialization}
                   </p>
                   <span className="text-link mt-4">
@@ -3181,12 +3181,12 @@ export default function FacilitatorsPage() {
             ))}
           </div>
 
-          <div className="mt-12 rounded-3xl bg-[#ede9fe] p-7 md:p-10">
+          <div className="mt-12 rounded-3xl bg-gradient-to-br from-[#1d0d42] to-[#0e1736] p-7 md:p-10">
             <p className="eyebrow">Additional guidance</p>
             <h2 className="display mt-4 text-4xl">
               Professional support matters, too.
             </h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-[#66675f]">
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
               The program plans to include counseling support involving
               University of Ibadan counselors. The participating counselors,
               their qualifications, availability, and partnership arrangements
@@ -3206,7 +3206,7 @@ export default function FacilitatorsPage() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="faculty-dialog-title"
-            className="max-h-[90dvh] w-full max-w-3xl overflow-y-auto rounded-t-3xl bg-[#f8f9fc] p-6 sm:rounded-3xl sm:p-9"
+            className="max-h-[90dvh] w-full max-w-3xl overflow-y-auto rounded-t-3xl bg-[#080e23] p-6 sm:rounded-3xl sm:p-9"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-5">
@@ -3227,13 +3227,13 @@ export default function FacilitatorsPage() {
                 type="button"
                 onClick={() => setSelected(null)}
                 aria-label="Close biography"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10"
               >
                 <X size={18} />
               </button>
             </div>
 
-            <p className="mt-3 text-sm text-[#66675f]">
+            <p className="mt-3 text-sm text-slate-300">
               {activePerson.specialization}
               {activePerson.business ? ` · ${activePerson.business}` : ""}
             </p>
@@ -3249,7 +3249,7 @@ export default function FacilitatorsPage() {
               ))}
             </div>
 
-            <p className="mt-6 text-xs leading-6 text-[#77766e]">
+            <p className="mt-6 text-xs leading-6 text-slate-300">
               Replace the bracketed biography text with the official profile
               before publishing.
             </p>
@@ -3338,7 +3338,7 @@ export default function ImpactPage() {
                     <item.icon size={24} className="text-[#5925dc]" />
                   </div>
                   <h3 className="display mt-8 text-3xl">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-[#66675f]">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {item.description}
                   </p>
                 </article>
@@ -3366,7 +3366,7 @@ export default function ImpactPage() {
             {followUp.map((item, index) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                className="rounded-2xl border border-white/10 bg-[#0e1736]/[0.04] p-6"
               >
                 <p className="font-mono text-xs text-[#e9ae56]">
                   0{index + 1}
@@ -3389,13 +3389,13 @@ export default function ImpactPage() {
           <div className="mt-9 space-y-4">
             {futurePlans.map((plan, index) => (
               <Reveal key={plan.title}>
-                <article className="grid gap-4 rounded-2xl border border-black/10 p-6 md:grid-cols-[70px_1fr] md:p-8">
+                <article className="grid gap-4 rounded-2xl border border-white/10 p-6 md:grid-cols-[70px_1fr] md:p-8">
                   <span className="font-mono text-lg text-[#5925dc]">
                     0{index + 1}
                   </span>
                   <div>
                     <h3 className="display text-3xl">{plan.title}</h3>
-                    <p className="mt-3 max-w-3xl text-sm leading-7 text-[#66675f]">
+                    <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
                       {plan.description}
                     </p>
                   </div>
@@ -3477,7 +3477,7 @@ export default function SupportPage() {
               <p className="display mt-4 text-4xl md:text-5xl">
                 {formatNaira(84500)}
               </p>
-              <p className="mt-3 text-xs leading-6 text-[#66675f]">
+              <p className="mt-3 text-xs leading-6 text-slate-300">
                 Estimated cost of one student place.
               </p>
             </div>
@@ -3485,7 +3485,7 @@ export default function SupportPage() {
             <div className="panel p-6 md:p-8">
               <p className="eyebrow">People to reach</p>
               <p className="display mt-4 text-4xl md:text-5xl">100</p>
-              <p className="mt-3 text-xs leading-6 text-[#66675f]">
+              <p className="mt-3 text-xs leading-6 text-slate-300">
                 Secondary school leavers in Oyo State.
               </p>
             </div>
@@ -3503,7 +3503,7 @@ export default function SupportPage() {
             approved organizational budget before being used for fundraising.
           </p>
           <BudgetLedger />
-          <p className="mt-4 text-xs leading-6 text-[#77766e]">
+          <p className="mt-4 text-xs leading-6 text-slate-300">
             The budget is a demonstration allocation, not a verified quotation.
             Actual costs and supporting estimates should be approved by the
             initiative before the funding appeal is published.
@@ -3511,7 +3511,7 @@ export default function SupportPage() {
         </div>
       </section>
 
-      <section id="sponsorship-tiers" className="section-space bg-[#ffffff]">
+      <section id="sponsorship-tiers" className="section-space bg-[#0e1736]">
         <div className="page-shell">
           <p className="eyebrow">Choose how to help</p>
           <h2 className="section-title">There is more than one way to make a difference.</h2>
@@ -3534,7 +3534,7 @@ export default function SupportPage() {
                     className={`card-hover flex h-full w-full flex-col rounded-3xl border p-6 text-left transition-colors ${
                       active
                         ? "border-[#5925dc] bg-[#f0ecfc]"
-                        : "border-black/10 bg-white"
+                        : "border-white/10 bg-[#0e1736]"
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -3554,11 +3554,11 @@ export default function SupportPage() {
                       {formatNaira(tier.amount)}
                     </p>
 
-                    <p className="mt-4 flex-1 text-sm leading-7 text-[#66675f]">
+                    <p className="mt-4 flex-1 text-sm leading-7 text-slate-300">
                       {tier.description}
                     </p>
 
-                    <div className="mt-6 flex items-center justify-between border-t border-black/10 pt-4 text-xs font-semibold">
+                    <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs font-semibold">
                       <span>{tier.benefit}</span>
                       <span>{active ? "Selected" : "Select"}</span>
                     </div>
@@ -3569,12 +3569,12 @@ export default function SupportPage() {
           </div>
 
           {selected && (
-            <div className="mt-6 rounded-3xl border border-[#5925dc]/20 bg-white p-6 md:p-8">
+            <div className="mt-6 rounded-3xl border border-[#5925dc]/20 bg-[#0e1736] p-6 md:p-8">
               <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
                 <div>
                   <p className="eyebrow">Your selected level</p>
                   <h3 className="display mt-3 text-3xl">{selected.title}</h3>
-                  <p className="mt-2 text-sm text-[#66675f]">
+                  <p className="mt-2 text-sm text-slate-300">
                     Proposed contribution: {formatNaira(selected.amount)}
                   </p>
                 </div>
@@ -3767,8 +3767,8 @@ export default function RegisterPage() {
               by Leading Minds Leadership Initiative.
             </p>
 
-            <div className="mt-7 rounded-2xl bg-white/80 p-5">
-              <p className="text-xs text-[#66675f]">Selected training track</p>
+            <div className="mt-7 rounded-2xl bg-[#0e1736]/80 p-5">
+              <p className="text-xs text-slate-300">Selected training track</p>
               <p className="mt-2 font-semibold">
                 {curriculum.find((track) => track.id === form.track)?.title}
               </p>
@@ -3820,7 +3820,7 @@ export default function RegisterPage() {
                 />
                 <p
                   className={`mt-2 text-[10px] ${
-                    index === step ? "font-bold text-[#5925dc]" : "text-[#77766e]"
+                    index === step ? "font-bold text-[#5925dc]" : "text-slate-300"
                   }`}
                 >
                   {String(index + 1).padStart(2, "0")} · {label}
@@ -3829,7 +3829,7 @@ export default function RegisterPage() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-3xl border border-black/10 bg-white p-6 md:p-10">
+          <div className="mt-8 rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:p-10">
             {step === 0 && (
               <div className="space-y-5">
                 <h2 className="display text-3xl">Your details</h2>
@@ -3949,7 +3949,7 @@ export default function RegisterPage() {
             {step === 2 && (
               <div>
                 <h2 className="display text-3xl">Choose a learning track</h2>
-                <p className="mt-3 text-sm leading-7 text-[#66675f]">
+                <p className="mt-3 text-sm leading-7 text-slate-300">
                   Choose the area you would most like to explore. Final
                   admission and track allocation arrangements remain subject
                   to confirmation.
@@ -3962,7 +3962,7 @@ export default function RegisterPage() {
                       className={`flex cursor-pointer gap-4 rounded-2xl border p-5 transition-colors ${
                         form.track === track.id
                           ? "border-[#5925dc] bg-[#f4f0fd]"
-                          : "border-black/10"
+                          : "border-white/10"
                       }`}
                     >
                       <input
@@ -3975,7 +3975,7 @@ export default function RegisterPage() {
                       />
                       <span>
                         <span className="block font-semibold">{track.title}</span>
-                        <span className="mt-2 block text-sm leading-6 text-[#66675f]">
+                        <span className="mt-2 block text-sm leading-6 text-slate-300">
                           {track.description}
                         </span>
                       </span>
@@ -4005,9 +4005,9 @@ export default function RegisterPage() {
                   ].map(([label, value]) => (
                     <div
                       key={label}
-                      className="flex flex-col justify-between gap-1 border-b border-black/10 pb-3 sm:flex-row sm:gap-4"
+                      className="flex flex-col justify-between gap-1 border-b border-white/10 pb-3 sm:flex-row sm:gap-4"
                     >
-                      <span className="text-xs text-[#77766e]">{label}</span>
+                      <span className="text-xs text-slate-300">{label}</span>
                       <span className="text-sm font-semibold">{value}</span>
                     </div>
                   ))}
@@ -4026,14 +4026,14 @@ export default function RegisterPage() {
                     required
                     minLength={20}
                   />
-                  <p className="mt-2 text-xs text-[#77766e]">
+                  <p className="mt-2 text-xs text-slate-300">
                     Please write at least 20 characters.
                   </p>
                 </div>
               </div>
             )}
 
-            <div className="mt-9 flex flex-wrap items-center justify-between gap-3 border-t border-black/10 pt-6">
+            <div className="mt-9 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-6">
               <button
                 type="button"
                 onClick={previous}
@@ -4052,7 +4052,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <p className="mt-5 text-xs leading-6 text-[#77766e]">
+          <p className="mt-5 text-xs leading-6 text-slate-300">
             Please do not enter sensitive personal information. This prototype
             keeps its application state in the current browser session only.
           </p>
@@ -4132,13 +4132,13 @@ export default function ContactPage() {
                   href={channel.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="card-hover flex items-center gap-4 rounded-2xl border border-black/10 bg-white p-4"
+                  className="card-hover flex items-center gap-4 rounded-2xl border border-white/10 bg-[#0e1736] p-4"
                 >
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f0ecfc] text-[#5925dc]">
                     <channel.icon size={19} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-[#77766e]">{channel.label}</p>
+                    <p className="text-xs text-slate-300">{channel.label}</p>
                     <p className="mt-1 break-words text-sm font-semibold">
                       {channel.value}
                     </p>
@@ -4148,10 +4148,10 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-3 space-y-3">
-              <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
+              <div className="flex gap-4 rounded-2xl border border-white/10 p-4">
                 <Mail className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                 <div>
-                  <p className="text-xs text-[#77766e]">Email</p>
+                  <p className="text-xs text-slate-300">Email</p>
                   <a
                     href="mailto:[official-email]"
                     className="mt-1 block break-all text-sm font-semibold"
@@ -4161,10 +4161,10 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
+              <div className="flex gap-4 rounded-2xl border border-white/10 p-4">
                 <Phone className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                 <div>
-                  <p className="text-xs text-[#77766e]">Phone numbers</p>
+                  <p className="text-xs text-slate-300">Phone numbers</p>
                   <p className="mt-1 text-sm font-semibold">
                     [Official phone number one]
                   </p>
@@ -4174,10 +4174,10 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex gap-4 rounded-2xl border border-black/10 p-4">
+              <div className="flex gap-4 rounded-2xl border border-white/10 p-4">
                 <MapPin className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                 <div>
-                  <p className="text-xs text-[#77766e]">Location</p>
+                  <p className="text-xs text-slate-300">Location</p>
                   <p className="mt-1 text-sm font-semibold">
                     Ibadan, Oyo State, Nigeria
                   </p>
@@ -4186,10 +4186,10 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-black/10 bg-white p-6 md:p-9">
+          <div className="rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:p-9">
             <p className="eyebrow">Send an enquiry</p>
             <h2 className="display mt-4 text-4xl">How can we help?</h2>
-            <p className="mt-3 text-sm leading-7 text-[#66675f]">
+            <p className="mt-3 text-sm leading-7 text-slate-300">
               Choose the subject of your enquiry and leave a short message.
             </p>
 

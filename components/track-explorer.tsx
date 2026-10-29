@@ -38,7 +38,7 @@ export default function TrackExplorer() {
               className={`rounded-2xl border p-5 text-left transition-all ${
                 active
                   ? "border-[#5925dc] bg-[#5925dc] text-white"
-                  : "border-black/10 bg-white hover:border-[#5925dc]/50"
+                  : "border-white/10 bg-[#0e1736] hover:border-[#5925dc]/50"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -71,17 +71,17 @@ export default function TrackExplorer() {
               {track.title}
             </h2>
           </div>
-          <p className="max-w-lg text-sm leading-7 text-[#66675f]">
+          <p className="max-w-lg text-sm leading-7 text-slate-300">
             {track.description}
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-3xl border border-black/10 bg-white">
+        <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0e1736]">
           {track.skills.map((skill, index) => {
             const expanded = expandedSkill === skill.id;
 
             return (
-              <div key={skill.id} className="border-b border-black/10 last:border-0">
+              <div key={skill.id} className="border-b border-white/10 last:border-0">
                 <button
                   type="button"
                   className="flex w-full items-center gap-4 px-5 py-5 text-left md:px-7"
@@ -112,7 +112,7 @@ export default function TrackExplorer() {
                       <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5925dc]">
                         What you will learn
                       </p>
-                      <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                      <p className="mt-2 text-sm leading-7 text-slate-300">
                         {skill.focus}
                       </p>
                     </div>
@@ -121,7 +121,7 @@ export default function TrackExplorer() {
                       <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#1c7c54]">
                         What you can do
                       </p>
-                      <p className="mt-2 flex gap-2 text-sm leading-7 text-[#66675f]">
+                      <p className="mt-2 flex gap-2 text-sm leading-7 text-slate-300">
                         <Check
                           size={17}
                           className="mt-1 shrink-0 text-[#1c7c54]"

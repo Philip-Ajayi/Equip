@@ -64,11 +64,11 @@ export default function SchedulePage() {
               { icon: Clock3, label: "Camp format", value: "5-day residential boot camp" },
               { icon: MapPin, label: "Location", value: "Jericho, Ibadan" },
             ].map((item) => (
-              <div key={item.label} className="panel flex items-center gap-4 rounded-2xl border border-black/10 bg-white p-5 shadow-xs">
+              <div key={item.label} className="panel flex items-center gap-4 rounded-2xl border border-white/10 bg-[#0e1736] p-5 shadow-xs">
                 <item.icon size={22} className="shrink-0 text-[#5925dc]" />
                 <div>
-                  <p className="text-xs text-[#77766e]">{item.label}</p>
-                  <p className="mt-1 text-sm font-bold text-[#0a0f1d]">{item.value}</p>
+                  <p className="text-xs text-slate-300">{item.label}</p>
+                  <p className="mt-1 text-sm font-bold text-white">{item.value}</p>
                 </div>
               </div>
             ))}
@@ -79,7 +79,7 @@ export default function SchedulePage() {
             {phases.map((phase) => (
               <article
                 key={phase.number}
-                className="grid gap-7 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-[220px_1fr] md:p-9"
+                className="grid gap-7 rounded-3xl border border-white/10 bg-[#0e1736] p-6 md:grid-cols-[220px_1fr] md:p-9"
               >
                 <div>
                   <span className="font-mono text-xs font-bold text-[#5925dc]">
@@ -92,10 +92,10 @@ export default function SchedulePage() {
                 </div>
 
                 <div>
-                  <h3 className="display text-3xl md:text-4xl text-[#0a0f1d]">
+                  <h3 className="display text-3xl md:text-4xl text-white">
                     {phase.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-[#66675f]">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {phase.description}
                   </p>
 
@@ -103,7 +103,7 @@ export default function SchedulePage() {
                     {phase.activities.map((activity) => (
                       <div
                         key={activity}
-                        className="flex items-start gap-3 rounded-xl bg-[#f8f9fc] p-4 text-sm"
+                        className="flex items-start gap-3 rounded-xl bg-[#080e23] p-4 text-sm"
                       >
                         <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#5925dc]" />
                         <span className="leading-6 text-[#3b3c37]">{activity}</span>

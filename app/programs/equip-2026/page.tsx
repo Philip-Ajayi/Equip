@@ -24,7 +24,7 @@ export default function EquipPage() {
       />
 
       {/* Quick Metadata Bar */}
-      <section className="border-b border-black/10 bg-[#ffffff]">
+      <section className="border-b border-white/10 bg-[#0e1736]">
         <div className="page-shell grid gap-5 py-7 sm:grid-cols-3">
           {[
             { icon: CalendarDays, label: "Program dates", value: initiative.dateLabel },
@@ -36,7 +36,7 @@ export default function EquipPage() {
                 <item.icon size={19} />
               </div>
               <div>
-                <p className="text-xs text-[#77766e]">{item.label}</p>
+                <p className="text-xs text-slate-300">{item.label}</p>
                 <p className="mt-1 text-sm font-bold">{item.value}</p>
               </div>
             </div>
@@ -55,13 +55,13 @@ export default function EquipPage() {
           </div>
           <div className="space-y-5">
             {initiative.equipOverview.map((paragraph) => (
-              <p key={paragraph} className="text-base leading-8 text-[#66675f]">
+              <p key={paragraph} className="text-base leading-8 text-slate-300">
                 {paragraph}
               </p>
             ))}
             <div className="rounded-2xl border border-[#d99b26]/40 bg-[#f6edda] p-5">
               <p className="text-sm font-bold text-[#8a5b0f]">Program Format & Schedule</p>
-              <p className="mt-2 text-sm leading-7 text-[#66675f]">
+              <p className="mt-2 text-sm leading-7 text-slate-300">
                 {initiative.programNote}
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function EquipPage() {
       </section>
 
       {/* 11 Objectives Grid (Dynamic Count) */}
-      <section className="section-space bg-[#ffffff]">
+      <section className="section-space bg-[#0e1736]">
         <div className="page-shell">
           <p className="eyebrow">Program Pillars</p>
           <h2 className="section-title">
@@ -80,7 +80,7 @@ export default function EquipPage() {
           <div className="mt-9 grid gap-3 md:grid-cols-2">
             {initiative.equipObjectives.map((objective, index) => (
               <Reveal key={objective}>
-                <div className="flex h-full items-start gap-4 rounded-2xl border border-black/10 bg-white p-5 transition hover:border-[#5925dc]/40">
+                <div className="flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-[#0e1736] p-5 transition hover:border-[#5925dc]/40">
                   <span className="font-mono text-xs font-bold text-[#5925dc]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -111,11 +111,11 @@ export default function EquipPage() {
             <div className="space-y-3">
               {initiative.methodology.map((item) => (
                 <Reveal key={item.title}>
-                  <div className="flex gap-4 rounded-2xl border border-black/10 bg-white p-5">
+                  <div className="flex gap-4 rounded-2xl border border-white/10 bg-[#0e1736] p-5">
                     <CheckCircle2 className="mt-1 shrink-0 text-[#5925dc]" size={19} />
                     <div>
-                      <h3 className="font-semibold text-[#0a0f1d]">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-[#66675f]">
+                      <h3 className="font-semibold text-white">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-slate-300">
                         {item.text}
                       </p>
                     </div>
@@ -140,13 +140,13 @@ export default function EquipPage() {
             </Link>
             <Link
               href="/programs/equip-2026/schedule"
-              className="outline-button border-white/20 text-white hover:bg-white/10"
+              className="outline-button border-white/20 text-white hover:bg-[#0e1736]/10"
             >
               View the schedule <ArrowRight size={16} />
             </Link>
             <Link
               href="/programs/equip-2026/impact"
-              className="outline-button border-white/20 text-white hover:bg-white/10"
+              className="outline-button border-white/20 text-white hover:bg-[#0e1736]/10"
             >
               Follow-up and impact <ArrowRight size={16} />
             </Link>

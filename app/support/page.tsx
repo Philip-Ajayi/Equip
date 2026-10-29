@@ -34,7 +34,7 @@ export default function SupportPage() {
   return (
     <>
       {/* Interactive Hero (Replaces PageHero — Zero 3D Monolith, Zero Sparkles) */}
-      <section className="grid-lines border-b border-black/10 bg-[#ffffff]">
+      <section className="grid-lines border-b border-white/10 bg-[#0e1736]">
         <div className="page-shell grid min-h-[600px] items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="animate-in">
             <div className="flex items-center gap-2">
@@ -54,13 +54,13 @@ export default function SupportPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3 text-xs font-semibold">
-              <span className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-4 py-2">
+              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2">
                 <Users size={14} className="text-[#5925dc]" /> 100 Student Cohort
               </span>
-              <span className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-4 py-2">
+              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2">
                 <Target size={14} className="text-[#5925dc]" /> ₦8.45M Campaign Goal
               </span>
-              <span className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-4 py-2">
+              <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2">
                 <ShieldCheck size={14} className="text-[#1c7c54]" /> Verified Allocation
               </span>
             </div>
@@ -79,15 +79,15 @@ export default function SupportPage() {
           <div className="relative mx-auto w-full max-w-[500px] lg:ml-auto">
             <div className="absolute inset-4 rounded-3xl bg-[#c4b5fd]/25 blur-2xl" />
 
-            <div className="relative overflow-hidden rounded-[28px] border border-black/10 bg-white p-6 shadow-xl md:p-8">
-              <div className="flex items-center justify-between border-b border-black/10 pb-4">
+            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0e1736] p-6 shadow-xl md:p-8">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex items-center gap-2">
                   <Calculator size={16} className="text-[#5925dc]" />
                   <span className="font-mono text-[11px] font-bold tracking-wider text-[#5925dc]">
                     IMPACT CALCULATOR
                   </span>
                 </div>
-                <span className="text-[11px] text-[#66675f]">Select student count:</span>
+                <span className="text-[11px] text-slate-300">Select student count:</span>
               </div>
 
               {/* Student Count Selector */}
@@ -101,7 +101,7 @@ export default function SupportPage() {
                       className={`rounded-xl py-2.5 text-xs font-bold transition ${
                         sponsorCount === qty
                           ? "bg-[#5925dc] text-white shadow-xs"
-                          : "border border-black/10 bg-[#f8f9fc] text-[#0a0f1d] hover:border-black/30"
+                          : "border border-white/10 bg-[#080e23] text-white hover:border-black/30"
                       }`}
                     >
                       {qty} {qty === 1 ? "Youth" : "Youths"}
@@ -172,7 +172,7 @@ export default function SupportPage() {
               <p className="display mt-4 text-4xl md:text-5xl">
                 {formatNaira(unitCost)}
               </p>
-              <p className="mt-3 text-xs leading-6 text-[#66675f]">
+              <p className="mt-3 text-xs leading-6 text-slate-300">
                 All-inclusive unit cost covering accommodation, materials, and welfare.
               </p>
             </div>
@@ -180,7 +180,7 @@ export default function SupportPage() {
             <div className="panel p-6 md:p-8">
               <p className="eyebrow">Cohort scale</p>
               <p className="display mt-4 text-4xl md:text-5xl">100</p>
-              <p className="mt-3 text-xs leading-6 text-[#66675f]">
+              <p className="mt-3 text-xs leading-6 text-slate-300">
                 Secondary school leavers receiving full sponsorship.
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function SupportPage() {
             provisions for housing, catering, toolkits, and mentor logistics.
           </p>
           <BudgetLedger />
-          <p className="mt-4 text-xs leading-6 text-[#77766e]">
+          <p className="mt-4 text-xs leading-6 text-slate-300">
             The budget is a demonstration allocation, not a verified quotation.
             Actual costs and supporting estimates are reconciled transparently
             before and after program delivery.
@@ -208,7 +208,7 @@ export default function SupportPage() {
       </section>
 
       {/* Sponsorship Tiers (Clean Icons — No Sparkles) */}
-      <section id="sponsorship-tiers" className="section-space bg-[#ffffff]">
+      <section id="sponsorship-tiers" className="section-space bg-[#0e1736]">
         <div className="page-shell">
           <p className="eyebrow">Choose how to help</p>
           <h2 className="section-title">There is more than one way to make a difference.</h2>
@@ -231,7 +231,7 @@ export default function SupportPage() {
                     className={`card-hover flex h-full w-full flex-col rounded-3xl border p-6 text-left transition-colors ${
                       active
                         ? "border-[#5925dc] bg-[#f0ecfc]"
-                        : "border-black/10 bg-white"
+                        : "border-white/10 bg-[#0e1736]"
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -247,12 +247,12 @@ export default function SupportPage() {
                       {formatNaira(tier.amount)}
                     </p>
 
-                    <p className="mt-4 flex-1 text-sm leading-7 text-[#66675f]">
+                    <p className="mt-4 flex-1 text-sm leading-7 text-slate-300">
                       {tier.description}
                     </p>
 
-                    <div className="mt-6 flex items-center justify-between border-t border-black/10 pt-4 text-xs font-semibold">
-                      <span className="text-[#0a0f1d]">{tier.benefit}</span>
+                    <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs font-semibold">
+                      <span className="text-white">{tier.benefit}</span>
                       <span className="text-[#5925dc]">{active ? "Selected" : "Select"}</span>
                     </div>
                   </button>
@@ -262,14 +262,14 @@ export default function SupportPage() {
           </div>
 
           {selected && (
-            <div className="mt-6 rounded-3xl border border-[#5925dc]/30 bg-white p-6 shadow-sm md:p-8">
+            <div className="mt-6 rounded-3xl border border-[#5925dc]/30 bg-[#0e1736] p-6 shadow-sm md:p-8">
               <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
                 <div>
                   <p className="eyebrow text-[#5925dc]">Your selected tier</p>
                   <h3 className="display mt-2 text-3xl">{selected.title}</h3>
-                  <p className="mt-2 text-sm text-[#66675f]">
+                  <p className="mt-2 text-sm text-slate-300">
                     Proposed contribution:{" "}
-                    <strong className="text-[#0a0f1d]">
+                    <strong className="text-white">
                       {formatNaira(selected.amount)}
                     </strong>
                   </p>
@@ -314,7 +314,7 @@ export default function SupportPage() {
                     className="mt-1 shrink-0 text-[#1c7c54]"
                   />
                   <div>
-                    <h3 className="text-sm font-bold text-[#0a0f1d]">{item.title}</h3>
+                    <h3 className="text-sm font-bold text-white">{item.title}</h3>
                     <p className="mt-1 text-sm leading-7 text-[#526657]">
                       {item.description}
                     </p>
