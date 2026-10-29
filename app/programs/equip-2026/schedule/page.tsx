@@ -49,7 +49,7 @@ export default function SchedulePage() {
     <>
       <PageHero
         eyebrow="The week at a glance"
-        title="Five days of learning, making, and looking ahead."
+        title="Three days of learning, making, and looking ahead."
         description="A structured residential journey moving senior secondary leavers from self-awareness to vocational execution and community leadership."
         primaryLabel="Explore the training tracks"
         primaryHref="/programs/equip-2026/training"
