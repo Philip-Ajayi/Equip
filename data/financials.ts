@@ -9,7 +9,7 @@ export const budget: BudgetItem[] = [
   {
     id: "venue-accommodation",
     title: "Venue & Accommodation",
-    description: "Hall rental and 5-day residential lodging for 100 participants.",
+    description: "Hall rental and 3-day residential lodging for 100 participants.",
     amount: 1500000,
   },
   {
@@ -80,7 +80,7 @@ export const sponsorshipTiers = [
     title: "Adopt-a-Leader",
     amount: 84500,
     description:
-      "Directly fund the complete 5-day experience—including accommodation, feeding, and training materials—for one specific teenager.",
+      "Directly fund the complete 3-day experience—including accommodation, feeding, and training materials—for one specific teenager.",
     benefit: "Full sponsorship for 1 student",
   },
 ];

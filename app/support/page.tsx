@@ -120,7 +120,7 @@ export default function SupportPage() {
                   {formatNaira(totalPledge)}
                 </p>
                 <p className="mt-1 text-[11px] text-slate-300">
-                  Full 5-day residential scholarship for {sponsorCount}{" "}
+                  Full 3-day residential scholarship for {sponsorCount}{" "}
                   {sponsorCount === 1 ? "secondary school leaver" : "secondary school leavers"}.
                 </p>
 

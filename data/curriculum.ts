@@ -160,19 +160,19 @@ export const curriculum: Track[] = [
 
 export const programSchedule: SchedulePhase[] = [
   {
-    days: "Days 1–2",
+    days: "Day 1",
     phase: "Foundation",
     focus:
       "Introduction to tools and workflows, fundamentals of financial literacy, and collaborative business ideation.",
   },
   {
-    days: "Days 3–4",
+    days: "Day 2",
     phase: "Execution",
     focus:
       "Hands-on building of the core asset (website, video, brand pack, or physical craft) and formulating go-to-market strategies.",
   },
   {
-    days: "Day 5",
+    days: "Day 3",
     phase: "Demo Day & Showcase",
     focus:
       "Live showcase and mini-pitch session where participants present their completed projects and business ideas to peers and mentors.",

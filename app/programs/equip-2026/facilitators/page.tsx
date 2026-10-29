@@ -147,7 +147,7 @@ export default function FacilitatorsPage() {
               Project EQUIP works alongside trained and qualified counselors from
               the <strong className="text-white font-bold">University of Ibadan</strong> who consistently monitor the
               personal growth and psychological well-being of participants. Following
-              the 5-day camp, participants are assigned to dedicated facilitators
+              the 3-day camp, participants are assigned to dedicated facilitators
               for structured post-event guidance.
             </p>
           </div>

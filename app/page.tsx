@@ -77,9 +77,9 @@ function HeroInteractiveHub() {
   ];
 
   const schedulePreview = [
-    { day: "Days 1–2", title: "Foundation & Ideation", desc: "Orientation, leadership character, and business ideation." },
-    { day: "Days 3–4", title: "Applied Practical Craft", desc: "Hands-on studio build of digital assets & physical crafts." },
-    { day: "Day 5", title: "Demo Day & Commissioning", desc: "Live project exhibition, pitching, awards & mentor pairing." },
+    { day: "Days 1", title: "Foundation & Ideation", desc: "Orientation, leadership character, and business ideation." },
+    { day: "Days 2", title: "Applied Practical Craft", desc: "Hands-on studio build of digital assets & physical crafts." },
+    { day: "Day 3", title: "Demo Day & Commissioning", desc: "Live project exhibition, pitching, awards & mentor pairing." },
   ];
 
   const unitCost = initiative.studentCost; // ₦84,500
@@ -181,7 +181,7 @@ function HeroInteractiveHub() {
           </div>
         )}
 
-        {/* Tab 2: 5-Day Interactive Timeline */}
+        {/* Tab 2: 3-Day Interactive Timeline */}
         {activeTab === "schedule" && (
           <div className="py-3">
             <p className="text-xs text-slate-300">
@@ -236,7 +236,7 @@ function HeroInteractiveHub() {
               </p>
               <div className="mt-3 space-y-1.5 border-t border-white/10 pt-3 text-[11px] text-slate-300">
                 <div className="flex justify-between">
-                  <span>5-day lodging & 15 warm meals</span>
+                  <span>3-day lodging & 15 warm meals</span>
                   <span className="font-semibold text-white">{formatNaira(41000 * sponsoredCount)}</span>
                 </div>
                 <div className="flex justify-between">
@@ -305,7 +305,7 @@ export default function HomePage() {
             </h1>
 
             <p className="section-copy mt-7 max-w-[570px] text-slate-300">
-              An intensive 5-day residential boot camp empowering 100 secondary school
+              An intensive 3-day residential boot camp empowering 100 secondary school
               leavers in Oyo State with transformational leadership, emotional intelligence,
               and in-demand tech and vocational skills.
             </p>
@@ -560,7 +560,7 @@ export default function HomePage() {
                   Give a young person a stronger start.
                 </h2>
                 <p className="mt-5 max-w-xl text-sm leading-7 text-slate-200">
-                  Fully sponsor a student for ₦84,500 covering their full 5-day residential
+                  Fully sponsor a student for ₦84,500 covering their full 3-day residential
                   lodging, feeding, hands-on workshop toolkits, and post-event mentorship.
                 </p>
               </div>

@@ -26,7 +26,7 @@ export default function TrainingPage() {
               3 specialization tracks
             </span>
             <span className="rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-xs font-semibold">
-              5-day intensive residential
+              3-day intensive residential
             </span>
           </div>
 
