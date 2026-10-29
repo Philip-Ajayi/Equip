@@ -122,7 +122,7 @@ function HeroInteractiveHub() {
                   : "text-slate-400 hover:text-white"
               }`}
             >
-              5 Days
+              3 Days
             </button>
             <button
               onClick={() => setActiveTab("impact")}
@@ -356,7 +356,7 @@ export default function HomePage() {
         <div className="page-shell grid grid-cols-2 gap-6 py-8 md:grid-cols-4 md:gap-4">
           {[
             ["100", "Sponsored student places"],
-            ["05", "Residential learning days"],
+            ["03", "Residential learning days"],
             ["13", "Practical skills"],
             ["₦8.45m", "Total campaign funding"],
           ].map(([value, label]) => (
