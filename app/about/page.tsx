@@ -22,7 +22,7 @@ export default function AboutPage() {
         eyebrow="Who we are"
         title="Raising principled, purpose-driven, and transformational leaders."
         description={initiative.about}
-        image="/images/outreach/outreach-01.jpg"
+        image="/other/about.jpeg"
         imageAlt="Young people participating in a community learning activity"
       />
 

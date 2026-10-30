@@ -123,7 +123,7 @@ export default function SchedulePage() {
           <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
             <div className="image-frame min-h-[320px] rounded-3xl overflow-hidden">
               <SafeImage
-                src="/images/venue/hebron-center.jpg"
+                src="/other/schedule.jpeg"
                 alt="Jericho, Ibadan"
                 loading="lazy"
               />

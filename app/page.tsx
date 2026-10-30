@@ -358,7 +358,7 @@ export default function HomePage() {
             ["100", "Sponsored student places"],
             ["03", "Residential learning days"],
             ["13", "Practical skills"],
-            ["₦8.45m", "Total campaign funding"],
+            ["₦5m", "Total campaign funding"],
           ].map(([value, label]) => (
             <div key={label} className="border-l border-white/10 pl-4 md:pl-6">
               <p className="metric text-[#d4af37]">{value}</p>

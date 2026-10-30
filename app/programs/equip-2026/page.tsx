@@ -19,7 +19,7 @@ export default function EquipPage() {
         description="Project EQUIP 2026 is an intensive 3-day residential boot camp for 100 secondary school leavers in Oyo State, combining transformational leadership, emotional intelligence, practical tech and hand skills, and sustained post-camp mentorship."
         primaryLabel="Explore the training tracks"
         primaryHref="/programs/equip-2026/training"
-        image="/images/outreach/outreach-03.jpg"
+        image="/other/training.jpeg"
         imageAlt="Students taking part in a group learning activity"
       />
 
