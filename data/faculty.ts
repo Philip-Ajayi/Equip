@@ -13,7 +13,7 @@ export const convener: FacultyMember = {
   name: "Adeyemi Adebinmbe",
   role: "Convener, Leading Minds Leadership Initiative",
   specialization: "Youth leadership and program direction",
-  image: "", // Add image path when available (e.g. "/team/Adeyemi.jpeg")
+  image: "/team/Adeyemi.jpeg",
   paragraphs: [
     // Add biography paragraphs when available
   ],
@@ -116,10 +116,15 @@ export const faculty: FacultyMember[] = [
   },
   {
     id: "facilitator-08",
-    name: "[Facilitator Eight]",
-    role: "Facilitator",
-    specialization: "[Official specialization]",
-    image: "/images/faculty/facilitator-08.jpg",
-    paragraphs: ["[Official biography to be supplied.]"],
+    name: "Kehinde",
+    role: "Brand Strategy, Design & Purpose Facilitator",
+    specialization: "Creative Strategy, Brand Communication & Purpose Coaching",
+    business: "Kenol",
+    image: "/team/Kehinde.jpeg",
+    paragraphs: [
+      "Kehinde is a designer, creative strategist, and the founder of Kenol, a brand communication and design agency in Nigeria. With over five years of experience in design, he helps brands, nonprofits, and startups turn ideas into visuals people remember.",
+      "Beyond client work, Kehinde is a purpose and identity coach and an advocate for living by design. He believes your life, like any good design, works best when it is shaped with intention.",
+      "Through coaching, speaking, and his YouTube channel, he helps young people understand who they are, find their direction, and make confident choices through the seasons of growing up.",
+    ],
   },
 ];

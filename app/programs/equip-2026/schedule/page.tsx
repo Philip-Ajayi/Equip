@@ -5,7 +5,7 @@ import SafeImage from "@/components/safe-image";
 const phases = [
   {
     number: "01",
-    days: "Days 1–2",
+    days: "Day 1",
     title: "Orientation, Foundation & Ideation",
     description:
       "Participants settle into residence, form collaborative teams, and ground themselves in transformational leadership principles, emotional intelligence, and business ideation.",
@@ -18,7 +18,7 @@ const phases = [
   },
   {
     number: "02",
-    days: "Days 3–4",
+    days: "Day 2",
     title: "Applied Craft & Practical Execution",
     description:
       "Intensive specialization where each participant dives into their chosen digital skill or hand craft track to build practical, real-world assets.",
@@ -31,7 +31,7 @@ const phases = [
   },
   {
     number: "03",
-    days: "Day 5",
+    days: "Day 3",
     title: "Demo Day, Commissioning & Future Mapping",
     description:
       "A live exhibition and pitch showcase where participants present their completed projects, receive awards, and connect with their post-event mentors.",

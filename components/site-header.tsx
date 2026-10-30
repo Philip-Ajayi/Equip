@@ -46,10 +46,10 @@ export default function SiteHeader() {
 
           <div className="leading-tight">
             <span className="block text-[14px] font-bold tracking-tight text-white group-hover:text-slate-100">
-              Project
+              Leading
             </span>
             <span className="mt-0.5 block font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-[#d4af37]">
-              Equip 2026
+              Mind Initiative
             </span>
           </div>
         </Link>

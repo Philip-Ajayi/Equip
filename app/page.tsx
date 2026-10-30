@@ -295,12 +295,12 @@ export default function HomePage() {
 
         <div className="page-shell relative grid min-h-[650px] items-center gap-10 py-12 md:py-20 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="animate-in">
-            <p className="eyebrow text-[#d4af37]">Leading Minds Leadership Initiative presents Project Equip</p>
+            <p className="eyebrow text-[#d4af37]">Leading Minds Leadership Initiative presents</p>
 
             <h1 className="display mt-7 max-w-[760px] text-6xl text-white sm:text-7xl lg:text-[86px]">
               The next chapter starts{" "}
               <span className="bg-gradient-to-r from-[#c4b5fd] via-[#a78bfa] to-[#d4af37] bg-clip-text text-transparent">
-                with you.
+                with Project EQUIP.
               </span>
             </h1>
 
@@ -575,9 +575,9 @@ export default function HomePage() {
 
             <div className="relative mt-10 grid gap-4 border-t border-white/20 pt-6 sm:grid-cols-3">
               {[
-                "Full accommodation & meals",
-                "Verified vocational learning kits",
-                "UI counseling & mentor follow-up",
+                "Accommodation & Feeding",
+                "Training Materials",
+                "Sourvenirs",
               ].map((item) => (
                 <p key={item} className="flex items-center gap-2 text-xs font-medium text-slate-200">
                   <CheckCircle2 size={16} className="text-[#d4af37]" /> {item}
@@ -619,7 +619,7 @@ export default function HomePage() {
         <div className="page-shell flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
           <span>{initiative.venue}</span>
           <Link href="/programs/equip-2026/schedule" className="text-link text-[#a78bfa] hover:text-[#c4b5fd]">
-            See the full week schedule <ArrowDown size={14} />
+            See the full schedule <ArrowDown size={14} />
           </Link>
         </div>
       </section>

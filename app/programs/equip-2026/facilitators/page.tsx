@@ -22,7 +22,7 @@ export default function FacilitatorsPage() {
         eyebrow="Meet the people"
         title="Experience matters. So does the person who shares it."
         description="Meet the dedicated leadership team, industry practitioners, and vocational mentors guiding the participants of Project EQUIP 2026."
-        image="/school/Adeyemi.jpeg"
+        image="/team/Adeyemi.jpeg"
         imageAlt="Project EQUIP Leadership"
       />
 
