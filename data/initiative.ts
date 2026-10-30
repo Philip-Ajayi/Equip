@@ -7,8 +7,8 @@ export const initiative = {
   dateLabel: "November 24–27, 2026",
   campDuration: "3-day residential boot camp",
   participants: 100,
-  studentCost: 84500,
-  totalBudget: 8450000,
+  studentCost: 50000,
+  totalBudget: 5000000,
 
   about:
     "Leading Minds Leadership Initiative is a faith-based, non-governmental organization committed to raising principled, purpose-driven, and transformational leaders. We believe that lasting societal change begins with transformed individuals who possess the values, character, knowledge, and practical skills needed to influence their communities positively.",
