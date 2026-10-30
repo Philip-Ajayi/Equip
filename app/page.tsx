@@ -22,7 +22,7 @@ import { faculty, convener } from "@/data/faculty";
 import { formatNaira } from "@/lib/utils";
 import SafeImage from "@/components/safe-image";
 
-// Images from public/schools/1.jpeg through 9.jpeg
+// Images from public/school/1.jpeg through 9.jpeg
 const schoolPhotos = [
   "/school/1.jpeg",
   "/school/2.jpeg",
@@ -41,7 +41,6 @@ function HeroInteractiveHub() {
   const [activeSkillCategory, setActiveSkillCategory] = useState<number>(0);
   const [sponsoredCount, setSponsoredCount] = useState<number>(1);
 
-  // Aligned with the official Project EQUIP curriculum tracks
   const skillsData = [
     {
       category: "Digital Skills",
@@ -77,21 +76,19 @@ function HeroInteractiveHub() {
   ];
 
   const schedulePreview = [
-    { day: "Days 1", title: "Foundation & Ideation", desc: "Orientation, leadership character, and business ideation." },
-    { day: "Days 2", title: "Applied Practical Craft", desc: "Hands-on studio build of digital assets & physical crafts." },
+    { day: "Day 1", title: "Foundation & Ideation", desc: "Orientation, leadership character, and business ideation." },
+    { day: "Day 2", title: "Applied Practical Craft", desc: "Hands-on studio build of digital assets & physical crafts." },
     { day: "Day 3", title: "Demo Day & Commissioning", desc: "Live project exhibition, pitching, awards & mentor pairing." },
   ];
 
-  const unitCost = initiative.studentCost; // ₦84,500
+  // Unit cost scaled to ₦50,000 per student (₦5,000,000 / 100)
+  const unitCost = initiative.studentCost || 50000;
 
   return (
     <div className="relative mx-auto w-full max-w-[540px] lg:ml-auto">
-      {/* Ambient royal purple/gold glow behind the card */}
       <div className="absolute inset-4 rounded-3xl bg-[#703bf7]/25 blur-3xl" />
 
-      {/* Main Interactive Deck */}
       <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-[#0e1736]/95 p-6 shadow-2xl backdrop-blur-xl">
-        {/* Top Header & Tab Switcher */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2.5 w-2.5">
@@ -137,7 +134,7 @@ function HeroInteractiveHub() {
           </div>
         </div>
 
-        {/* Tab 1: Interactive Skills Matrix */}
+        {/* Tab 1: Skills */}
         {activeTab === "skills" && (
           <div className="py-4">
             <p className="text-xs font-semibold text-slate-300">
@@ -181,7 +178,7 @@ function HeroInteractiveHub() {
           </div>
         )}
 
-        {/* Tab 2: 3-Day Interactive Timeline */}
+        {/* Tab 2: Schedule */}
         {activeTab === "schedule" && (
           <div className="py-3">
             <p className="text-xs text-slate-300">
@@ -207,7 +204,7 @@ function HeroInteractiveHub() {
           </div>
         )}
 
-        {/* Tab 3: Interactive Sponsorship & Impact Calculator */}
+        {/* Tab 3: Impact */}
         {activeTab === "impact" && (
           <div className="py-3">
             <div className="flex items-center justify-between">
@@ -237,15 +234,15 @@ function HeroInteractiveHub() {
               <div className="mt-3 space-y-1.5 border-t border-white/10 pt-3 text-[11px] text-slate-300">
                 <div className="flex justify-between">
                   <span>3-day lodging & 15 warm meals</span>
-                  <span className="font-semibold text-white">{formatNaira(41000 * sponsoredCount)}</span>
+                  <span className="font-semibold text-white">{formatNaira(24500 * sponsoredCount)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Hands-on toolkits & materials</span>
-                  <span className="font-semibold text-white">{formatNaira(23800 * sponsoredCount)}</span>
+                  <span className="font-semibold text-white">{formatNaira(14100 * sponsoredCount)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>UI counseling & mentor follow-up</span>
-                  <span className="font-semibold text-white">{formatNaira(19700 * sponsoredCount)}</span>
+                  <span className="font-semibold text-white">{formatNaira(11400 * sponsoredCount)}</span>
                 </div>
               </div>
             </div>
@@ -260,7 +257,6 @@ function HeroInteractiveHub() {
           </div>
         )}
 
-        {/* Bottom Micro-Card */}
         <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-3 text-xs">
           <div className="flex items-center gap-1.5 text-slate-300">
             <Award size={15} className="text-[#d4af37]" />
@@ -290,7 +286,6 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="grid-lines relative overflow-hidden bg-gradient-to-b from-[#091026] via-[#060b18] to-[#050b18]">
-        {/* Soft background ambient glow */}
         <div className="pointer-events-none absolute -left-20 -top-20 h-96 w-96 rounded-full bg-[#5925dc]/20 blur-[120px]" />
 
         <div className="page-shell relative grid min-h-[650px] items-center gap-10 py-12 md:py-20 lg:grid-cols-[1.08fr_0.92fr]">
@@ -346,7 +341,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Interactive Hero Hub */}
           <HeroInteractiveHub />
         </div>
       </section>
@@ -490,7 +484,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Faculty Section - Renders ALL facilitators */}
+      {/* Faculty Section */}
       <section className="section-space bg-[#080e23] border-t border-white/10">
         <div className="page-shell">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
@@ -511,7 +505,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Grid rendering all confirmed faculty members */}
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
               {allFacultyMembers.map((person) => (
                 <Link
@@ -560,7 +553,7 @@ export default function HomePage() {
                   Give a young person a stronger start.
                 </h2>
                 <p className="mt-5 max-w-xl text-sm leading-7 text-slate-200">
-                  Fully sponsor a student for ₦84,500 covering their full 3-day residential
+                  Fully sponsor a student for ₦50,000 covering their full 3-day residential
                   lodging, feeding, hands-on workshop toolkits, and post-event mentorship.
                 </p>
               </div>
@@ -577,7 +570,7 @@ export default function HomePage() {
               {[
                 "Accommodation & Feeding",
                 "Training Materials",
-                "Sourvenirs",
+                "Souvenirs",
               ].map((item) => (
                 <p key={item} className="flex items-center gap-2 text-xs font-medium text-slate-200">
                   <CheckCircle2 size={16} className="text-[#d4af37]" /> {item}

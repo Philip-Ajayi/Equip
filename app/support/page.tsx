@@ -5,6 +5,7 @@ import Link from "next/link";
 import BudgetLedger from "@/components/budget-ledger";
 import Reveal from "@/components/reveal";
 import { accountability, sponsorshipTiers } from "@/data/financials";
+import { initiative } from "@/data/initiative";
 import { formatNaira } from "@/lib/utils";
 import {
   ArrowRight,
@@ -15,7 +16,6 @@ import {
   Award,
   Users,
   Target,
-  Check,
   Building2,
   Calculator,
 } from "lucide-react";
@@ -28,7 +28,8 @@ export default function SupportPage() {
 
   const selected = sponsorshipTiers.find((tier) => tier.id === selectedTier);
 
-  const unitCost = 84500;
+  // Scaled down to ₦50,000 per student (₦5,000,000 / 100)
+  const unitCost = initiative.studentCost || 50000;
   const totalPledge = unitCost * sponsorCount;
 
   return (
@@ -61,7 +62,7 @@ export default function SupportPage() {
                 <Users size={14} className="text-[#a78bfa]" /> 100 Student Cohort
               </span>
               <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-slate-200">
-                <Target size={14} className="text-[#d4af37]" /> ₦8.45M Campaign Goal
+                <Target size={14} className="text-[#d4af37]" /> ₦5M Campaign Goal
               </span>
               <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0e1736] px-4 py-2 text-slate-200">
                 <ShieldCheck size={14} className="text-[#10b981]" /> Verified Allocation
@@ -132,7 +133,7 @@ export default function SupportPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-400">Residential nights</span>
-                    <span className="font-semibold text-white">{sponsorCount * 5} safe bed-nights</span>
+                    <span className="font-semibold text-white">{sponsorCount * 3} safe bed-nights</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-400">Hands-on learning kits</span>
@@ -164,9 +165,9 @@ export default function SupportPage() {
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-3xl border border-white/10 bg-[#0e1736] p-6 text-white md:p-8">
               <p className="eyebrow text-[#d4af37]">Funding target</p>
-              <p className="display mt-4 text-4xl text-[#d4af37] md:text-5xl">₦8.45m</p>
+              <p className="display mt-4 text-4xl text-[#d4af37] md:text-5xl">₦5.0m</p>
               <p className="mt-3 text-xs leading-6 text-slate-300">
-                Proposed total requirement for 100 students.
+                Total budget requirement for 100 students.
               </p>
             </div>
 
@@ -210,7 +211,7 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Sponsorship Tiers (Fixed: Active Card will NEVER turn white) */}
+      {/* Sponsorship Tiers */}
       <section id="sponsorship-tiers" className="section-space bg-[#050b18] border-t border-white/10">
         <div className="page-shell">
           <p className="eyebrow text-[#d4af37]">Choose how to help</p>
@@ -292,7 +293,7 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Accountability Section (Fixed: Deep Midnight Emerald palette so item.title is clearly readable) */}
+      {/* Accountability Section */}
       <section className="section-space bg-[#080e23] border-t border-white/10">
         <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>

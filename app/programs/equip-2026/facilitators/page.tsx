@@ -8,7 +8,7 @@ import { ArrowUpRight, User, X } from "lucide-react";
 export default function FacilitatorsPage() {
   const [selected, setSelected] = useState<string | null>(null);
 
-  // Filter out empty placeholder slots (e.g. "[Facilitator Six]") so only confirmed members display
+  // Filter out empty placeholder slots so only confirmed members display
   const confirmedFaculty = faculty.filter(
     (person) => !person.name.startsWith("[")
   );
@@ -37,21 +37,22 @@ export default function FacilitatorsPage() {
           <button
             type="button"
             onClick={() => setSelected(convener.id)}
-            className="group grid w-full gap-7 rounded-3xl border border-white/10 bg-[#0e1736] p-5 text-left transition hover:border-[#a78bfa]/40 hover:bg-[#121c42] hover:shadow-2xl md:grid-cols-[300px_1fr] md:p-8"
+            className="group grid w-full gap-6 rounded-3xl border border-white/10 bg-[#0e1736] p-5 text-left transition hover:border-[#a78bfa]/40 hover:bg-[#121c42] hover:shadow-2xl md:grid-cols-[220px_1fr] md:p-6 lg:grid-cols-[240px_1fr]"
           >
-            <div className="image-frame aspect-[0.9] max-h-[420px] rounded-2xl overflow-hidden border border-white/10 bg-[#121c40] flex items-center justify-center">
+            {/* Reduced container size & added object-top for better face framing */}
+            <div className="image-frame h-64 w-full md:h-full md:max-h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-[#121c40] flex items-center justify-center">
               {convener.image ? (
                 <img
                   src={convener.image}
                   alt={convener.name}
-                  className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                  className="h-full w-full object-cover object-top transition duration-300 group-hover:scale-105"
                   onError={(event) => {
                     event.currentTarget.style.display = "none";
                   }}
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center text-[#a78bfa]">
-                  <User size={64} strokeWidth={1.5} />
+                  <User size={48} strokeWidth={1.5} />
                   <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-300">
                     Convener
                   </span>
@@ -61,17 +62,17 @@ export default function FacilitatorsPage() {
 
             <div className="flex flex-col justify-center">
               <p className="eyebrow text-[#d4af37]">Program Leadership</p>
-              <h3 className="display mt-4 text-4xl text-white md:text-5xl group-hover:text-[#a78bfa] transition-colors">
+              <h3 className="display mt-2 text-3xl text-white md:text-4xl group-hover:text-[#a78bfa] transition-colors">
                 {convener.name}
               </h3>
-              <p className="mt-3 text-sm font-semibold text-[#d4af37]">
+              <p className="mt-2 text-sm font-semibold text-[#d4af37]">
                 {convener.role}
               </p>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
+              <p className="mt-3 text-sm leading-6 text-slate-300 line-clamp-3">
                 {convener.paragraphs?.[0] ||
                   "Convener of Leading Minds Leadership Initiative, providing strategic vision, direction, and mentorship for Project EQUIP 2026."}
               </p>
-              <span className="text-link mt-6 text-[#a78bfa] group-hover:text-[#c4b5fd] inline-flex items-center gap-1.5 font-bold text-xs">
+              <span className="text-link mt-5 text-[#a78bfa] group-hover:text-[#c4b5fd] inline-flex items-center gap-1.5 font-bold text-xs">
                 Read profile <ArrowUpRight size={15} />
               </span>
             </div>
@@ -86,49 +87,53 @@ export default function FacilitatorsPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Adjusted grid: Added xl:grid-cols-4 and fixed image heights (h-56) */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {confirmedFaculty.map((person, index) => (
               <button
                 type="button"
                 key={person.id}
                 onClick={() => setSelected(person.id)}
-                className="panel card-hover group overflow-hidden rounded-2xl border border-white/10 bg-[#0e1736] text-left transition hover:border-[#a78bfa]/40 hover:bg-[#121c42]"
+                className="panel card-hover group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0e1736] text-left transition hover:border-[#a78bfa]/40 hover:bg-[#121c42]"
               >
-                <div className="image-frame aspect-[0.9] overflow-hidden bg-[#121c40] border-b border-white/10">
+                {/* Fixed height (h-52 on mobile, h-56 on desktop) so photos don't expand excessively */}
+                <div className="image-frame h-52 sm:h-56 w-full overflow-hidden bg-[#121c40] border-b border-white/10">
                   {person.image ? (
                     <img
                       src={person.image}
                       alt={person.name}
                       loading="lazy"
-                      className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                      className="h-full w-full object-cover object-top transition duration-300 group-hover:scale-105"
                       onError={(event) => {
                         event.currentTarget.style.display = "none";
                       }}
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center text-[#a78bfa]">
-                      <User size={48} />
+                      <User size={40} />
                     </div>
                   )}
                 </div>
 
-                <div className="p-6">
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#d4af37]">
-                      FACILITATOR {String(index + 1).padStart(2, "0")}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#d4af37]">
+                        FACILITATOR {String(index + 1).padStart(2, "0")}
+                      </p>
+                      {person.business && (
+                        <span className="truncate max-w-[120px] rounded-full border border-[#d4af37]/35 bg-[#d4af37]/15 px-2 py-0.5 text-[9px] font-semibold text-[#f3e8c8]">
+                          {person.business}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="mt-2 text-base font-bold text-white group-hover:text-[#a78bfa] transition-colors">
+                      {person.name}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-5 text-slate-300 line-clamp-2">
+                      {person.specialization}
                     </p>
-                    {person.business && (
-                      <span className="rounded-full border border-[#d4af37]/35 bg-[#d4af37]/15 px-2.5 py-0.5 text-[10px] font-semibold text-[#f3e8c8] shadow-xs">
-                        {person.business}
-                      </span>
-                    )}
                   </div>
-                  <h3 className="mt-3 text-lg font-bold text-white group-hover:text-[#a78bfa] transition-colors">
-                    {person.name}
-                  </h3>
-                  <p className="mt-2 text-xs leading-5 text-slate-300 line-clamp-2">
-                    {person.specialization}
-                  </p>
                   <span className="text-link mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#a78bfa] group-hover:text-[#c4b5fd]">
                     View biography <ArrowUpRight size={14} />
                   </span>

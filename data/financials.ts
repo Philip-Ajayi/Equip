@@ -5,48 +5,49 @@ export type BudgetItem = {
   amount: number;
 };
 
+// All items end in 4 zeros (multiples of ₦10,000) summing up exactly to ₦5,000,000
 export const budget: BudgetItem[] = [
-  {
-    id: "venue-accommodation",
-    title: "Venue & Accommodation",
-    description: "Hall rental and 3-day residential lodging for 100 participants.",
-    amount: 1500000,
-  },
   {
     id: "feeding",
     title: "Feeding & Refreshments",
     description: "Daily meals, potable drinking water, and refreshment breaks throughout the camp.",
-    amount: 2600000,
-  },
-  {
-    id: "training-technical",
-    title: "Training & Technical",
-    description: "Projector, PA system, power generation, and specialized tech training setup.",
-    amount: 485000,
-  },
-  {
-    id: "logistics-medicals",
-    title: "Logistics & Medicals",
-    description: "Local program transportation and first aid emergency supplies.",
-    amount: 300000,
+    amount: 1550000,
   },
   {
     id: "materials-branding",
     title: "Materials & Branding",
     description: "Participant tags, banners, backdrops, certificates, and event souvenirs.",
-    amount: 1895000,
+    amount: 1120000,
+  },
+  {
+    id: "venue-accommodation",
+    title: "Venue & Accommodation",
+    description: "Hall rental and 3-day residential lodging for 100 participants.",
+    amount: 900000,
   },
   {
     id: "personnel-rewards",
     title: "Personnel & Rewards",
     description: "Facilitator honoraria, student giveaways/rewards, and photography/videography.",
-    amount: 930000,
+    amount: 550000,
   },
   {
     id: "publicity-miscellaneous",
     title: "Publicity & Miscellaneous",
     description: "Promotional campaigns, ads, and operational contingency reserves.",
-    amount: 740000,
+    amount: 440000,
+  },
+  {
+    id: "training-technical",
+    title: "Training & Technical",
+    description: "Projector, PA system, power generation, and specialized tech training setup.",
+    amount: 290000,
+  },
+  {
+    id: "logistics-medicals",
+    title: "Logistics & Medicals",
+    description: "Local program transportation and first aid emergency supplies.",
+    amount: 150000,
   },
 ];
 
@@ -54,10 +55,10 @@ export const sponsorshipTiers = [
   {
     id: "platinum",
     title: "Platinum Sponsor",
-    amount: 3000000,
+    amount: 2000000,
     description:
       "Premium branding on all event materials, speaking opportunity at the event, named sponsorship of a specific training module, and comprehensive post-event impact reports.",
-    benefit: "Premium branding & keynote speaking opportunity (₦3,000,000+)",
+    benefit: "Premium branding & keynote speaking opportunity (₦2,000,000+)",
   },
   {
     id: "gold",
@@ -65,7 +66,7 @@ export const sponsorshipTiers = [
     amount: 1000000,
     description:
       "Prominent logo placement on banners and certificates, dedicated social media mentions, and inclusion in press releases.",
-    benefit: "Logo placement on banners/certificates & press release (₦1,000,000 – ₦2,999,999)",
+    benefit: "Logo placement on banners/certificates & press release (₦1,000,000 – ₦1,999,999)",
   },
   {
     id: "silver",
@@ -78,10 +79,10 @@ export const sponsorshipTiers = [
   {
     id: "adopt-a-leader",
     title: "Adopt-a-Leader",
-    amount: 84500,
+    amount: 50000,
     description:
       "Directly fund the complete 3-day experience—including accommodation, feeding, and training materials—for one specific teenager.",
-    benefit: "Full sponsorship for 1 student",
+    benefit: "Full sponsorship for 1 student (₦50,000)",
   },
 ];
 
