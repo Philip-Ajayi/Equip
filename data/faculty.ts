@@ -10,7 +10,7 @@ export type FacultyMember = {
 
 export const convener: FacultyMember = {
   id: "convener",
-  name: "Adeyemi Adebinmbe",
+  name: "Adeyemi Adebimbe",
   role: "Convener, Leading Minds Leadership Initiative",
   specialization: "Youth leadership and program direction",
   image: "/team/Adeyemi.jpeg",
