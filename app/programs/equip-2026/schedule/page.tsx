@@ -60,7 +60,7 @@ export default function SchedulePage() {
           {/* Key Event Badges */}
           <div className="mb-10 grid gap-4 sm:grid-cols-3">
             {[
-              { icon: CalendarDays, label: "Program dates", value: "November 24–27, 2026" },
+              { icon: CalendarDays, label: "Program dates", value: "November 25–27, 2026" },
               { icon: Clock3, label: "Camp format", value: "3-day residential boot camp" },
               { icon: MapPin, label: "Location", value: "Jericho, Ibadan" },
             ].map((item) => (
