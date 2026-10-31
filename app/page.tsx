@@ -290,12 +290,18 @@ export default function HomePage() {
 
         <div className="page-shell relative grid min-h-[650px] items-center gap-10 py-12 md:py-20 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="animate-in">
-            <p className="eyebrow text-[#d4af37]">Leading Minds Leadership Initiative presents</p>
+            <p className="eyebrow text-[#d4af37]">
+              Leading Minds Leadership Institute presents
+            </p>
 
-            <h1 className="display mt-7 max-w-[760px] text-6xl text-white sm:text-7xl lg:text-[86px]">
+            <span className="mt-3 block font-mono text-sm sm:text-base font-extrabold tracking-[0.25em] text-[#a78bfa] uppercase">
+              PROJECT EQUIP
+            </span>
+
+            <h1 className="display mt-4 max-w-[760px] text-6xl text-white sm:text-7xl lg:text-[86px]">
               The next chapter starts{" "}
               <span className="bg-gradient-to-r from-[#c4b5fd] via-[#a78bfa] to-[#d4af37] bg-clip-text text-transparent">
-                with Project EQUIP.
+                now.
               </span>
             </h1>
 
