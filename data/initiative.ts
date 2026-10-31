@@ -4,7 +4,7 @@ export const initiative = {
   programName: "Project EQUIP 2026",
   location: "Oyo State, Nigeria",
   venue: "Jericho, Ibadan",
-  dateLabel: "November 24–27, 2026",
+  dateLabel: "November 25–27, 2026",
   campDuration: "3-day residential boot camp",
   participants: 100,
   studentCost: 50000,
@@ -81,7 +81,7 @@ export const initiative = {
 
   equipOverview: [
     "The period immediately following secondary school is one of the most vulnerable transitions in a young person’s life. Project EQUIP 2026 is an intensive, 3-day boot camp designed by Leading Minds Leadership Initiative to engage, train, and empower 100 senior secondary school leavers in Oyo State.",
-    "Scheduled for November 24th – 27th, 2026, at Jericho, Ibadan, this program bridges the gap between secondary education and tertiary life by equipping youth with transformational leadership principles, emotional intelligence, and highly sought-after tech and entrepreneurial skills.",
+    "Scheduled for November 25th – 27th, 2026, at Jericho, Ibadan, this program bridges the gap between secondary education and tertiary life by equipping youth with transformational leadership principles, emotional intelligence, and highly sought-after tech and entrepreneurial skills.",
   ],
 
   equipObjectives: [
@@ -127,7 +127,7 @@ export const initiative = {
   ],
 
   programNote:
-    "Scheduled for November 24th – 27th, 2026, at Jericho, Ibadan, as an intensive 3-day residential boot camp for 100 secondary school leavers with post-event counseling and mentorship.",
+    "Scheduled for November 25th – 27th, 2026, at Jericho, Ibadan, as an intensive 3-day residential boot camp for 100 secondary school leavers with post-event counseling and mentorship.",
 
   sloganHeading: "Esplendour… there is a king in you!",
 };
