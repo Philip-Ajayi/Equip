@@ -127,4 +127,17 @@ export const faculty: FacultyMember[] = [
       "Through coaching, speaking, and his YouTube channel, he helps young people understand who they are, find their direction, and make confident choices through the seasons of growing up.",
     ],
   },
+  {
+    id: "facilitator-09",
+    name: "Iyanuoluwa Taiwo",
+    role: "Digital Strategy & AI Facilitator",
+    specialization: "Digital Strategy, Artificial Intelligence & Growth Systems",
+    image: "/team/Taiwo.jpeg",
+    paragraphs: [
+      "Iyanuoluwa Taiwo is a digital strategist, technology entrepreneur, and AI practitioner with over a decade of experience in digital marketing, technology, and digital systems.",
+      "Passionate about business and digital growth, he helps businesses digitalize their operations, develop digital products, build effective marketing systems, and adopt technology-driven solutions that improve growth, productivity, and problem-solving.",
+      "Through practical training in Artificial Intelligence and effective AI communication, Iyanu helps individuals and organizations generate ideas, solve challenges, and transform knowledge into real-world value.",
+      "Passionate about youth development, he equips young people with practical digital skills to excel in education, career development, entrepreneurship, and the evolving future of work.",
+    ],
+  },
 ];
