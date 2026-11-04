@@ -45,7 +45,7 @@ function HeroInteractiveHub() {
     {
       category: "Digital Skills",
       skills: [
-        "No-Code Web Design",
+        "Web Design",
         "Video Editing & Reels",
         "Prompt Engineering (AI)",
         "Graphic Design & Branding",
@@ -294,18 +294,18 @@ export default function HomePage() {
               Leading Minds Leadership Institute presents
             </p>
 
-            <span className="mt-3 block font-mono text-sm sm:text-base font-extrabold tracking-[0.25em] text-[#a78bfa] uppercase">
-              PROJECT EQUIP
-            </span>
-
             <h1 className="display mt-4 max-w-[760px] text-6xl text-white sm:text-7xl lg:text-[86px]">
-              The next chapter starts{" "}
+              PROJECT{" "}
               <span className="bg-gradient-to-r from-[#c4b5fd] via-[#a78bfa] to-[#d4af37] bg-clip-text text-transparent">
-                now.
+                EQUIP
               </span>
             </h1>
 
-            <p className="section-copy mt-7 max-w-[570px] text-slate-300">
+            <p className="mt-3 block font-mono text-sm sm:text-base font-extrabold tracking-[0.2em] uppercase text-[#a78bfa]">
+              The next chapter starts now.
+            </p>
+
+            <p className="section-copy mt-6 max-w-[570px] text-slate-300">
               An intensive 3-day residential boot camp empowering 100 secondary school
               leavers in Oyo State with transformational leadership, emotional intelligence,
               and in-demand tech and vocational skills.

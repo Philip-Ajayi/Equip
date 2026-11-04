@@ -27,11 +27,11 @@ export const curriculum: Track[] = [
     title: "Digital Skills",
     shortTitle: "Digital",
     description:
-      "Master foundational digital tools and modern creative workflows—from no-code web development and mobile content creation to AI-powered productivity.",
+      "Master foundational digital tools and modern creative workflows—from web development and mobile content creation to AI-powered productivity.",
     skills: [
       {
         id: "digital-1",
-        title: "Web Design (No-Code)",
+        title: "Web Design",
         focus:
           "Building responsive, user-friendly websites without coding using drag-and-drop builders like Wix, Carrd, and WordPress. Emphasizes layout structuring, typography, image optimization, and mobile responsiveness.",
         result:
